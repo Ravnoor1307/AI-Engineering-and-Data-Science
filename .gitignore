@@ -1,0 +1,199 @@
+# ============================================================
+# AI-Engineering-Foundations
+# ============================================================
+
+# ------------------------------------------------------------
+# Python bytecode and caches
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ------------------------------------------------------------
+# Python environments
+# ------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ------------------------------------------------------------
+# Package / build artifacts
+# ------------------------------------------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ------------------------------------------------------------
+# Testing / coverage / type checking
+# ------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.pyright/
+.pytype/
+.tox/
+.nox/
+.hypothesis/
+
+# ------------------------------------------------------------
+# Ruff / lint caches
+# ------------------------------------------------------------
+.ruff_cache/
+
+# ------------------------------------------------------------
+# Jupyter temporary files
+# IMPORTANT: .ipynb notebooks themselves are intentionally
+# NOT ignored.
+# ------------------------------------------------------------
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------
+# IDE / editor files
+# ------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ------------------------------------------------------------
+# Operating system files
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ------------------------------------------------------------
+# Secrets and environment configuration
+# ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ------------------------------------------------------------
+# Logs
+# ------------------------------------------------------------
+*.log
+logs/
+
+# ------------------------------------------------------------
+# Temporary files
+# ------------------------------------------------------------
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ------------------------------------------------------------
+# Notebook execution / conversion intermediates
+# ------------------------------------------------------------
+*.nbconvert.ipynb
+
+# ------------------------------------------------------------
+# Notes-generation temporary artifacts
+#
+# Final HTML and PDF notes are intentionally NOT ignored.
+# ------------------------------------------------------------
+tools/notes/.cache/
+tools/notes/cache/
+tools/notes/tmp/
+tools/notes/temp/
+tools/notes/build/
+tools/notes/.playwright/
+tools/notes/browser-profile/
+
+# Generic temporary note build directories
+**/Notes/.build/
+**/Notes/.cache/
+**/Notes/tmp/
+
+# ------------------------------------------------------------
+# LaTeX intermediates if PDF tooling uses LaTeX
+# Do NOT ignore final PDFs.
+# ------------------------------------------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# ------------------------------------------------------------
+# Local database scratch files
+# Keep intentional course databases by force-adding them
+# or narrowing these rules if needed.
+# ------------------------------------------------------------
+*.db-journal
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+
+# ------------------------------------------------------------
+# ML / experiment tracking local runtime artifacts
+# ------------------------------------------------------------
+mlruns/
+wandb/
+
+# ------------------------------------------------------------
+# Model artifacts generated during experiments
+# Curated course artifacts can be force-added when intentional.
+# ------------------------------------------------------------
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.joblib
+*.pkl
+*.pickle
+
+# ------------------------------------------------------------
+# Large compressed/downloaded temporary data
+# Curated repository datasets should be handled deliberately.
+# ------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# ------------------------------------------------------------
+# Local credentials / cloud configuration
+# ------------------------------------------------------------
+credentials.json
+service-account*.json
+
+# ------------------------------------------------------------
+# Node dependencies if tools/apps use Node
+# ------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ------------------------------------------------------------
+# Streamlit local secrets
+# ------------------------------------------------------------
+.streamlit/secrets.toml
