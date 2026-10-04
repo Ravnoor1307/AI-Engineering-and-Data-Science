@@ -1,0 +1,44 @@
+﻿url        file:///D:/GENAI/AI-Engineering-Foundations/02-SQL-Databases/Notes/SQL_Databases.html
+http       200
+load       2101ms
+title      "SQL and Relational Databases"
+bodyChars  590736
+patchright C:\Users\RAVNOOR SINGH\.vscode\extensions\danielsanmedium.dscodegpt-3.24.76\standalone/
+text       Skip to content AI ENGINEERING FOUNDATIONS CONTENTS Unit Overview What This Unit Covers Core Concepts Edge Cases and Boundaries Real-World and AI Engineering Relevance Quick Reference Glossary Revisio
+script     {
+ "viewport": {
+  "w": 1280,
+  "h": 720
+ },
+ "gridCols": "300px 932px",
+ "sidebarW": 300,
+ "sidebarPosition": "sticky",
+ "mainX": 324,
+ "mainW": 932,
+ "sidebarVar": "300px",
+ "bodyBg": "rgb(7, 11, 20)",
+ "sectionCardBg": "rgba(0, 0, 0, 0)",
+ "hScroll": false,
+ "docScrollWidth": 1280,
+ "docClientWidth": 1280,
+ "offenders": [],
+ "offenderCount": 0,
+ "counts": {
+  "h2": 8,
+  "h3": 4,
+  "h4": 928,
+  "toc": 8,
+  "code": 1241,
+  "callout": 2,
+  "table": 1,
+  "glossary": 7,
+  "check": 22,
+  "diagram": 1,
+  "remoteImg": 0,
+  "externalFig": 0
+ }
+}
+
+console errors/warnings (0):
+
+requests failed (0):

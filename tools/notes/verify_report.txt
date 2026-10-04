@@ -1,0 +1,8 @@
+﻿notebooks verified unmodified : 135
+
+units            : 26
+html failures    : 0
+pdf failures     : 0
+total html bytes : 9,567,756
+total pdf pages  : 1606
+notebook issues  : 0

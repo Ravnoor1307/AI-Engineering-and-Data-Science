@@ -1,0 +1,2912 @@
+==============================================================================
+UNIT  00_Jupyter_Demo
+      theory=1  practice=0  md_cells=19  code_cells=61  code_lines=276
+   - jupyter-tips-and-tricks.ipynb  (md=19, code=61, lines=276)
+         # Keyboard Shortcuts
+         ## Command Mode (press `Esc` to enable)
+         ## Edit Mode (press `Enter` to enable)
+         # Utilities
+         ## Using jupyter as command line
+         ## Display all the rows and columns
+         ## Supress Warning
+         ## Print all variable
+         ### What/Why
+         ### Semantics
+         ### Common mistakes
+         ## Print output of any other cell
+         ... +12 more headings
+==============================================================================
+UNIT  01_Python/01_Python_Core_Fundamentals/01_Python_Basics
+      theory=1  practice=1  md_cells=56  code_cells=57  code_lines=167
+   - Python_Basics.ipynb  (md=34, code=44, lines=157)
+         # Python Basics — Session 1
+         ## Understanding print()
+         ### What it is
+         ### Why
+         ### How it works
+         ### Parameters
+         ### Common mistakes
+         ### Edge cases
+         # 1. Python Output
+         ## 1.1 print() — basics, quoting & case sensitivity
+         ## Python Output
+         ### What is print()
+         ... +40 more headings
+   - Task_1.ipynb  (md=22, code=13, lines=10) [PRACTICE]
+         # Python Basics — Session 1 Tasks
+         ### Q1 :- Print the given strings as per stated format.
+         ## Printing with `sep` and `end`
+         ### Q2:- Write a program that will convert celsius value to fahrenheit.
+         ## Celsius to Fahrenheit conversion
+         ### Q3:- Take 2 numbers as input from the user.Write a program to swap the numbers without using any special python syntax.
+         ## Swapping two numbers
+         ### Q4:- Write a program to find the euclidean distance between two coordinates.Take both the coordinates from the user as input.
+         ## Euclidean distance between two coordinates
+         ### Q5:- Write a program to find the simple interest when the value of principle,rate of interest and time period is provided by the user.
+         ## Simple interest
+         ### Q6:- Write a program that will tell the number of dogs and chicken are there when the user will provide the value of total heads and legs.
+         ... +10 more headings
+==============================================================================
+UNIT  01_Python/01_Python_Core_Fundamentals/02_Operators_If_Else_Loops
+      theory=1  practice=1  md_cells=66  code_cells=55  code_lines=233
+   - Operators_If_Else_Loops.ipynb  (md=33, code=37, lines=217)
+         # Operators in Python — Session 2
+         ### What/Why/How
+         ### When to use
+         ### Common mistakes
+         ### Edge cases
+         ## Arithmetic Operators
+         ## Relational (Comparison) Operators
+         ## Logical Operators
+         ## Bitwise Operators
+         ## Assignment Operators
+         ## Membership Operators
+         ## Program — sum of digits of a 3-digit number
+         ... +26 more headings
+   - Task_2.ipynb  (md=33, code=18, lines=16) [PRACTICE]
+         # Operators, If-Else & Loops — Session 2 Tasks
+         ### Problem 1: Write a program that will give you in hand monthly salary after deduction on CTC - HRA(10%), DA(5%), PF(3%) and taxes deduction as below:
+         ## P1. In-hand salary after deductions
+         ### `Problem 2`: Write a program that take a user input of three angles and will find out whether it can form a triangle or not.
+         ## P2. Can three angles form a triangle?
+         ### `Problem 3`: Write a program that will take user input of cost price and selling price and determines whether its a loss or a profit.
+         ## P3. Profit or loss?
+         ### `Problem 4`: Write a menu-driven program -
+         ## P4. A menu-driven program
+         ### `Problem 5` - Exercise 12: Display Fibonacci series up to 10 terms.
+         ## P5. Fibonacci series up to 10 terms
+         ### `Problem 6` - Find the factorial of a given number.
+         ... +22 more headings
+==============================================================================
+UNIT  01_Python/01_Python_Core_Fundamentals/03_Strings
+      theory=1  practice=1  md_cells=85  code_cells=94  code_lines=248
+   - Python_Strings.ipynb  (md=44, code=74, lines=228)
+         # Strings in Python — Session 3
+         ### Warm-up — The Population Problem
+         ### Warm-up — Sequence sum 1/1! + 2/2! + 3/3! + ...
+         ### Warm-up — Nested Loops
+         ### Warm-up — Pattern 1 (triangle)
+         ### Warm-up — Pattern 2 (number pyramid)
+         ### Warm-up — Loop Control: break, continue, pass
+         # 1. Creating Strings
+         ### What are strings
+         ### Why
+         ### Key semantics
+         ### Common mistakes
+         ... +34 more headings
+   - Task_3.ipynb  (md=41, code=20, lines=20) [PRACTICE]
+         # Strings, Patterns & Series — Session 3 Tasks
+         ### Problem 1: Print the following pattern. Write a program to use for loop to print the following reverse number pattern.
+         ## P1. Reverse number pattern
+         ### `Problem 2`: Print the following pattern.
+         ## P2. Star pyramid with a peak
+         ### `Problem 3`:Write a program to pring the following pattern
+         ## P3. A pyramid with leading spaces
+         ### `Problem 4`:Write a program to print the following pattern
+         ## P4. Descending numbers per row
+         ### `Problem 5`: Write a Python Program to Find the Sum of the Series till the nth term:<br>
+         ## P5. Sum of a series: 1 + x^2/2 + x^3/3 + ... + x^n/n
+         ### `Problem 6`: The natural logarithm can be approximated by the following series.
+         ... +26 more headings
+==============================================================================
+UNIT  01_Python/01_Python_Core_Fundamentals/Tasks_Solutions_of_01_02_03
+      theory=0  practice=2  md_cells=79  code_cells=43  code_lines=475
+   - Week_1_Task_1_Task_2_Solutions.ipynb  (md=38, code=20, lines=240) [PRACTICE]
+         # Week 1 Task Solutions — Theory Companion
+         ### Problem 1: Calculate in-hand monthly salary after deductions
+         ## P1. Chained deductions and tax slabs
+         ### `Problem 2`: Write a program that take a user input of three angles and will find out whether it can form a triangle or not.
+         ## P2. Do three angles form a triangle?
+         ### `Problem 3`: Write a program that will take user input of cost price and selling price and determines whether its a loss or a profit.
+         ## P3. Profit, loss, or break-even
+         ### `Problem 4`: Write a menu-driven program -
+         ## P4. A menu-driven converter
+         ### `Problem 5` - Exercise 12: Display Fibonacci series up to 10 terms.
+         ## P5. Fibonacci series: the recurrence
+         ### `Problem 6` - Find the factorial of a given number.
+         ... +45 more headings
+   - Week_1_Task_3_Solutions.ipynb  (md=41, code=23, lines=235) [PRACTICE]
+         # Week 1 Task 3 Solutions — Theory Companion
+         ### Problem 1: Reverse number pattern
+         ### `Problem 2`: Print the following pattern.
+         ## P2. A diamond of stars
+         # growing half: rows of 1, 2, ..., rows stars
+         # shrinking half: rows of rows-1, ..., 1 stars
+         ### `Problem 3`:Write a program to pring the following pattern
+         ## P3. A pyramid: spaces plus stars
+         ## P4. Descending numbers per row
+         ### `Problem 5`: Write a Python Program to Find the Sum of the Series till the nth term:<br>
+         ## P5. Sum of a power series: 1 + x^2/2 + x^3/3 + ...
+         ### `Problem 6`: The natural logarithm can be approximated by the following series.
+         ... +30 more headings
+==============================================================================
+UNIT  01_Python/02_Built_in_Data_Structures/01_Lists
+      theory=1  practice=1  md_cells=83  code_cells=66  code_lines=246
+   - Session_4_Lists_in_Python__1VUb_lXKIcyp.ipynb  (md=51, code=48, lines=231)
+         # Lists in Python — Session 4
+         ### What are Lists
+         ## Array Vs Lists
+         ### Theory : Lists vs Arrays & how memory works
+         ## 🔬 Deep Dive : Lists vs Arrays & memory
+         ## How lists are stored in memory
+         ### What/Why
+         ### Semantics
+         ### When to use
+         ### Common mistakes
+         ## Characterstics of a List
+         ### Key ideas
+         ... +61 more headings
+   - Task_4__1yS_YGxipe9H.ipynb  (md=32, code=18, lines=15) [PRACTICE]
+         # Task 4 — 15 List Problems, Step by Step
+         ### Approach hint — Problem 1
+         ### `Problem 2:` Add new item to list after a specified item
+         ### Approach hint — Problem 2
+         ### Approach hint — Problem 3
+         ### Approach hint — Problem 4
+         ### Approach hint — Problem 5
+         ### Approach hint — Problem 6
+         ### Approach hint — Problem 7
+         ### Approach hint — Problem 8
+         ### `Problem 9:` Convert Character Matrix to single String using string comprehension.
+         ### Approach hint — Problem 9
+         ... +13 more headings
+==============================================================================
+UNIT  01_Python/02_Built_in_Data_Structures/02_Tuples_Sets_Dicts
+      theory=1  practice=1  md_cells=92  code_cells=80  code_lines=386
+   - Session_5_Tuples_Sets_Dictionary__1PtRoTO1A4Hw.ipynb  (md=69, code=63, lines=371)
+         # Tuples, Sets & Dictionary — Session 5
+         ### Plan of attack
+         ### Tuples
+         ### Creating Tuples
+         ### Tuples
+         ### Theory : Creating tuples - every way
+         ## 🔬 Deep Dive : Creating tuples — details
+         ### Accessing Items
+         ### Theory : Accessing tuples - indexing, slicing, nesting
+         ## 🔬 Deep Dive : Accessing tuples
+         ### Editing items
+         ### Theory : Immutability - you cannot edit or partially delete a tuple
+         ... +77 more headings
+   - Task_5__1Q-sA23UWiCf.ipynb  (md=23, code=17, lines=15) [PRACTICE]
+         # Task 5 — Tuples, Sets & Dictionary Problems
+         # Tuple
+         ### Section 1 — The Tuple toolbox
+         # Set
+         ### Section 2 — The Set toolbox
+         ### `Q3:` Write a program to Check if a given string is binary string of or not.
+         ### `Q4`: find union of n arrays.
+         ### `Q5`: Intersection of two lists. Intersection of two list means we need to take all those elements which are common to both of the initial lists and store them into another list. Only use using **list-comprehension**.
+         # Dictionary
+         ### Section 3 — The Dictionary toolbox
+         ### `Q1`: Key with maximum unique values
+         ### `Q2`: Replace words from Dictionary. Given String, replace it’s words from lookup dictionary.
+         ... +4 more headings
+==============================================================================
+UNIT  01_Python/02_Built_in_Data_Structures/03_Functions
+      theory=1  practice=1  md_cells=65  code_cells=72  code_lines=269
+   - Session_6_Functions_in_Python__1DfnVcPYRGJD.ipynb  (md=45, code=53, lines=221)
+         # Functions in Python — Session 6
+         ### Theory : Anatomy of a function — def, docstring, return
+         ## 🔬 Deep Dive : Anatomy of a function
+         ### 2 Point of views
+         ### Theory : Two points of view - author vs user
+         ## 🔬 Deep Dive : Author vs User POV
+         ### Parameters Vs Arguments
+         ### Types of Arguments
+         ### Theory : Default, Positional & Keyword arguments
+         ## 🔬 Deep Dive : Default, positional & keyword args
+         ### `*args and **kwargs`
+         ### Theory : *args & **kwargs - variable-length arguments
+         ... +43 more headings
+   - Task_6__1Y1tapRDjOAk.ipynb  (md=20, code=19, lines=48) [PRACTICE]
+         # Task 6 — 15 Function Problems
+         ### Group 1 — Problems 1 to 5 : list & string functions
+         ### **`Problem-1:`** Write a Python function that takes a list and returns a new list with unique elements of the first list.
+         ### **`Problem-2:`** Write a Python function that accepts a hyphen-separated sequence of words as parameter and returns the words in a hyphen-separated sequence after sorting them alphabetically.
+         ### **`Problem 3:`** Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters.
+         ### **`Problem 4:`** Write a Python program to print the even numbers from a given list.
+         ### **`Problem 5:`** Write a Python function to check whether a number is perfect or not.
+         ### Group 2 — Problems 6 to 10 : dictionaries, counting, geometry
+         ### **`Problem-6:`** Write a Python function to concatenate any no of dictionaries to create a new one.
+         ### Group 3 — Problems 11 to 15 : map, filter, lambda, reduce
+         ## Summary
+==============================================================================
+UNIT  01_Python/02_Built_in_Data_Structures/Interview_Questions
+      theory=0  practice=3  md_cells=47  code_cells=82  code_lines=369
+   - coding_challenges.ipynb  (md=23, code=14, lines=58) [PRACTICE]
+         # Python Data Types — Coding Challenges
+         ## Setup
+         ### Challenge 1 — Group words by first letter with `setdefault`
+         # expected -> {'a': ['apple', 'avocado'], 'b': ['banana']}
+         ## Challenge 1
+         ### Challenge 2 — Intersection of three lists with sets
+         # set(a) & set(b) & set(c) == {2, 3}
+         ## Challenge 2
+         ### Challenge 3 — Invert a dictionary (values to keys)
+         # expected -> inv[2] == ['a', 'b']
+         ## Challenge 3
+         ### Challenge 4 — The k most frequent elements with `Counter`
+         ... +16 more headings
+   - Session_on_Array_Interview_Questions__1xUoy5AW_vlI.ipynb  (md=15, code=24, lines=213) [PRACTICE]
+         # Array Interview Questions — Practice Session
+         ## Points to remember
+         ## 📖 1. kth largest/smallest
+         ## 📖 2. Check array sorted
+         ## 📖 3. Min / Max
+         ## 📖 4. First element occurred k times
+         ## 📖 5. Duplicates
+         ## 📖 6. Left rotate by d
+         ## 📖 7. Intersection of sorted arrays
+         ## 📖 8. Subarray with given sum
+         ## 📖 9. Left smaller / right greater
+         ## 📖 10. Max subarray (Kadane)
+         ... +3 more headings
+   - Week_2_Interview_Questions__198UqZ59bcyl.ipynb  (md=9, code=44, lines=98) [PRACTICE]
+         # Week 2 Interview Questions — Aliasing, Copies & Memory
+         ## 📖 Aliasing — the same object under two names
+         ## 📖 Aliasing vs mutation
+         ## 📖 Cloning — `[:]` and `.copy()` for independent copies
+         ## 📖 Shallow copy — the nested trap
+         ## 📖 Deep copy — independence at every level
+         ## 📖 Strings — interning
+         ## Summary
+==============================================================================
+UNIT  01_Python/02_Built_in_Data_Structures/Task_Solutions_of_01_02_03
+      theory=0  practice=3  md_cells=75  code_cells=59  code_lines=540
+   - Task_4_Solutions__1uBqC9zOZH3e.ipynb  (md=32, code=20, lines=138) [PRACTICE]
+         # Task 4 Solutions — 15 List Problems With Reference Code
+         ### Solution walkthrough — Problem 1
+         ### `Problem 2:` Add new item to list after a specified item
+         ### Solution walkthrough — Problem 2
+         ### Solution walkthrough — Problem 3
+         ### Solution walkthrough — Problem 4
+         ### Solution walkthrough — Problem 5
+         ### Solution walkthrough — Problem 6
+         ### Solution walkthrough — Problem 7
+         ### Solution walkthrough — Problem 8
+         ### `Problem 9:` Convert Character Matrix to single String using string comprehension.
+         ### Solution walkthrough — Problem 9
+         ... +13 more headings
+   - Task_5_Solutions__17h1BUmK2qb9.ipynb  (md=23, code=19, lines=180) [PRACTICE]
+         # Task 5 Solutions — Tuples, Sets & Dictionary With Reference Code
+         # Tuple
+         ### Section 1 — Tuple solutions at a glance
+         # Set
+         ### Section 2 — Set solutions at a glance
+         ### `Q3:` Write a program to Check if a given string is binary string of or not.
+         ### `Q4`: find union of n arrays.
+         ### `Q5`: Intersection of two lists. Intersection of two list means we need to take all those elements which are common to both of the initial lists and store them into another list. Only use using **list-comprehension**.
+         # Dictionary
+         ### Section 3 — Dictionary solutions at a glance
+         ### `Q1`: Key with maximum unique values
+         ### `Q2`: Replace words from Dictionary. Given String, replace it’s words from lookup dictionary.
+         ... +4 more headings
+   - Task_6_Solutions__1r5De6VqloVn.ipynb  (md=20, code=20, lines=222) [PRACTICE]
+         # Task 6 Solutions — 15 Function Problems With Reference Code
+         ### Group 1 — Solutions for problems 1 to 5
+         ### **`Problem-1:`** Write a Python function that takes a list and returns a new list with unique elements of the first list.
+         ### **`Problem-2:`** Write a Python function that accepts a hyphen-separated sequence of words as parameter and returns the words in a hyphen-separated sequence after sorting them alphabetically.
+         ### **`Problem 3:`** Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters.
+         ### **`Problem 4:`** Write a Python program to print the even numbers from a given list.
+         ### **`Problem 5:`** Write a Python function to check whether a number is perfect or not.
+         ### Group 2 — Solutions for problems 6 to 10
+         ### **`Problem-6:`** Write a Python function to concatenate any no of dictionaries to create a new one.
+         ### Group 3 — Solutions for problems 11 to 15
+         ## Summary
+==============================================================================
+UNIT  01_Python/03_Pythonic_Thinking/01_Iterators_Generators
+      theory=3  practice=0  md_cells=38  code_cells=70  code_lines=455
+   - generators-demo.ipynb  (md=15, code=23, lines=143)
+         # Generators — Pythonic Thinking
+         # 1. The boilerplate generators replace
+         ## 1.1 Two classes, five methods — and then there was `yield`
+         ## 1.2 The why: values on demand
+         ### Semantics
+         ### Why
+         ### Use cases
+         ### Common mistakes
+         # 2. Your first generator
+         ## 2.1 `yield`: a function that hands back values without finishing
+         ## 2.2 `yield` versus `return`
+         ## 2.3 Generators remember where they stopped
+         ... +13 more headings
+   - Iterators.ipynb  (md=11, code=20, lines=111)
+         # Iterators and Iterables — Pythonic Thinking
+         # 1. Iteration, Iterables and Iterators
+         ## 1.1 The two-object dance behind every loop
+         ## What is Iterator
+         ### Semantics
+         ## What is Iterable
+         ### Semantics
+         ### Why
+         ### When to use
+         ### Common mistakes
+         ## Point to remember — the two rules
+         ## Trick — recognise them with `dir()`
+         ... +9 more headings
+   - Namespaces_decorators.ipynb  (md=12, code=27, lines=201)
+         # Namespaces and Decorators — Pythonic Thinking
+         # 1. Scope and the LEGB rule
+         ## 1.1 Python searches inside-out
+         ## 1.2 The built-in namespace
+         ## 1.3 Enclosing scope and `nonlocal`
+         # 2. Decorators
+         ## 2.1 Bolting behaviour onto a function from the outside
+         ## 2.2 First-class functions: the prerequisite
+         ## 2.3 The wrapper pattern, by hand
+         ## 2.4 The `@` syntax is a one-line reassignment
+         ## 2.5 A decorator that earns its keep: `@timer`
+         ## 2.6 The two classic wrapper pitfalls
+         ... +3 more headings
+==============================================================================
+UNIT  01_Python/03_Pythonic_Thinking/02_Zip_Enumerate_Map_Filter_Reduce
+      theory=2  practice=1  md_cells=42  code_cells=33  code_lines=377
+   - 01_zip_enumerate_theory.ipynb  (md=9, code=8, lines=116)
+         # Zip & Enumerate — Session 03: Pairing and Numbering
+         ## 1. zip() — Interlocking the Teeth
+         ## 2. Uneven Inputs, strict=True, and the Unzip Trick
+         ## 3. dict(zip(...)) — The Mini Dictionary Factory
+         ## 4. enumerate() — The Queue-Token Machine
+         ## 5. enumerate vs range(len)
+         ## 6. Real Dataset — The Student Leaderboard
+         ## ⚠️ 5 Common Mistakes (Zip/Enumerate Special)
+         ## Summary
+   - 02_map_filter_reduce.ipynb  (md=9, code=8, lines=124)
+         # Map, Filter & Reduce — Session 03: The Assembly Line
+         ## 1. The Assembly Line
+         ## 2. filter() — The Quality Gate
+         ## 3. reduce() — The Blender at the End
+         ### ⚖️ Map/Filter vs Comprehension — Pythonic Boxing!
+         ## 4. Real Dataset — The Products GST Pipeline
+         ## 5. Combining the Machines — Student Averages
+         ## ⚠️ 5 Common Mistakes (Map/Filter/Reduce Special)
+         ## Summary
+   - task.ipynb  (md=24, code=17, lines=137) [PRACTICE]
+         # Task Notebook — Args, Kwargs & Unpacking: The Final Boss
+         ## 1. Setup — Loading the Catalogue
+         ## 2. Task 1 — Call-Style Wrestling
+         ## ⭐ Task 1: Zipper First Fit 🤐
+         ### Dictionaries
+         ### When to use
+         ## 3. Task 2 — The Chemist's Bag: *args
+         ## ⭐ Task 2: Token Counter 🎫
+         ## 4. Task 3 — Opening the Gift-Bag: **kwargs
+         ## ⭐⭐ Task 3: Uneven Zipper + Guard 🚨
+         ## 5. Task 4 — The Star-Opener Trio
+         ## ⭐⭐ Task 4: Spray & Gate Demo 🎨✂️
+         ... +8 more headings
+==============================================================================
+UNIT  01_Python/03_Pythonic_Thinking/03_Shallow_vs_Deep_Copy
+      theory=2  practice=0  md_cells=18  code_cells=12  code_lines=130
+   - 01_copy_concepts_theory.ipynb  (md=8, code=6, lines=58)
+         # Copy Concepts — Session 03: Duplicate, Yet Not a Duplicate
+         ## 1. Aliasing vs Copying
+         ## 2. Shallow Copy
+         ## 3. The Nested Trap
+         ### Semantics
+         ### Why matters
+         ### When to use
+         ### Common mistakes
+         ## 4. Deep Copy
+         ### Semantics
+         ## 5. The Real Test — Outer vs Inner
+         ## ⚠️ 5 Common Mistakes (Copy Special)
+         ... +1 more headings
+   - 02_memory_diagrams_demo.ipynb  (md=10, code=6, lines=72)
+         # Memory Diagrams Demo — Session 03: Mapping Copies in Memory
+         ## 1. Memory Diagrams — Shallow vs Deep
+         ## 2. The Nested Dictionary Twist
+         ## 3. Deep Copy for Registries
+         ## 4. The Tuple-of-Lists Edge Case
+         ## 5. The JSON Round-Trip Hack
+         ## 6. JSON Traps — Types That Bite
+         ## 7. Decision Flowchart
+         ## ⚠️ 5 Common Mistakes (Diagram Special)
+         ## Summary
+==============================================================================
+UNIT  01_Python/03_Pythonic_Thinking/04_Mutability_vs_Immutability
+      theory=2  practice=0  md_cells=19  code_cells=17  code_lines=172
+   - 01_mutability_theory.ipynb  (md=9, code=8, lines=86)
+         # 🧊🔥 Mutability vs Immutability — Whiteboard or Stone Tablet?
+         ## 🎯 Roadmap for this notebook
+         ### Semantics
+         ### Why
+         ### Examples
+         ### Semantics
+         ## 🌍 Real-World Hook: The 2 Brothers of Lunchbox-Service 🍱
+         ### 📖 Definitions
+         # 1. The id() X-ray — Watching Immutability Live
+         ## 1.1 Numbers: Every Arithmetic Step Builds a New Object
+         ## 1.2 Strings: Concatenation and Methods Return New Objects
+         # 2. Mutable Containers and the `+=` Double Standard
+         ... +8 more headings
+   - 02_memory_behavior_experiments.ipynb  (md=10, code=9, lines=86)
+         # Memory Behavior Experiments — Session 03: What Happens Inside Functions
+         ## 1. Passing Objects into Functions
+         ## 2. The Mutable Default-Argument Trap
+         ## 2.1 The None-Guard Fix
+         ## 3. Defensive Copying
+         ## 4. Immutability's Superpowers
+         ## 5. String Building: Concat Loop vs join
+         ## 6. Immutability's Three Superpowers
+         ## ⚠️ 5 Common Mistakes (Behavior Special)
+         ## Summary
+==============================================================================
+UNIT  01_Python/03_Pythonic_Thinking/05_Args_Kwargs
+      theory=2  practice=1  md_cells=43  code_cells=32  code_lines=344
+   - 01_args_kwargs_theory.ipynb  (md=9, code=9, lines=76)
+         # Args & Kwargs — Session 03: Flexible Function Signatures
+         ### Semantics
+         ### Why
+         ### Common mistakes
+         ## 1. Positional vs Keyword Arguments
+         ## 2. *args — The Flexible Bag
+         ## 3. *args Is Always a Tuple
+         ## 4. print() — The *args Superstar
+         ## 5. Signature Anatomy — The Order Laws
+         ## 5.1 Keyword-Only Arguments
+         ## ⚠️ 5 Common Mistakes (Args Special)
+         ## Summary
+   - 02_unpacking_use_cases.ipynb  (md=10, code=8, lines=113)
+         # Unpacking & **kwargs — Session 03: Named Extras and Star Openers
+         ## 1. **kwargs — The Tagged Gift-Bag
+         # info -> {'name': 'Sana', 'city': 'Delhi', 'hobby': 'chess'}
+         ## 2. The Full Signature
+         ## 3. Call-Side Unpacking
+         ## 4. Counting the Bags
+         ## 5. functools.partial — Freezing Arguments
+         ## 6. Real Dataset — The Discount Lab
+         ## 7. The Receipt Printer
+         ## ⚠️ 5 Common Mistakes (Unpacking Special)
+         ## Summary
+   - task.ipynb  (md=24, code=15, lines=155) [PRACTICE]
+         # Task Notebook — Args, Kwargs & Unpacking: The Final Boss
+         ## 1. Setup — Loading the Catalogue
+         ## 2. Task 1 — Call-Style Wrestling
+         ## ⭐ Task 1: Call-Style Wrestling 🤼
+         ## 3. Task 2 — The Chemist's Bag: *args
+         ## ⭐ Task 2: Chemist's Bag — *args 🛍️
+         ## 4. Task 3 — Opening the Gift-Bag: **kwargs
+         ## ⭐⭐ Task 3: Gift-Bag Open — **kwargs 🎁
+         ## 5. Task 4 — The Star-Opener Trio
+         ## ⭐⭐ Task 4: Star-Opener Trio ⭐
+         ## 6. Task 5 — The Keyword-Only Zone
+         ## ⭐⭐⭐ Task 5: Kw-Only Zone 👮
+         ... +5 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/01_OOP
+      theory=4  practice=3  md_cells=168  code_cells=138  code_lines=1173
+   - Session_7_OOP_Part_1_Class_Object__1bzZ5WiHXcns.ipynb  (md=31, code=25, lines=156)
+         # OOP Part 1 — Class & Object
+         ## Welcome to Object-Oriented Programming
+         ## What you will learn
+         ## The mental model
+         ## Key definitions
+         ### What is OOP
+         ### Why
+         ### Core ideas
+         # 1. Function vs Method
+         ## 1.1 Methods are attached, functions are standalone
+         ## 1.2 Deep dive — everything is an object
+         # 2. Object Syntax
+         ... +36 more headings
+   - Session_8_OOP_Part_2_Encapsulation_Static_Keyword__1F3Y_zoZH0BD.ipynb  (md=42, code=37, lines=361)
+         # OOP Part 2 — Encapsulation & Static
+         ## Welcome back to OOP
+         ## What you will learn
+         ## The scenario
+         ## Key concepts preview
+         # 1. Modeling a Problem with Classes
+         ## 1.1 Point and Line
+         # 2. Accessing Object Attributes & Methods
+         ## 2.1 Attributes are data, methods are actions
+         ### How objects access attributes
+         ### Key ideas
+         ## 2.2 Deep dive — attribute access mechanics
+         ... +51 more headings
+   - Session_9_OOP_Part_3_Inheritance_Polymorphism__1_Pd9W1yltcf.ipynb  (md=36, code=37, lines=518)
+         # OOP Part 3 — Inheritance & Polymorphism
+         ## Welcome to the third OOP pillar
+         ## What you will learn
+         ## The big idea
+         ## Map of the session
+         # 1. Class Relationships (Has-A / Is-A)
+         ## 1.1 Aggregation — the Has-A relationship
+         ### Aggregation(Has-A relationship)
+         ## 1.2 Has-A vs Is-A — choose the right relationship
+         # Aggregation  : Customer HAS-A Address
+         # Inheritance  : Student IS-A User
+         ## Deep Dive : Aggregation — Has-A relationship
+         ... +40 more headings
+   - Session_on_OOP_Project__1WyFLxv8gs5n.ipynb  (md=15, code=15, lines=125) [CASE-STUDY]
+         # OOP Project — NLPApp
+         ## Welcome to your first OOP project
+         ## What NLPApp does
+         ## How it will be built
+         ## Why a project matters
+         # 1. The nlpcloud API
+         ## 1.1 Connecting to a hosted model
+         ## Deep Dive : NLPApp — external API setup
+         # 2. Packages, Installation & API Tours
+         ## 2.1 Installing with pip from the notebook
+         ## 2.2 Deep dive — a quick tour of three models
+         # 3. The NLPApp Class
+         ... +12 more headings
+   - Task_7__16xj8bZOOwxW.ipynb  (md=13, code=5, lines=5) [PRACTICE]
+         # Task Session 7 — OOP Practice Problems
+         ## About this task notebook
+         ## How to work through it
+         ## Quick recap you will need
+         ## Problems at a glance
+         ## Task 1 · Concept — a class stores data and computes
+         ## Task 2 · Concept — constructor parameters & business logic
+         ## Task 3 · Concept — a calculator as a class
+         ## Task 4 · Concept — flashcard class with random
+         ## Task 5 · Concept — private attributes & eligibility rules
+         ## `Q-5:` Problem 5 based on OOP Python.
+         ## Summary
+   - Task_8__18Vfo6sEtlQD.ipynb  (md=17, code=10, lines=7) [PRACTICE]
+         # Task Session 8 — More OOP Practice
+         ## About this task notebook
+         ## How to work through it
+         ## Quick recap you will need
+         ## Problems at a glance
+         ## Task 1 · Concept — counting instances with a static variable
+         ## Task 2 · Concept — a class that uses another class
+         ## Task 3 · Concept — a constructor that cannot be skipped
+         ### `Q-3`: Find the area of a rectangle.
+         ## Task 4 · Concept — datetime inside a class
+         ### `Q-4`: Problem 4
+         ## Task 5 · Concept — validation plus qualification
+         ... +5 more headings
+   - Task_9__1qyXCB1ha8rL.ipynb  (md=14, code=9, lines=1) [PRACTICE]
+         # Task Session 9 — Inheritance & Polymorphism Practice
+         ## About this task notebook
+         ## How to work through it
+         ## Quick recap you will need
+         ## Problems at a glance
+         ## Task 1 · Concept — overriding a parent method
+         ## Task 2 · Concept — default parameter in an inherited method
+         ### `Problem-2:` Class Inheritence
+         ## Task 3 · Concept — objects inside objects
+         ### `Problem-3:` Write a program that has a class Point. Define another class Location which has two objects (Location & Destination) of class Point. Also define a function in Location that prints the reflection of Destination on the x axis.
+         ## Task 4 · Concept — abstract class forcing child areas
+         ### `Problem-4:` Write a program that has an abstract class Polygon. Derive two classes Rectangle and Triamgle from Polygon and write methods to get the details of their dimensions and hence calculate the area.
+         ... +4 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/02_File_Handling
+      theory=1  practice=1  md_cells=79  code_cells=54  code_lines=227
+   - Session_10_File_Handling_Serialization_Deserialization__1TP7ks1pnEzJ.ipynb  (md=55, code=44, lines=217)
+         # Session 10 — File Handling, Serialization and Deserialization
+         # 1. File Input/Output in Python
+         ## 1.1 Text Data vs Binary Data
+         ## 1.2 The Three Steps of File I/O
+         # 2. Writing To Files
+         ## 2.1 open() and the write() Method
+         ## open() modes — "w" write
+         ## Deep Dive : Writing multiline strings
+         ## Deep Dive : open() with 'w' mode — write
+         ## 2.2 The Dangers of 'w' — It Wipes Everything
+         ## Choosing The Right Mode
+         ## 2.3 Append Mode — 'a'
+         ... +56 more headings
+   - Task_10__1r18Ai7g2Yqq.ipynb  (md=24, code=10, lines=10) [PRACTICE]
+         # Task 10 — File Handling, Text Processing and Recursion
+         ## Task 1 — The Final Line of a File
+         ## Task 2 — Vowel Frequency Counter
+         ## Task 3 — Multiplying Tab-Separated Columns
+         ## Task 4 — Line-Wise Reversal
+         ## Task 5 — Word Frequency and JSON
+         ### **`Q-6:`** Given a string calculate length of the string using recursion.
+         ## Task 6 — String Length With Recursion
+         ### **`Q-7:`** Write a function that accepts two numbers and returns their greatest common divisior. Without using any loop
+         ## Task 7 — gcd() Without Loops
+         ## Task 8 — Edit Distance By Recursion
+         ## Task 9 — Run-Length Encoding
+         ... +2 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/03_Exception_Handling
+      theory=1  practice=1  md_cells=42  code_cells=31  code_lines=185
+   - Session_11_Exception_Handling__1-yYl5wagPH1.ipynb  (md=27, code=25, lines=179)
+         # Session 11 — Exception Handling in Python
+         # 1. Syntax Errors — Failing Before You Run
+         ## 1.1 What Is A Syntax Error?
+         ## Syntax Error — compile-time
+         ## Deep Dive : Syntax errors — compile time
+         ## 1.2 Typical Sources of Syntax Errors
+         ## 1.4 Indentation Shapes The Block
+         ## 1.3 Debugging The Three Classics
+         # 2. Exceptions — Runtime Failures
+         ## 2.1 The Common Built-in Exceptions
+         ## 2.2 Reading The Traceback
+         # 3. Handling Exceptions — try / except
+         ... +21 more headings
+   - Task_11__1gs4nShMY8OV.ipynb  (md=15, code=6, lines=6) [PRACTICE]
+         # Task 11 — Exception Handling
+         ## Q1 — wrapping a fixed, unknown function in error handlers
+         ### Hints
+         # For calculating sum of above list
+         ## Q2 — guaranteed sum over a mixed `list`, no matter what is inside
+         ### Hint
+         ### `Q-3:`: File Handling with Exception handling
+         ## Q3 — file I/O wrapped in try, with the success message in `else`
+         ### Hints
+         ### `Q-4`: Number game program.
+         ## Q4 — custom exceptions and a repeating game loop
+         ### Hints
+         ... +7 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/04_Decorators_Generators
+      theory=1  practice=1  md_cells=58  code_cells=50  code_lines=211
+   - Session_12_Decorators_Namespaces__1P5jtGzaVkIj.ipynb  (md=30, code=26, lines=201)
+         # Namespaces, Scope & Decorators — Session 12
+         # 1. Namespaces and the LEGB Rule
+         ## 1.1 A namespace is a dictionary of names
+         ## Local vs Global scope
+         # print(b)         # NameError! `b` local hi tha
+         ## Deep Dive : Namespace & local/global scope
+         # print(b)                # NameError — b local scope me
+         ## Same name local vs global
+         ## Deep Dive : Same-name shadowing
+         ## Editing a global — the global keyword
+         ## Deep Dive : Editing globals — the global keyword
+         ## Creating a global from a local
+         ... +27 more headings
+   - Task_12__1lKVrogPUGsI.ipynb  (md=28, code=24, lines=10) [PRACTICE]
+         # Task 12 — Scope, Iterators, Generators & Decorators
+         # 1. Namespace and Scope
+         ## 1.1 Where the names of a class live
+         ### Hints for Q1
+         ### Q1 — checking your work
+         ### Q2 — the instance namespace
+         ### Q3 — counting calls inside recursion
+         ## Itterator And Generator
+         # 2. Iterators and Generators
+         ## 2.1 The iteration protocol
+         ### Hints for Q4–Q5
+         ### Q4 — MyEnumerate
+         ... +11 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/Interview_Questions
+      theory=0  practice=4  md_cells=89  code_cells=74  code_lines=481
+   - coding_challenges.ipynb  (md=23, code=11, lines=135) [PRACTICE]
+         # Python Advanced — Coding Challenges
+         ## Setup
+         ## Challenge 1
+         ## Challenge 1 — a counting decorator
+         ## Challenge 2
+         ## Challenge 2 — computed read-only properties
+         ## Challenge 3
+         ## Challenge 3 — unique items from a stream
+         ## Challenge 4
+         ## Challenge 4 — a transaction context manager
+         ## Challenge 5
+         ## Challenge 5 — sorting custom objects
+         ... +11 more headings
+   - Week_3_Interview_Questions__1LlTdY0LeYdI.ipynb  (md=38, code=21, lines=132) [PRACTICE]
+         # Week 3 — Interview Questions & Concepts
+         ### Q1 — Decorators: the one-paragraph answer
+         ### Q2 — Checking inheritance with issubclass
+         ### Q3 — Method Resolution Order in one minute
+         ### Q4 — Underscores: a quick reference
+         ### **`5. What is the difference between OOP and SOP?`**
+         ### **`6. Can you call the base class method without creating an instance?`**
+         ### **`7. What are the limitations of inheritance?`**
+         ### **`8. What is the difference between range() and xrange()?`**
+         ## Q9 — Overriding how objects print
+         ### `__str__` — for users
+         ### `__repr__` — for developers
+         ... +4 more headings
+   - Week_3_Interview_Questions__1pFSCaenXUtr.ipynb  (md=15, code=28, lines=173) [PRACTICE]
+         # Week 3 — Revision Topics & Concepts
+         ### Topics covered
+         # 1. Set Indexing & Dict Keys
+         ## 1.1 Why sets cannot be indexed
+         # 2. enumerate()
+         ## 2.1 Adding a counter to any iterable
+         # 3. Constructors and Destructors
+         ## 3.1 Hooks at the ends of an object's life
+         # 4. dir, isinstance, issubclass
+         ## 4.1 Three introspection helpers
+         # 5. Class Methods vs Static Methods
+         ## 5.1 Who gets passed as the first argument
+         ... +12 more headings
+   - Week_4_Interview_Questions__19YHAGgm5856.ipynb  (md=13, code=14, lines=41) [PRACTICE]
+         # Week 4 — Interview Questions on Modules, Packages & Pip
+         # 1. Modules and a Little dunder Called __name__
+         ## 1.1 What is a module?
+         ## `__name__ == '__main__'`
+         # 2. Importing Modules
+         ## 2.1 Why import, and how
+         ## Importing modules
+         # 3. Import Statement Variations
+         ## 3.1 Four ways to import
+         ## Import variations
+         # 4. Order of Execution and sys.path
+         ## 4.1 What runs when you import
+         ... +9 more headings
+==============================================================================
+UNIT  01_Python/04_Python_Advanced/Tasks_Solutions_01_02_03_04
+      theory=0  practice=6  md_cells=105  code_cells=56  code_lines=1112
+   - Task_10_Solutions.ipynb  (md=22, code=10, lines=168) [PRACTICE]
+         # Task 10 Solutions — File Handling, Serialization & Recursion
+         ### `Q-1`: Write a function `get_final_line(filename)`, which takes filename as input and return final line of the file.
+         ### Q1 — the final line of a file
+         ### `Q-2`: Read through a text file, line by line. Use a dict to keep track of how many times each vowel (a, e, i, o, and u) appears in the file. Print the resulting tabulation -- dictionary.
+         ### Q2 — vowel tabulation
+         ### `Q-3`: Create a text file (using an editor, not necessarily Python) containing two tab separated columns, with each column containing a number. Then use Python to read through the file you've created. For each line, multiply each first number by the second and include it in the file in third column. In last add a line Total, by summing the value of third column
+         ### Q3 — tab-separated arithmetic with a Total row
+         ### `Q-4`: Create line wise reverse of a file
+         ### Q4 — line-wise reverse, newline intact
+         ### `Q-5`: Create a Serialized dict of frequency of words in the file. And from given list of words, using serialized dict show word count.
+         ### Q5 — word frequency serialised to JSON
+         ### `Q-6`: Given a string calculate length of the string using recursion.
+         ... +10 more headings
+   - Task_11_Solutions__1DhvCxLlAduD.ipynb  (md=15, code=7, lines=128) [PRACTICE]
+         # Task 11 Solutions — Exception Handling
+         ### `Q-1`: You are given a function definition. There might be several issues on execution of this function. You are asked to do exception handling for diffrent errors that this function goes in to `without altering this function`. And print error text.
+         ### Q1 — handling every error of a fixed function
+         ### `Q-2:` You are given a code snippet. There might be several issues on execution of this code. You are asked to do exception handling for diffrent errors, condition is what ever happens we need to execute last line printing correct result of `sum of elements`.
+         # For calculating sum of above list
+         ### Q2 — summing a heterogenous list with nested handlers
+         ### `Q-3:`: File Handling with Exception handling
+         ### Q3 — file I/O guarded, success message in else
+         ### `Q-4`: Number game program.
+         ### Q4 — custom exceptions power a guessing game
+         ### `Q-5:` Cast vote
+         ### Q5 — validating name and age before casting a vote
+         ... +3 more headings
+   - Task_12_Solutions__1IHLZkKHJY6Y.ipynb  (md=25, code=12, lines=155) [PRACTICE]
+         # Task 12 Solutions — Scope, Iterators, Generators & Decorators
+         ### `Q1:` Write `Person` Class as given below and then display it's namespace.
+         ### Q1 — a private-attribute `Person` class, then its namespace
+         ### Why this works
+         ### `Q2:` Write a program to show namespace of object/instance of above(Person) class.
+         ### Q2 — the instance namespace, where your data actually lives
+         ### `Q3:` Write a recursive program to to calculate `gcd` and print no. of function calls taken to find the solution.
+         ### Q3 — recursion depth surfaced with a global counter
+         ## Iterator And Generator
+         ### `Q4:` Create MyEnumerate class,
+         ### Q4 — a hand-built `MyEnumerate`, an iterator class
+         ### `Q5:` Iterate in circle
+         ... +13 more headings
+   - Task_7_Solutions__1r_jeTn2XoKL.ipynb  (md=13, code=7, lines=214) [PRACTICE]
+         # Task 7 Solutions — Classes, Objects and OOP Fundamentals
+         ### Q1 — a Rectangle with private helpers and one public `display`
+         ### Q2 — a Bank account: deposits, withdrawals, and hidden fees
+         ### Q3 — a Computation utility class, pure functions in one place
+         ### Q4 — a FlashCard quiz built on `random`
+         ## `Q-5:` Problem 5 based on OOP Python.
+         ### Q5 — Instructor eligibility and course allocation
+         ## Summary
+   - task_8_solutions__1Ia10uit7igu.ipynb  (md=17, code=11, lines=294) [PRACTICE]
+         # Task 8 Solutions — More Classes, Static Methods & Classmethods
+         ### Q1 — counting instances with a class attribute
+         ### Q2 — a `Deck` composed of `Card` objects
+         ### `Q-3`: Find the area of a rectangle.
+         ### Q3 — a Rectangle built through an alternate `@classmethod` constructor
+         ### `Q-4`: Problem 4
+         ### Q4 — datetime inside a class: expiry countdown
+         ### `Q-5:` Problem 5
+         ### Q5 — Student admission: validation composed into qualification
+         # add_scoops should handle both scenerios
+         ### Q6 — Scoop and Bowl: private lists and static sold counters
+         ### Q7 — Bowls with capacity: upgrading the previous classes
+         ... +1 more headings
+   - task_9_solutions__1knllPL_sSnf.ipynb  (md=13, code=9, lines=153) [PRACTICE]
+         # Task 9 Solutions — Inheritance, Abstract Classes & FlexibleDict
+         ### Problem 1 — overriding `fare()` with a maintenance charge
+         ### `Problem-2:` Class Inheritence
+         ### Problem 2 — a default seating capacity of 50
+         ### `Problem-3:` Write a program that has a class Point. Define another class Location which has two objects (Location & Destination) of class Point. Also define a function in Location that prints the reflection of Destination on the x axis.
+         ### Problem 3 — a `Location` holding two `Point` objects
+         ### `Problem-4:` Write a program that has an abstract class Polygon. Derive two classes Rectangle and Triamgle from Polygon and write methods to get the details of their dimensions and hence calculate the area.
+         ### Problem 4 — abstract base classes enforce a contract
+         ### `Problem-5:` Write a program with class Bill. The users have the option to pay the bill either by cheque or by cash. Use the inheritance to model this situation.
+         ### Problem 5 — a `Bill` hierarchy with cash and cheque payment
+         ### Q6 — `FlexibleDict`: overriding `__getitem__` on a built-in
+         ## Summary
+==============================================================================
+UNIT  01_Python/05_Modules_Packages_Environments/01_Import_System
+      theory=1  practice=1  md_cells=27  code_cells=19  code_lines=200
+   - 01_import_from_as_theory.ipynb  (md=11, code=5, lines=71)
+         # The Python Import System — Making the Library Work for You
+         ## 🌍 Real-World Hook: Hostel Mess Lunch 🏫
+         ### 📖 Definition (interview-grade!)
+         # 1. The Four Import Styles
+         ## 1.1 Style 1 — `import module`: The Whole Counter, Prefix Calls
+         ## 1.2 Style 2 — `import module as alias`: Give It a Short Stamp
+         ## 1.3 Style 3 — `from module import name`: Grab Only the Dish You Need
+         ## 1.4 Style 4 — `from module import *`: The Wildcard Trap
+         ### ⚠️ The Harm of `import *` (3-part warning!)
+         # 2. Inspecting Modules
+         ## 2.1 Peeking Inside with `dir()` and the Dunders
+         # 3. The Shadow Trap — Never Name a File Like the Standard Library
+         ... +3 more headings
+   - task.ipynb  (md=16, code=14, lines=129) [PRACTICE]
+         # 🎲 Import Drills — Seven Steps to Import Mastery
+         # 1. Task 1 — First Time at the Math Counter
+         ### Concept: The `math` toolbox at a glance
+         ### Your goal
+         # 2. Task 2 — Alias + From-Import Mix
+         ### Concept: Two import styles, two mental models
+         ### Your goal
+         # 3. Task 3 — Seeded-Dice Replay
+         ### Concept: Why `seed` makes "random" repeatable
+         ### Your goal
+         # 4. Task 4 — Calendar-Train Dates
+         ### Concept: Dates are objects you can do arithmetic on
+         ... +11 more headings
+==============================================================================
+UNIT  01_Python/05_Modules_Packages_Environments/02_Creating_Modules_Packages
+      theory=2  practice=1  md_cells=34  code_cells=23  code_lines=400
+   - 01_own_modules_theory.ipynb  (md=10, code=5, lines=101)
+         # 🛠️ Making Your Own Module — The First Box of Your Own Library
+         ## 1. What you will learn in this notebook
+         ## 2. The big idea
+         ## 3. How the demos work
+         ## 🍱 Real-World Hook: One Recipe Book for Every Kitchen
+         ### 📖 Definitions (interview-grade)
+         # 1. Your First Module — Write, Point, Import
+         ## 1.1 A module is just a `.py` file
+         ## 1.2 Module peeping — `dir()` and docstrings
+         ## 1.3 The import cache — `sys.modules`
+         # 2. The Two Lives of a File
+         ## 2.1 Import-silent vs script-loud
+         ... +4 more headings
+   - 02_packages_structure.ipynb  (md=8, code=4, lines=105)
+         # 📦 Packages Structure — The Family Tree of Files in the Cupboard
+         ## 1. What you will learn in this notebook
+         ## 2. The big idea — order in the house-cupboard
+         ## 3. How the demo works
+         ## 🗄️ Real-World Hook: Order in the House-Cupboard
+         ### 📖 Definition (interview-grade)
+         # 1. The Package Build — A Folder, an `__init__.py`, and Three Submodules
+         ## 1.1 Making a package with bare hands
+         ## 1.2 The import mechanics
+         ## 1.3 Three import styles for packages
+         # 2. Relative Imports — Wiring Inside the Package
+         ## 2.1 Dots mean “inside this package”
+         ... +5 more headings
+   - task.ipynb  (md=16, code=14, lines=194) [PRACTICE]
+         # 🛠️ TASK NOTEBOOK — Modules & Packages on Your Own
+         ## How to work the notebook
+         ## Roadmap of the tasks
+         ## The tools you will lean on
+         # Task 1 — Your First Own Module
+         ## 🐣 Concept: a module is just a file you point Python at
+         ### Your goal
+         # Task 2 — Module Peeping
+         ## 🔍 Concept: the `dir()` public-filter
+         ### Your goal
+         ### Functional tools
+         # Task 3 — Guard Twins
+         ... +15 more headings
+==============================================================================
+UNIT  01_Python/05_Modules_Packages_Environments/03_Virtual_Environments
+      theory=2  practice=0  md_cells=19  code_cells=4  code_lines=70
+   - 01_venv_theory_setup.ipynb  (md=8, code=2, lines=33)
+         # 🏰 Virtual Environments — Your Own Kitchen for Every Project
+         ## 1. What you will learn here
+         ## 2. How the demos work
+         ## 3. The big idea
+         ## 🍳 Real-World Hook: The Kitchen-War of 2 Projects
+         ### 📖 Definition (interview-grade)
+         # 1. Creating a Kitchen — `venv` Anatomy
+         ## 1.1 What `python -m venv` creates
+         ## 1.2 Proof of isolation — `sys.prefix` vs `sys.base_prefix`
+         ### 💡 Anatomy-amusements:
+         ## 🧘 Terminal-CASTLE — The 3-Step Command Mantra!
+         ### 🐧 Linux/Mac:
+         ... +4 more headings
+   - 02_conda_uv_environments.ipynb  (md=11, code=2, lines=37)
+         # ⚖️ conda vs pip vs uv — Choosing Your Package Power Tools
+         ## 1. What you will learn
+         ## 2. How this notebook works
+         ## 3. The big idea — three transports
+         ## 🚲🚗🚄 Real-World Hook: The Evolution-Chart of 3 Transports
+         ### 📖 Definition (interview-grade)
+         # 1. The Three Jugglers — pip, conda, uv
+         ## 1.1 Machine detective: what's on this system?
+         ### 💡 Important-moment: `uv` and `conda` are probably NOT installed — and that's OK!
+         ## 🚲 pip+venv — The Universal Default Cheat-Sheet (recap-link!)
+         ## 🚗 Conda — The DS-classic Cheat-Sheet! 🦕
+         ### Conda-vs-pip compare-table:
+         ... +9 more headings
+==============================================================================
+UNIT  01_Python/06_Numerical_Computing_NumPy/01_NumPy_Fundamentals
+      theory=1  practice=1  md_cells=85  code_cells=97  code_lines=159
+   - Session_13_Numpy_Fundamentals__1GEkNfxnCPfz.ipynb  (md=38, code=72, lines=135)
+         # NumPy Fundamentals — Session 13
+         ### What is NumPy
+         ### Why
+         ### How
+         ### AI/ML relevance
+         ### Numpy Arrays Vs Python Sequences
+         ### Creating Numpy Arrays
+         ### Why NumPy
+         ### AI/ML relevance
+         ## np.array — basic
+         ## 🔬 Deep Dive : NumPy vs Python lists
+         ## 🔬 Deep Dive : Multi-dimensional arrays
+         ... +35 more headings
+   - Task_13__1gpfSwUvzsOw.ipynb  (md=47, code=25, lines=24) [PRACTICE]
+         # NumPy Fundamentals — Task 13
+         ## 1.1 Hint — Q1: Null vector
+         ## 2.1 Hint — Q2: Random array from user input
+         ## 3.1 Hint — Q3: Border array
+         ## 4.1 Hint — Q4: Values between 0 and 1
+         ## 5.1 Hint — Q5: Identity matrix of shape (3,4)
+         ## 6.1 Hint — Q6: Rows 0 to 4 in a 5x5 matrix
+         ## 7.1 Hint — Q7: Distance from a point
+         ## 8.1 Hint — Q8: Index of the 100th element
+         ### `Q-9:` Arrays
+         ## 9.1 Hint — Q9: Reversed float array
+         ### `Q-10:` Elements count
+         ... +19 more headings
+==============================================================================
+UNIT  01_Python/06_Numerical_Computing_NumPy/02_Advanced_NumPy
+      theory=1  practice=1  md_cells=52  code_cells=49  code_lines=182
+   - Session_14_Advanced_Numpy__1RVe07-2VU4J.ipynb  (md=32, code=40, lines=173)
+         # Advanced NumPy — Session 14
+         # Advanced NumPy — Speed, Indexing, Broadcast
+         ## Numpy vs Python lists — speed
+         # Python list addition (loop)
+         # Numpy vectorized
+         ## 🔬 Deep Dive : Speed — vectorization wins
+         # list approach
+         # manual loop... slow
+         # numpy
+         # a + b one call — C speed
+         ## Memory usage
+         ## 🔬 Deep Dive : Memory efficiency
+         ... +30 more headings
+   - Task_14__15578LXOUd_Q.ipynb  (md=20, code=9, lines=9) [PRACTICE]
+         # Advanced NumPy — Task 14
+         ## 1.1 Hint — Q1: Nearest element
+         ## 2.1 Hint — Q2: Multiples of 3 or 5 to zero
+         ## 3.1 Hint — Q3: Fancy indexing in two flavours
+         ## 4.1 Hint — Q4: Fill NaN with the most common value
+         ### `Q-5:` Write a NumPy program
+         ## 5.1 Hint — Q5: Detect and fill missing data
+         ## 6.1 Hint — Q6: The Cauchy matrix
+         ## 7.1 Hint — Q7: Plot tanh
+         ### `Q-8:` Plot the below equation.
+         ## 8.1 Hint — Q8: Plot the semicircle
+         ### `Q-9:` Write a program implement Boradcasting Rule to check if two array can be added or not.
+         ... +2 more headings
+==============================================================================
+UNIT  01_Python/06_Numerical_Computing_NumPy/03_Numpy_Tricks
+      theory=1  practice=1  md_cells=59  code_cells=77  code_lines=107
+   - Session_15_Numpy_Tricks__1PUW-yXxbkSY.ipynb  (md=37, code=67, lines=94)
+         # NumPy Tricks — Session 15
+         # NumPy Tricks — 25 Useful Functions
+         ## Session format
+         ## 🔬 Deep Dive : np.sort — sorting arrays
+         ### np.append
+         ## 🔬 Deep Dive : np.append
+         ### np.concatenate
+         ## 🔬 Deep Dive : np.concatenate
+         ### np.unique
+         ## 🔬 Deep Dive : np.unique — distinct values
+         ### np.expand_dims
+         ## 🔬 Deep Dive : np.expand_dims — add axis
+         ... +31 more headings
+   - Task_15__17fGUUGlpGzO.ipynb  (md=22, code=10, lines=13) [PRACTICE]
+         # NumPy Function Toolkit — Task 15
+         ## 1.1 Hint — Q1: Four kinds of sort
+         ## 2.1 Hint — Q2: Growing and ranking a marks table
+         ## 3.1 Hint — Q3: Unique rows and columns
+         ## 4.1 Hint — Q4: Flip both axes
+         ### `Q-5:` Get row numbers of NumPy array having element larger than X.
+         ## 5.1 Hint — Q5: Rows with an element larger than X
+         ### `Q-6:` How to convert an array of arrays into a flat 1d array?
+         ## 6.1 Hint — Q6: Flatten several arrays
+         ### `Q-7:` You are given a array. You have to find the minimum and maximum array element and remove that from the array.
+         ## 7.1 Hint — Q7: Remove min and max
+         ### `Q-8:` You are given an arrays. You have to limit this array's elements between 100 to 200. $arr ∈ [100, 700]$. So replace those values accordingly with the minimum and maximum value. Then sort the array and perform the cumulative sum of that array.
+         ... +4 more headings
+==============================================================================
+UNIT  01_Python/06_Numerical_Computing_NumPy/Interview_Questions
+      theory=0  practice=1  md_cells=23  code_cells=11  code_lines=63
+   - coding_challenges.ipynb  (md=23, code=11, lines=63) [PRACTICE]
+         # NumPy — Coding Challenges
+         ## Setup
+         ## Challenge 1
+         ## 1.1 Hint — Identity without np.eye
+         ## Challenge 2
+         ## 2.1 Hint — Row normalisation
+         ## Challenge 3
+         ## 3.1 Hint — Closest pair
+         ## Challenge 4
+         ## 4.1 Hint — NaN to column mean
+         ## Challenge 5
+         ## 5.1 Hint — Rolling mean by convolution
+         ... +11 more headings
+==============================================================================
+UNIT  01_Python/06_Numerical_Computing_NumPy/Tasks_Solution_01_02_03
+      theory=0  practice=3  md_cells=91  code_cells=51  code_lines=281
+   - Task15_Solutions__1tesod4lk55Z.ipynb  (md=22, code=12, lines=80) [PRACTICE]
+         # NumPy Function Toolkit — Task 15 Solutions
+         ### `Q-1:` Create a random 3x4 matrix with value between 0-100. And perform below tasks
+         ## 1.1 Solution notes — Q1: Four kinds of sort
+         ### `Q-2:` There is an array of marks of 5 students in 4 subjects. Further you are asked to perform below task.
+         ## 2.1 Solution notes — Q2: Marks pipeline
+         ### `Q-3:` Find unique arrays from a 2D array column wise and row wise.
+         ## 3.1 Solution notes — Q3: Unique rows and columns
+         ### `Q-4:` Flip given 2-D array along both axes at the same time.
+         ## 4.1 Solution notes — Q4: Flip both axes
+         ### `Q-5:` Get row numbers of NumPy array having element larger than X.
+         ## 5.1 Solution notes — Q5: Rows holding a large element
+         ### `Q-6:` How to convert an array of arrays into a flat 1d array?
+         ... +8 more headings
+   - Task_13_Solutions__15sGD09W5CVr.ipynb  (md=47, code=27, lines=128) [PRACTICE]
+         # NumPy Fundamentals — Task 13 Solutions
+         ### `Q-1` Create a null vector of size 10 but the fifth value which is 1.
+         ## 1.1 Solution notes — Q1: Null vector with a single 1
+         ### `Q-2` Ask user to input two numbers a, b. Write a program to generate a random array of shape (a, b) and print the array and avg of the array.
+         ## 2.1 Solution notes — Q2: Random array from input, with average
+         ### `Q-3`Write a function to create a 2d array with 1 on the border and 0 inside. Take 2-D array shape as (a,b) as parameter to function.
+         ## 3.1 Solution notes — Q3: Border array
+         ### `Q-4` Create a vector of size 10 with values ranging from 0 to 1, both excluded.
+         ## 4.1 Solution notes — Q4: Ten values between 0 and 1
+         ### `Q-5` Can you create a identity mattrix of shape (3,4). If yes write code for it.
+         ## 5.1 Solution notes — Q5: Identity matrix of shape (3,4)
+         ### `Q-6:` Create a 5x5 matrix with row values ranging from 0 to 4.
+         ... +34 more headings
+   - Task_14_Solutions__1UFnFdlSnm2w.ipynb  (md=22, code=12, lines=73) [PRACTICE]
+         # Advanced NumPy — Task 14 Solutions
+         ### `Q-1:` Find the nearest element in the array to a given integer.
+         ## 1.1 Solution notes — Q1: Nearest element
+         ### `Q-2:` Replace multiples of 3 or 5 as 0 in the given array.
+         ## 2.1 Solution notes — Q2: Multiples of 3 or 5 to zero
+         ### `Q-3:` Use Fancy Indexing.
+         ## 3.1 Solution notes — Q3a: Fancy indexing, writing mode
+         ## 3.2 Solution notes — Q3b: Fancy indexing, gathering mode
+         ### `Q-4:` Your are given an array which is havig some nan value. You job is to fill those nan values with most common element in the array.
+         ## 4.1 Solution notes — Q4: NaN filled with the mode
+         ### `Q-5:` Write a NumPy program
+         ## 5.1 Solution notes — Q5a: Missing-data mask
+         ... +10 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas
+      theory=1  practice=0  md_cells=40  code_cells=48  code_lines=128
+   - Pandas_Case_Study_Time_Series_Analysis__12G4cSJkdYAE.ipynb  (md=40, code=48, lines=128) [CASE-STUDY]
+         # Time Series Analysis — Case Study
+         # 1. Recap — Date & Time Fundamentals
+         ## 1.1 Timestamps, DatetimeIndex, date_range, to_datetime
+         # 2. Timedelta — Duration Between Dates
+         ### Timedelta Object
+         ### Key ideas
+         ## 📖 Timedelta — duration
+         ## 🔬 Deep Dive : Timedelta — duration between dates
+         ## 2.1 Constructing and using Timedelta objects
+         ## 2.2 Real-world example — computing delivery time
+         ## 📖 Real-life — delivery time
+         # 3. Time-Series Data & the DatetimeIndex
+         ... +34 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas/01_Series_and_DataFrame
+      theory=3  practice=3  md_cells=155  code_cells=289  code_lines=553
+   - Session_16_Pandas_Series__1Te483lmZDDK.ipynb  (md=46, code=107, lines=208)
+         # Pandas Series — Session 16
+         # 1. Introducing Pandas
+         ### Pandas fundamentals
+         ### AI/ML relevance
+         ## 1.1 Importing pandas
+         # 2. Series from Lists
+         ### Pandas fundamentals
+         ## 2.1 The labeled array
+         ## 2.2 Dtype inference on creation
+         # 3. Custom Index and Name
+         ## 3.1 Why labels matter
+         # 4. Series from a Dictionary
+         ... +51 more headings
+   - Session_17_Pandas_DataFrame__1k_CV931NE4_.ipynb  (md=30, code=63, lines=130)
+         # Pandas DataFrame — Session 17
+         # 1. Creating a DataFrame
+         ### Pandas fundamentals
+         ### AI/ML relevance
+         ## 1.1 From lists, dicts, and CSV
+         ## 1.2 Deep dive — creating tables
+         # 2. Attributes and Methods
+         ## 2.1 shape, dtypes, index, columns, values
+         ## 2.2 info, describe, isnull, duplicated, rename
+         # 3. Math Methods and axis
+         ## 3.1 The axis parameter
+         ## 3.2 sum, mean, and var in context
+         ... +21 more headings
+   - Session_18_Important_DataFrame_Methods__1a5Yii5DmHta.ipynb  (md=35, code=86, lines=172)
+         # Important DataFrame & Series Methods — Session 18
+         ### Core ideas
+         ### Why
+         ### AI relevance
+         # 1. value_counts — Frequency Analysis
+         ## 1.1 value_counts on Series and DataFrames
+         ## 1.2 value_counts in the wild
+         ## 1.3 Deep dive — frequency analysis
+         # 2. sort_values — Sorting
+         ## 2.1 Sorting Series and DataFrames
+         ## 2.2 Sorting with na_position and inplace
+         # 3. rank — Leaderboards
+         ... +27 more headings
+   - Task_16__1NjZaBfQeIyn.ipynb  (md=13, code=10, lines=9) [PRACTICE]
+         # Task 16 — Series, Analysis, and Cleaning
+         # 1. Creating an Empty Series
+         ### Q-1: Write a program to create an empty series.
+         # 2. Series Arithmetic
+         ### Q-2: Write a Pandas program to add, subtract, multiply and divide two Pandas Series.
+         # 3. Comparing Two Series
+         ### Q-3: Write a Pandas program to compare the elements of the two Pandas Series.
+         ### Sample Series: [2, 4, 6, 8, 10], [1, 3, 5, 7, 10]
+         # 4. Changing the Data Type
+         ### Q-5: Write a function to change the data type of a given column or a Series. The function takes the series and the data type as input and returns the converted series.
+         ### series = pd.Series([1, 2, 'Python', 2.0, True, 100]) → convert to float
+         # 5. The Batsman Runs Dataset
+         ... +19 more headings
+   - Task_17__11U8c936tpxA.ipynb  (md=14, code=11, lines=11) [PRACTICE]
+         # Task 17 — DataFrame Practice and IPL Analysis
+         # 1. The birds DataFrame
+         ## 1.1 A dictionary that becomes a table
+         ### Q-1: Create the DataFrame and inspect it
+         ### Q-2: Row and column selection
+         ### Q-3: Missing values
+         ### Q-4: Totals and duplicates
+         # 5. The IPL Matches Dataset
+         ### Q-5: Rename the teams
+         ### Q-6: Top five teams by matches
+         ### Q-7: Most player-of-the-match awards against Mumbai Indians
+         ### Q-8: Team1 vs Team2 dashboard
+         ... +3 more headings
+   - Task_18__1BQ77stqOZaB.ipynb  (md=17, code=12, lines=23) [PRACTICE]
+         # Task 18 — Cleaning, Ranking, and the IPL Points Table
+         # 1. The Fifa World Cup 2022 Dataset
+         ## 1.1 Reading data straight from a URL
+         ### Q-1: On-target percentage per team
+         ### Q-2: Matches played and ranks
+         ### Q-3: The cleaning pass
+         ### Q-4: A Rank column and index
+         # 5. The Titanic Dataset
+         ### Q-5: Drop vs fill on the Age column
+         # 6. The IPL Matches Dataset
+         ### Q-6: Per-team performance table
+         ### Q-7: Venues with most 'no result' matches
+         ... +4 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas/02_Advanced_Pandas
+      theory=2  practice=2  md_cells=54  code_cells=105  code_lines=262
+   - Session_19_GroupBy_Object_in_Pandas__1JZwTCZp2kbi.ipynb  (md=18, code=46, lines=132)
+         # GroupBy Object in Pandas — Session 19
+         # 1. Setup — Imports and Loading the Data
+         ## 1.1 The code that prepares the session
+         # 2. GroupBy — Split, Apply, Combine
+         ## 2.1 Grouping is step zero
+         # 3. Built-in Aggregations
+         ## 3.1 Aggregating a GroupBy
+         # 4. GroupBy Attributes and Methods
+         ## 4.1 Inspecting the groups themselves
+         ## 4.2 Deep dive — one group at a time
+         # 5. agg — One Call, Many Aggregations
+         ## 5.1 Per-column statistics in a single method
+         ... +15 more headings
+   - Session_20_Merging_Joining_Concatenating__1Xs7On5fr6ZZ.ipynb  (md=12, code=40, lines=93)
+         # Merging, Joining, Concatenating — Session 20
+         # 1. Setup — Loading the Toy Data
+         ## 1.1 Five small tables and two big ones
+         # 2. concat — Stacking Tables
+         ## 2.1 Pure assembly, no matching
+         ## 2.2 Deep dive — keys and horizontal stacking
+         # 3. merge — SQL-Style Joins
+         ## 3.1 Joining rows on a key
+         ## 3.2 Deep dive — four joins, four shapes
+         # 4. Merge + GroupBy Patterns
+         ## 4.1 Revenue from two tables
+         ## 4.2 Deep dive — the join problem set
+         ... +6 more headings
+   - Task_19__1mXfM8ETuUz2.ipynb  (md=12, code=8, lines=8) [PRACTICE]
+         # Task 19 — GroupBy and Advanced Cricket Analytics
+         # 1. Average Age and Missing Values per Class
+         ### Q-1: Using `groupby` make groups using the Pclass column and find out the average age and the total number of missing values in the Age column for every group.
+         # 2. Mode Filling within Groups
+         ### Q-2: Using `groupby` make groups using the Pclass column and fill every group's Embarked column's missing values with the mode value of that group. After that, print every group's Embarked column's value counts in ascending order.
+         # 3. Nested Groups and Average Fare
+         ### Q-3: Make groups based on the Embarked column. And for each Embarked group, make another group based on Pclass and find out the average fare (round off up to 2 decimal places) for each Pclass for each group of Embarked.
+         # 4. The Fifa World Cup 2022 Dataset
+         # 5. Q-4 — Z-Normalisation with apply
+         ### Q-4: Perform `groupby` based on the Team column, then perform Z-Normalisation on top of the below columns of each group:
+         # 6. The IPL Ball-by-Ball Dataset
+         # 7. Q-5 — Chasing Records
+         ... +8 more headings
+   - Task_20__13qc336E-KNQ.ipynb  (md=12, code=11, lines=29) [PRACTICE]
+         # Task 20 — Combining Data, Cricket Records, and the Iris Dataset
+         # 1. The Quarter-Revenue Datasets
+         ## 1.1 Four files, one business
+         # 2. Q-1 to Q-5 — Combining the Quarters
+         ### Q:1-5
+         # 3. Q-6 — The Purple Cap per Season
+         ### Q-6: From the IPL dataset find out the Purple cap holder each season.
+         # 4. Q-7 — The Best Bowler in Death Overs
+         ### Q-7: Find the best bowler in death overs.
+         # 5. Q-8 — Season-by-Season Batsman Record
+         ### Q-8: Make a function which takes a `batsman_name` input and returns a dataframe. Columns of the dataframe are `['Season', 'Innings', 'TotalRuns', 'Avg', 'HighestScore', 'StrikeRate']`. Make the `Season` column the index.
+         # 6. Q-9 — Player-of-the-Match Figures
+         ... +9 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas/03_Advanced_Pandas_Contintued
+      theory=3  practice=2  md_cells=123  code_cells=134  code_lines=338
+   - Session_21_MultiIndex_Series_and_DataFrames__17l8EddlrS2E.ipynb  (md=33, code=64, lines=162)
+         # MultiIndex — Series and DataFrames (Session 21)
+         ## 0. Setup
+         # 1. MultiIndex Series — Hierarchical Indexing
+         ### Series is 1D and DataFrames are 2D objects
+         ### Key ideas
+         ## 📖 MultiIndex — Hierarchical indexing
+         ## 1.1 Why a plain index is not enough
+         ## 🔬 Deep Dive : MultiIndex Series — hierarchical indexing
+         # a['cse'] → ERROR — 1D index can't represent hierarchy
+         # 2. stack / unstack — Reshaping Levels
+         ## 📖 stack / unstack
+         ## 🔬 Deep Dive : stack / unstack
+         ... +30 more headings
+   - Session_22_Vectorized_String_Operations_DateTime_in_Pandas_P__1IbvN3BABXN2.ipynb  (md=21, code=14, lines=53)
+         # Vectorized String Operations in Pandas (Session 22)
+         ## 0. Setup
+         # 1. Vectorized Operations
+         # ⚡ Vectorized String Operations in Pandas
+         ## 📖 Vectorized operations
+         ## 🔬 Deep Dive : Vectorized ops — pandas solves python's string slowness
+         # [x.upper() for x in s]  -> None.upper() crashes TypeError!
+         ## 1.1 What 'vectorized' really means
+         # 2. The .str Accessor
+         ### AI/ML relevance
+         ## 📖 .str accessor
+         ## 2.1 String methods that never crash on missing data
+         ... +16 more headings
+   - Session_22_Vectorized_String_Operations_DateTime_in_Pandas_P__1zkfBGu48iLf.ipynb  (md=28, code=41, lines=84)
+         # Datetime in Pandas — Timestamp, DatetimeIndex, and the .dt Accessor (Session 22)
+         ## 0. Setup
+         # 1. The Timestamp Object
+         ### Key ideas
+         ### Timestamp Object
+         ### Key ideas
+         ### Creating Timestamp objects
+         ### Key ideas
+         ## 🔬 Deep Dive : Timestamp objects
+         ## 1.1 Constructing timestamps from almost any input
+         # 2. Why Python's datetime Is Not Enough — numpy.datetime64
+         ## 🔬 Deep Dive : numpy datetime64 & why vectorized time
+         ... +24 more headings
+   - Task_21__13oB3uvD1vpE.ipynb  (md=18, code=7, lines=27) [PRACTICE]
+         # MultiIndex Tasks — Exercises and Solutions (Task 21)
+         ### ✓ How to use this notebook
+         # Task 1 — Swap Index and Column Levels
+         ### Q-1 — Restructure the branch DataFrame
+         ## 1.1 Approach — swaplevel then rebuild the columns
+         # Task 2 — COVID Data as a MultiIndex
+         ### Q-2 — Country + Province/State index
+         ## 2.1 Approach — from wide tables to a tidy MultiIndex frame
+         # Task 3 — Death Percentage Ranking
+         ### Q-3 — Country with the highest death rate
+         ## 3.1 Approach — group and aggregate
+         # Task 4 — India's Daily New Cases
+         ... +8 more headings
+   - Task_22__13B7LH2uYOT6.ipynb  (md=23, code=8, lines=12) [PRACTICE]
+         # Pivot Tables and Data Wrangling — Practice Tasks (Task 22)
+         ### ✓ How to use this notebook
+         # Task 1 — NFT Pivot Table
+         ### Q-1 — Total sale price by verification, contract type, and rarity
+         ### `Question-1:`
+         ## 1.1 Approach — choosing keys and the aggregation
+         # Task 2 — Car Prices: Clean, Pivot, Visualise
+         ### Q-2 — Brand × Year average Price and median Miles
+         ### `Question-2:`
+         ## 2.1 Approach — engineer the missing keys first
+         # Task 3 — India's Daily Power Generation
+         ### Q-3 — Required generation, months, top stations, and a station × month pivot
+         ... +16 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas/Interview_Questions
+      theory=0  practice=2  md_cells=38  code_cells=60  code_lines=210
+   - coding_challenges.ipynb  (md=13, code=11, lines=50) [PRACTICE]
+         # Pandas Coding Challenges
+         ## Setup
+         ## Challenge 1 — Inspect a frame
+         ## Challenge 2 — Top rows by a column
+         ## Challenge 3 — Two aggregations at once
+         ## Challenge 4 — Fill nulls with the group mean
+         ## Challenge 5 — Merge and audit unmatched rows
+         ## Challenge 6 — Pivot table with margins
+         ## Challenge 7 — Rolling mean
+         ## Challenge 8 — Rank within groups
+         ## Challenge 9 — Wide to long
+         ## Challenge 10 — Downcast and save memory
+         ... +1 more headings
+   - Week_6_Numpy_Interview_Questions__1_QkzCawz5ao.ipynb  (md=25, code=49, lines=160) [PRACTICE]
+         # NumPy Interview Questions — Advanced Array Toolkit (Week 6)
+         ## 0. Setup
+         # 1. Meshgrids and 3-D Visualisation
+         ## 1.1 np.meshgrid — from one axis to a full coordinate grid
+         ## 1.2 Evaluating and plotting a surface in 3-D
+         # 2. Working with Random Numbers
+         ## 2.1 random, seed, shuffle, choice
+         # 3. Working with Images
+         ## 3.1 An image is just an ndarray
+         # 4. Structured Arrays
+         ## 4.1 One array, many typed fields
+         # 5. Remaining Utility Functions
+         ... +8 more headings
+==============================================================================
+UNIT  01_Python/07_Pandas/Tasks_Solution_01_02_03
+      theory=0  practice=7  md_cells=228  code_cells=165  code_lines=575
+   - Task_16_Solutions__16F_MMON9J1f.ipynb  (md=30, code=19, lines=60) [PRACTICE]
+         # Pandas Series — Solved Exercises (Task 16)
+         ## 0. Setup
+         # 1. Series Basics and Arithmetic
+         ### `Q-1:` Write a program to create an empty series.
+         ## 1.1 The empty Series (Q-1)
+         ### `Q-2:` Write a Pandas program to add, subtract, multiple and divide two Pandas Series.
+         ## 1.2 Arithmetic between Series (Q-2)
+         # 2. Comparing Series (Q-3)
+         ### `Q-3` Write a Pandas program to compare the elements of the two Pandas Series.
+         ## 2.1 Boolean results from comparisons
+         # 3. Changing the Data Type (Q-5)
+         ### `Q-5.`Write a function to change the data type of given a column or a Series. Function takes series and data type as input, returns the converted series.
+         ... +17 more headings
+   - Task_17_Solutions__1GrYEtG87mn5.ipynb  (md=29, code=21, lines=61) [PRACTICE]
+         # Pandas DataFrames — Solved Exercises (Task 17)
+         ## 0. Setup
+         # 1. Basic DataFrame Operations
+         ## Basic DataFrame
+         ### `Q-1:`
+         ## 1.1 Building and inspecting the frame (Q-1)
+         # 2. Selecting Rows and Columns (Q-2)
+         ### `Q-2:`
+         ## 2.1 Positional picks and boolean filters
+         # 3. Missing Values (Q-3)
+         ### `Q-3:`
+         ## 3.1 Finding and filling nulls
+         ... +18 more headings
+   - Task_18_Solutions__1NcOunueBaiV.ipynb  (md=40, code=15, lines=115) [PRACTICE]
+         # FIFA, Titanic, and IPL — DataFrames in Action (Task 18)
+         ## 0. Setup
+         # 1. FIFA World Cup 2022
+         ## Fifa Worldcup - 2022 dataset.
+         ## 1.0 Loading the dataset
+         # Task Q-1 — On-Target Percentage per Team
+         ### `Q-1:` Use the football dataset. Find out the total percentages that each team made on target. Display the result as a python dictionary where the keys are the team list and the values are the percentage values. Round off the percentage values up to 2 decimal places.
+         ## 1.1 Approach — filter, sum, divide, sort
+         # Task Q-2 — Matches Played and Team Ranks
+         ### `Q-2:` Find out how many times the teams are played in this Fifa Worldcup-2022. On top of this, find out the ranks of the teams.
+         ## 1.2 Approach — value_counts then rank
+         # Task Q-3 — Inspect, Fill, Drop
+         ... +27 more headings
+   - Task_19_Solutions__157g2UZM9Stx.ipynb  (md=34, code=17, lines=103) [PRACTICE]
+         # GroupBy Deep Dive — Titanic, FIFA, and IPL (Task 19)
+         ## 0. Setup
+         # 1. Grouping the Titanic Data
+         ### `Q-1:` Using `groupby` make groups using the `"Pclass"` column and find out the average age and total number of missing values in the `"Age"` column for every group.
+         ## 1.1 Average age and missing counts per class (Q-1)
+         # Task Q-2 — Fill Embarked per Class with the Mode
+         ### `Q-2:` Using `groupby` make groups using the `"Pclass"` column and fill every group's `"Embarked"` column's missing values with the mode value of that group. After that, print every group's `"Embarked"` column's value counts in ascending order.
+         ## 2.1 Why the first attempt failed, and two correct fixes
+         # Task Q-3 — Nested GroupBy (Embarked then Pclass)
+         ### `Q-3:` Make groups based on `"Embarked"` column. And for each of this embarked group, make another group based on `"Pclass"` and find out the average fare (round off up to 2 decimal places) for each "Pclass" for each group of "Embarked".
+         ## 3.1 Approach — group of groups
+         # 2. FIFA World Cup — Per-Group Z-Normalisation
+         ... +22 more headings
+   - Task_20_Solutions__1aLK7SUm8v2r.ipynb  (md=38, code=18, lines=111) [PRACTICE]
+         # Concatenation, Merge, and GroupBy — Sales, IPL, and Iris (Task 20)
+         ## 0. Setup
+         # 1. Quarterly Sales Data (Q-1 to Q-5)
+         ## 1.0 Loading the data
+         # Tasks Q-1 & Q-2 — Concatenate with Quarter Keys
+         ### `Q:1-5`
+         ## 1.1 pd.concat with keys
+         ## 1.2 Most-sold items per quarter (Q-3)
+         ## 1.3 Highest-revenue items per quarter (Q-4)
+         ## 1.4 Average order price per quarter (Q-5)
+         # 2. IPL — Purple Cap, Death Overs, and Records (Q-6 to Q-9)
+         ### `Q-6` From the IPL dataset you have to find the Purple cap holder each season.
+         ... +24 more headings
+   - Task_21_Solutions__1v3YVApNLyFy.ipynb  (md=20, code=23, lines=55) [PRACTICE]
+         # MultiIndex, COVID, and Pollution — Solved (Task 21)
+         ## 0. Setup
+         # 1. Swapping Index and Column Levels
+         ## 1.1 Approach — unstack, stack, swaplevel, sort
+         # 2. COVID-19 Time Series
+         ## 2.1 Loading the COVID files
+         ## 2.2 Melt, merge, and set the MultiIndex
+         # Task Q-3 — Highest Death Percentage
+         ## 2.3 Approach — group by country, divide, sort
+         # Task Q-4 — India's Daily New Cases
+         ### `Q-4` : Make a dataframe for India from Covid Data with one extra column representing no of new cases.
+         ## 2.4 Approach — select, difference with shift, keep order
+         ... +5 more headings
+   - Task_22_Solutions__1EV72ez6mbkz.ipynb  (md=37, code=52, lines=70) [PRACTICE]
+         # Pivot Tables and Data Wrangling — Solutions Walkthrough (Task 22)
+         ## 0. Setup
+         # 1. NFT Pivot Table (Q-1)
+         ### `Question-1:`
+         ## 1.1 Loading a large dataset
+         ## 1.2 The pivot itself
+         # 2. Car Prices — Clean, Pivot, and Plot (Q-2)
+         ### `Question-2:`
+         ## 2.1 Loading and deriving the brand
+         ## 2.2 Repairing the malformed Year values
+         ## 2.3 The pivot and KDE plots
+         # 3. India's Daily Power Generation (Q-3)
+         ... +23 more headings
+==============================================================================
+UNIT  01_Python/08_Data_Visualization/01_Matplotlib
+      theory=2  practice=2  md_cells=105  code_cells=151  code_lines=543
+   - Session_23_Plotting_using_Matplotlib__1ksmroQtN_Ko.ipynb  (md=28, code=47, lines=181)
+         # 📈 Plotting with Matplotlib — Session 23
+         ## Welcome to Data Visualization
+         ### What/Why
+         ### Core
+         ### When to use
+         ### AI relevance
+         # 📈 Plotting with Matplotlib
+         ## 📖 Setup
+         ### 2D Line plot
+         ### Pandas fundamentals
+         ## 📖 2D Line plot
+         ## 🔬 Deep Dive : 2D Line plot basics
+         ... +18 more headings
+   - Session_24_Advanced_Matplotlib__14TP6tNzUT5M.ipynb  (md=32, code=64, lines=235)
+         # 🚀 Advanced Matplotlib — Session 24
+         ## Taking Matplotlib to the Next Level
+         ### Colored Scatterplots
+         ## 📖 Colored scatterplots
+         ## 🔬 Deep Dive : Colored scatter — 3rd dimension via c
+         ### Plot size
+         ## 📖 Figure size
+         ## 🔬 Deep Dive : Figure size & annotations
+         ### Annotations
+         ## 📖 Annotations
+         ### Horizontal and Vertical lines
+         ### Subplots
+         ... +24 more headings
+   - Task_23__1ssQKshkqJvI.ipynb  (md=21, code=27, lines=110) [PRACTICE]
+         # Matplotlib Practice — Tasks 1 to 10
+         ## About this task notebook
+         ## `Problem 1 to 5`:
+         ### **`Problem-1:`** Draw a line plot of which, the x-axis is the "Year" and the y-axis is sum of "PM2.5" of two countries Iran and China.
+         ## Problem 1 — Line plot of PM2.5 over the years
+         ### **`Problem-2:`** Draw a histogram of the  column "PM10" of which the y-axis represents the probability (see the documentation how to draw the probability).
+         ## Problem 2 — Histogram of PM10 as a probability
+         ### **`Problem-3:`** Draw a scatter plot where x-axis represents "PM2.5" and y-axis represents "PM10" for two countries Poland and Chile.
+         ## Problem 3 — Scatter of PM2.5 vs PM10 for two countries
+         ### **`Problem-4:`** Draw a pie chart of top 5 most frequent countries.
+         ## Problem 4 — Pie chart of the top 5 countries
+         ### **`Problem-5:`** Draw a bar chart which represents the counts of top 5 most frequent countries.
+         ... +6 more headings
+   - Task_24__1dFFn4XEZTCW.ipynb  (md=24, code=13, lines=17) [PRACTICE]
+         # Advanced Matplotlib — Tasks 1 to 10
+         ## About this task notebook
+         ## **Problem 1 to 2:**
+         ### **Problem-1:** Make a subplots which have 2 plots.
+         ## Problems 1 & 2 — Power-station subplots and 3D scatter
+         ### **Problem-2:** Draw a 3D Scatter plot between "*Monitored Cap.(MW)*", "*Total Cap. Under Maintenace (MW)*" and "*Forced Maintanence(MW)*"
+         ## Problem 2 — 3D Scatter plot
+         ### **Problem-3:** Make a 3D *Surface* plot of this below mathematical equation.
+         ## Problem 3 — 3D Surface plot of |x| − |y|
+         ### **Problem-4:** Draw the 3D *Contour plot* of this below equation:
+         ## Problem 4 — 3D Contour plot of |x| − |y|
+         ### **Problem-5:** Draw a second type of Countour plot of the below equation:
+         ... +15 more headings
+==============================================================================
+UNIT  01_Python/08_Data_Visualization/02_Seaborn
+      theory=3  practice=2  md_cells=100  code_cells=148  code_lines=351
+   - Session_25_Plotting_using_Seaborn__1_Mk2NWYBzNx.ipynb  (md=10, code=41, lines=97)
+         # 📊 Plotting with Seaborn — Session 25
+         ## Why Seaborn?
+         ### Seaborn Roadmap
+         ### 1. Relational Plots
+         ## 🔬 Deep Dive : Seaborn — figure-level vs axes-level
+         # axes-level: plot on current ax
+         # figure-level: owns the figure (sns.displot, relplot, catplot, lmplot)
+         ## 🔬 Deep Dive : Line plots + faceting
+         ### 2. Distribution Plots
+         ## 🔬 Deep Dive : Distribution plots — hist/kde/rug
+         # rugplot: ticks along axis showing every obs
+         # bivariate hist / kde: 2D density
+         ... +3 more headings
+   - Session_26_Plotting_using_Seaborn_Part_2__18GuhOaBBhaB.ipynb  (md=22, code=49, lines=82)
+         # 📊 Seaborn Part 2 — Categorical, Regression & Multi-Panel Grids
+         ## What this notebook covers
+         ## Categorical Plots
+         ### Categorical Scatter Plot
+         ### Categorical Distribution Plots
+         ### Categorical Estimate Plot -> for central tendency
+         ### Figure level function -> `catplot`
+         ### Recap — the relational scatter, now with tips
+         ## 🔬 Deep Dive : Regression plots — regplot/lmplot/residplot
+         ## 🔬 Deep Dive : Categorical plots — strip/swarm
+         ### Boxplot
+         ## 🔬 Deep Dive : Box plots — 5-number summary
+         ... +13 more headings
+   - Session_26_Plotting_using_Seaborn_Part_2__1FjKejgCJwUs.ipynb  (md=29, code=31, lines=119)
+         # 🎨 Seaborn Part 2 — Themes, Styles, Contexts & Colour Palettes
+         ## Making figures consistent and beautiful
+         # Themeing
+         ## `set_theme` function :
+         ## 🔬 Deep Dive : set_theme — global plot style
+         ## `axes_style` function :
+         ## 🔬 Deep Dive : axes_style & set_context
+         ## Scaling Figure Styles - `sns.set_context()`
+         ### Scaling Plots
+         ### Scaling Fonts and Line Widths
+         ### The RC Parameter
+         ## `seaborn.set_color_codes(palette=’deep’)`
+         ... +10 more headings
+   - Task_25__1uWh7VoNYpBD.ipynb  (md=17, code=16, lines=36) [PRACTICE]
+         # 📊 Seaborn Practice — Tasks 1 to 8
+         ## About this task notebook
+         ### `Q-1:` Using Gapminder Data
+         ## Problem 1 — Gapminder scatter (gdp vs life expectancy)
+         ### `Q-2-3:` Using `flights` dataset of seaborn.
+         ## Problems 2 & 3 — Flights heatmap and clustermap
+         ## For questions 4-8:
+         ### **`Q-4:`** Draw a scatter plot based on the below conditions:
+         ## Problem 4 — Insurance scatter: age, BMI, diabetic, claim, smoker
+         ### **`Q-5:`** Draw a line plot by using the below informations
+         ## Problem 5 — Line plot: bloodpressure vs children, coloured by smoker
+         ### **`Q-6:`** Draw a histogram using displot
+         ... +6 more headings
+   - Task_26__16bujo0m_ufU.ipynb  (md=22, code=11, lines=17) [PRACTICE]
+         # 📊 Seaborn Practice — Tasks 1 to 12
+         ## About this task notebook
+         ### `Q 1-3` Using the 'diamonds' dataset - sns.load_dataset('diamonds')
+         ## Q 1–3 — Diamonds: violin, regression and box
+         ### `Q 4` Using the 'Taxis' dataset - sns.load_dataset('taxis')
+         ## Q 4 — Taxis: estimate plot and ride-time regression
+         ## Problem 5-12:
+         ### **`Problem 5:`** Draw a strip plot and swarm plot between "gender" and "bloodpressure" w.r.t "smoker" (use as hue parameter). Also add title to the charts.
+         ## Problem 5 — Strip and swarm: gender, bloodpressure, smoker
+         ### **`Problem 6:`** Draw a Box-plot and a Violin plot of which x-axis represents the "region" and the y-axis represents the "bmi". Also add extra information of the column "diabetic".
+         ## Problem 6 — Box and violin: region, bmi, diabetic
+         ### **`Problem  7:`** Draw a bar plot and point plot of which x-axis represents the "gender" and y-axis represents "claim". Also add extra information about "smoker" column.
+         ... +12 more headings
+==============================================================================
+UNIT  01_Python/08_Data_Visualization/03_Plotly
+      theory=1  practice=0  md_cells=16  code_cells=41  code_lines=178
+   - Session_on_Plotly_Express__11Ya6Pi2pNoH.ipynb  (md=16, code=41, lines=178)
+         # 🚀 Plotly Express — Interactive Data Visualization
+         ## Why Plotly?
+         ## The Plotly Roadmap
+         ### Working with Plotly Go
+         ### Visualization
+         ## 📖 Plotly — interactive plotting
+         ## 📖 Scatter — go & px
+         ## 🔬 Deep Dive : Plotly — interactive plots (go vs px)
+         # px = high-level (pref)
+         ## 📖 Line / Bar
+         ## 🔬 Deep Dive : Line & Bar charts
+         ## 📖 Histogram / Pie / Sunburst / Treemap
+         ... +8 more headings
+==============================================================================
+UNIT  01_Python/08_Data_Visualization/Interview_Questions
+      theory=0  practice=1  md_cells=24  code_cells=11  code_lines=75
+   - coding_challenges.ipynb  (md=24, code=11, lines=75) [PRACTICE]
+         # 💻 Data Visualization — Coding Challenges
+         ## About these challenges
+         ## Setup
+         ## Challenge 1
+         ## Challenge 1 — Dictionary labels on a line chart
+         ## Challenge 2
+         ## Challenge 2 — Two distributions, shared axes, legend
+         ## Challenge 3
+         ## Challenge 3 — Sort before you plot
+         ## Challenge 4
+         ## Challenge 4 — A correlation matrix, heatmap-ready
+         ## Challenge 5
+         ... +13 more headings
+==============================================================================
+UNIT  01_Python/08_Data_Visualization/Tasks_Solutions_01_02_03
+      theory=0  practice=2  md_cells=43  code_cells=64  code_lines=239
+   - Task_24_Solutions__1TXxHzzrAgXC.ipynb  (md=21, code=34, lines=178) [PRACTICE]
+         # 📘 Advanced Matplotlib — Task 24 Solutions
+         ## About this notebook
+         ## **Problem 1 to 2:**
+         ### **Problem-1:** Make a subplots which have 2 plots.
+         ## Problems 1 & 2 — Power-station subplots
+         ### **Problem-2:** Draw a 3D Scatter plot between "*Monitored Cap.(MW)*", "*Total Cap. Under Maintenace (MW)*" and "*Forced Maintanence(MW)*"
+         ## Problem 2 — 3D scatter of capacities
+         ### **Problem-3:** Make a 3D *Surface* plot of this below mathematical equation.
+         ## Problems 3–5 — The surface equation z = |x| − |y|
+         ### **Problem-4:** Draw the 3D *Contour plot* of this below equation:
+         ### **Problem-5:** Draw a second type of Countour plot of the below equation:
+         ## `Problem 6-7`
+         ... +12 more headings
+   - Task_26_Solutions__19MufvB3-9Ow.ipynb  (md=22, code=30, lines=61) [PRACTICE]
+         # 📘 Seaborn Practice — Task 26 Solutions
+         ## About this notebook
+         ### `Q 1-3` Using the 'diamonds' dataset - sns.load_dataset('diamonds')
+         ## Q 1–3 — Diamonds: violin, regression and box (solved)
+         ## Q 4 — Taxis: estimate plot and ride-time regression (solved)
+         ## Problem 5-12:
+         ### **`Problem 5:`** Draw a strip plot and swarm plot between "gender" and "bloodpressure" w.r.t "smoker" (use as hue parameter). Also add title to the charts.
+         ## Problems 5–12 — The insurance dataset
+         ### **`Problem 6:`** Draw a Box-plot and a Violin plot of which x-axis represents the "region" and the y-axis represents the "bmi". Also add extra information of the column "diabetic".
+         ## Problem 6 — Box & violin: region, bmi, diabetic (solved)
+         ### **`Problem  7:`** Draw a bar plot and point plot of which x-axis represents the "gender" and y-axis represents "claim". Also add extra information about "smoker" column.
+         ## Problem 7 — Bar & point: gender, claim, smoker (solved)
+         ... +11 more headings
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process
+      theory=2  practice=0  md_cells=63  code_cells=92  code_lines=555
+   - EDA.ipynb  (md=36, code=77, lines=253)
+         # Exploratory Data Analysis (EDA) — Titanic Dataset
+         ## Why scrutinise data before modelling?
+         ## The road map for this session
+         ## What you should be able to answer by the end
+         ## Why do EDA?
+         ## Column Types
+         ## Univariate Analysis
+         ### Two main goals of univariate analysis:
+         ### The shape of a data distribution
+         ### Dispersion (spread)
+         ## Steps of Univariate Analysis on **Numerical** columns
+         ### Age
+         ... +37 more headings
+   - Web_Scraping.ipynb  (md=27, code=15, lines=302)
+         # Web Scraping with Python
+         ## What web scraping actually is
+         ## The shape of the session
+         ## Two rules to carry through everything
+         ## Table of Contents
+         ## 1 · Why Web Scraping?
+         ### When you need it
+         ### Scrape vs API — decision rule
+         ## 2 · How the Web Works (HTTP)
+         ### The URL
+         ### The request → response cycle
+         ### Common status codes
+         ... +50 more headings
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/01_Gathering_the_Data
+      theory=1  practice=1  md_cells=63  code_cells=71  code_lines=143
+   - Session-27_Data_Gathering.ipynb  (md=55, code=67, lines=137)
+         # Data Gathering — Reading Data into Python
+         ## Where every analysis really begins
+         ## How the session is organised
+         ## Read with suspicion
+         ## What is Data Analysis?
+         ### Why does it matter?
+         ### Data → Information → Insight → Decision
+         ## The Complete Data Analysis Process — Overview
+         ## Step 0 — Define the Problem (before touching any data)
+         ### SMART questions
+         ### What to define
+         ### Deliverable
+         ... +81 more headings
+   - Task_27__16Dlc5zRj130.ipynb  (md=8, code=4, lines=6) [PRACTICE]
+         # Task 27 — Data Gathering, the assessment
+         ## What this task is really testing
+         ## How to get the most out of it
+         ### Problem-1:
+         ## Problem 1 — think in three reads
+         ### Problem-2
+         ## Problem 2 — the API pagination loop
+         ### Problem 3:
+         ## Problem 3 — scraping a slice of a page
+         ## Summary
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/02_Assessing_Dataand Cleaning
+      theory=1  practice=1  md_cells=28  code_cells=42  code_lines=101
+   - Session_28_Data_Assessing_and_Cleaning__1ca-jlBvJ4uq.ipynb  (md=24, code=41, lines=101)
+         # Data Assessing and Cleaning — the clinical trials dataset
+         ## The Sherlock half of data analysis
+         ## Session structure
+         ## Why this discipline matters more than any function
+         ### Summary of today's session
+         ### 1. Data Wrangling
+         ### 1b. Data accessing
+         ### Types of Unclean Data
+         ## The four datasets — know who you are auditing
+         ### 1. Write a summary for your data
+         ### 2. Write Column descriptions
+         ### 3. Add any additional information
+         ... +13 more headings
+   - Task_28__1rDHD0dkpIM8.ipynb  (md=4, code=1, lines=0) [PRACTICE]
+         # Task 28 — Data Cleaning, the assessment
+         ## What is being tested
+         ## How to approach it
+         ## The frame you are working on
+         ## Summary
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/03_Exploratory_Data_Analysis
+      theory=1  practice=1  md_cells=32  code_cells=72  code_lines=91
+   - Session_29_Exploratory_Data_Analysis_Titanic_Dataset__13rFqQJqU5Rg.ipynb  (md=28, code=71, lines=91)
+         # Exploratory Data Analysis — Titanic, hands-on
+         ## What this session is, and is not
+         ## The flow you can expect
+         ### Why do EDA
+         ### Column Types
+         ### Key ideas
+         ### Univariate Analysis
+         ### Steps of doing Univariate Analysis on Numerical columns
+         ### Age
+         ## 🔬 Deep Dive : Univariate — numerical cols (Age)
+         ## Reading the Age `describe()` output
+         ### Fare
+         ... +17 more headings
+   - Task_29__1JxqAaea31Ku.ipynb  (md=4, code=1, lines=0) [PRACTICE]
+         # Task 29 — EDA, the assessment
+         ## What is being tested
+         ## How to approach it
+         # Perform EDA on below insurance dataset
+         ## Reading the task like a project brief
+         ## Summary
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/Case_Studies/Smartphones
+      theory=3  practice=0  md_cells=80  code_cells=295  code_lines=431
+   - Session_on_Data_Cleaning_Case_Study_Smartphone_dataset__1TGYxt3X2YN7.ipynb  (md=31, code=125, lines=166) [CASE-STUDY]
+         # 🧹 Data Cleaning Case Study — Smartphones
+         ## What you are about to do
+         ## The assessment-first mindset
+         ## What to pay attention to
+         ## Data Assessing
+         ### Quality Issues
+         ### Tidiness Issues
+         ## The numerical overview
+         ## 📖 Working copies and price cleaning
+         ## 🔬 Deep Dive : Battery, display, camera parse
+         ## 🔬 Deep Dive : Feature extraction — brand + flags
+         ## 🔬 Deep Dive : Price cleaning — text to numeric
+         ... +24 more headings
+   - Session_on_EDA_Case_Study_Smartphones_Dataset__1CLkCDQAFZfN.ipynb  (md=23, code=74, lines=96) [CASE-STUDY]
+         # 📊 EDA Case Study — Smartphones
+         ## What this notebook is
+         ## The flow you will see
+         ## What to notice
+         ## 📖 Load & overview
+         ## 📖 Brand distribution
+         ## 🔬 Deep Dive : Brand distribution — categorical EDA
+         ## 📖 Price distribution
+         ## 🔬 Deep Dive : Price distribution — skew & outliers
+         ## 📖 Rating distribution
+         ## 🔬 Deep Dive : Rating distribution — left skew
+         ## 📖 Feature-wise pies
+         ... +14 more headings
+   - Session_on_EDA_Case_Study_Smartphones_Dataset__1E7nUdvyKpm6.ipynb  (md=26, code=96, lines=169) [CASE-STUDY]
+         # 📊 EDA Case Study — Smartphones (v3 / v4 / v5)
+         ## What this notebook is
+         ## The flow you will see
+         ## What to notice
+         ## The missingness audit
+         ## 📖 Brand overview
+         ## 🔬 Deep Dive : Brand overview & price spread
+         ## 📖 Price
+         ## 📖 Rating
+         ## 🔬 Deep Dive : Rating distribution — core metric
+         ## 📖 Boolean Features View
+         ## 🔬 Deep Dive : Boolean features — countplot
+         ... +17 more headings
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/ETL
+      theory=1  practice=0  md_cells=29  code_cells=28  code_lines=28
+   - ETL_Using_AWS_RDS.ipynb  (md=29, code=28, lines=28)
+         # ETL Pipeline using AWS RDS
+         ## What this notebook is
+         ## The shape of the journey
+         ## What to notice
+         ## What is ETL?
+         ## The Three Steps
+         ## Why ETL?
+         ## What is AWS RDS?
+         ## Setting Up AWS RDS (Step-by-Step)
+         ## Installation
+         ## Phase 1 — Extract
+         ## Download the Dataset
+         ... +20 more headings
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/Interview_Questions
+      theory=0  practice=1  md_cells=24  code_cells=11  code_lines=61
+   - coding_challenges.ipynb  (md=24, code=11, lines=61) [PRACTICE]
+         # Data Analysis Process — Coding Challenges
+         ## How to use this notebook
+         ## The engine of a good answer
+         ## Setup
+         ## Challenge 1
+         ## Challenge 1 — the framing brief
+         ## Challenge 2
+         ## Challenge 2 — the null-rate report
+         ## Challenge 3
+         ## Challenge 3 — standardising messy names
+         ## Challenge 4
+         ## Challenge 4 — coercing a mixed date column
+         ... +14 more headings
+==============================================================================
+UNIT  01_Python/09_Data_Analysis_Process/Tasks_Solutions_01_02_03
+      theory=0  practice=1  md_cells=11  code_cells=19  code_lines=165
+   - Task_27_Solutions__1rTHjrE289QW.ipynb  (md=11, code=19, lines=165) [PRACTICE]
+         # Task 27 — Solutions Walkthrough
+         ## What you are looking at
+         ## The three solution shapes in one glance
+         ## What to compare when you read it
+         ### Problem-1:
+         ## Reading the Problem 1 solution
+         ### Problem-2
+         ## Reading the Problem 2 solution — setup
+         ## The pagination loop — linking, not counting
+         ## Cities to SQL — the SQLAlchemy handshake
+         ### Problem 3:
+         ## Problem 3 — scraping the shopping page
+         ... +2 more headings
+==============================================================================
+UNIT  01_Python/11_Async_Parallel_Python/01_Multithreading_vs_Multiprocessing
+      theory=2  practice=0  md_cells=12  code_cells=8  code_lines=207
+   - 01_concepts_theory.ipynb  (md=6, code=4, lines=108)
+         ## 🐣 Level 0 — Process vs Thread: The DNA Difference 🧬
+         ## 🐥 Level 1 — IO-BOUND vs CPU-BOUND: Which Task, Which Kind of Exhaustion? 🏋️
+         ## 🐔 Level 2 — GIL: Python's Single-Key Lock 🔑
+         ## 🐔 Level 3 — Multiprocessing: Bring in 4 Tea-Stall Owners! 💪
+         ## ⚠️ 5 Classic Mistakes (concurrency edition)
+         ## 📌 Recap — 30 Seconds
+   - 02_comparison_demo.ipynb  (md=6, code=4, lines=99)
+         ## 🏁 Race-1 — 10 Downloads, Two Teams
+         ## 📬 map vs as_completed — Two Ways of a Postman
+         ## 🔒 Race-2 — GIL-Plateau LIVE: 1 vs 2 vs 4 CPU-Threads
+         ## 🏆 Final Scorecard + When-to-Use-What Cheat-Matrix
+         ## 📌 Recap — 30 Seconds
+==============================================================================
+UNIT  01_Python/11_Async_Parallel_Python/02_Async_Await
+      theory=2  practice=1  md_cells=23  code_cells=18  code_lines=291
+   - 01_async_await_theory.ipynb  (md=5, code=3, lines=72)
+         ## 🐣 Level 0 — Your First Coroutine 🥟
+         ## 🐥 Level 1 — `asyncio.gather`: ALL Orders to the Kitchen in One Go! 👨‍🍳
+         ## 🐔 Level 2 — The Storm of 5 Fake-API Calls 🌩️ (working with results!)
+         ## ⚠️ 5 Classic Mistakes (async edition)
+         ## 📌 Recap — 30 Seconds
+   - 02_async_examples.ipynb  (md=6, code=4, lines=92)
+         ## 🐣 Setup + universal run() (the key from the previous notebook!)
+         ### Sets
+         ## 📊 Mini-1 — API-DASH: 3 APIs, One Digest
+         ## 📥 Mini-2 — Progress Downloads (as_completed LIVE!)
+         ## 🛡️ Mini-3 — TIMEOUT-SHIELD: Give the Slow API a Red-Card!
+         ## ⚠️ 3 Combo-Specific Mistakes
+         ## 📌 Recap — 30 Seconds
+   - task.ipynb  (md=12, code=11, lines=127) [PRACTICE]
+         # 🎫 PRACTICAL: Order-Board — 7 Async Orders + BOSS! 👑
+         ## 🎮 Story
+         ## ✅ Order 1 (EASY): Coroutine-Bundle vs Tea Check 🧺
+         ## ✅ Order 2 (EASY): One Tea, Step-by-Step ☕
+         ## ✅ Order 3 (MEDIUM): Sending Orders to the Kitchen with Gather 👨‍🍳
+         ## ✅ Order 4 (MEDIUM): The Secret of Finish ≠ Submit 🏃
+         ## ✅ Order 5 (MEDIUM): Seeded Squad Marks 🎯
+         ### Loops
+         ### When to use
+         ## ✅ Order 6 (HARD): Timeout-Shield 🛡️
+         ## ✅ Order 7 (HARD): Speed-Meter ⏱️ (safe-margin!)
+         ## 👑 BOSS: 10-Assert Head-Waiter Badge (self-contained!) 🏆
+         ... +2 more headings
+==============================================================================
+UNIT  01_Python/11_Async_Parallel_Python/03_Async_IO_Basics
+      theory=1  practice=1  md_cells=18  code_cells=14  code_lines=238
+   - 01_asyncio_basics_theory.ipynb  (md=6, code=3, lines=89)
+         ## 🐣 Level 0 — `create_task`: Take the Order and Walk Off 📝
+         ## 🐥 Level 1 — `Semaphore(2)`: 5 Downloads, ONLY 2 Lanes! 🚦
+         ## 🐔 Level 2 — Per-Task Timeout: Some Fail, the Rest Win! 🏆
+         ## 🌐 The Real World: `aiohttp` (CONCEPT — the sandbox here is offline!)
+         ## ⚠️ 5 Classic Mistakes (IO-toolkit)
+         ## 📌 Recap — 30 Seconds
+   - task.ipynb  (md=12, code=11, lines=149) [PRACTICE]
+         # 🔧 PRACTICAL: Data-Chain ETL — 7 Async Jobs + BOSS! 👑
+         ## 🎮 Story
+         ## ✅ Job 1 (EASY): CSV Read + Clean 🧹
+         ### Loops
+         ### When to use
+         ## ✅ Job 2 (EASY): A New Processor ⚙️
+         ## ✅ Job 3 (MEDIUM): Gather-Map Over ALL 20 🗺️
+         ### Functional tools
+         ## ✅ Job 4 (MEDIUM): Semaphore Lanes 🚦
+         ### Functional tools
+         ## ✅ Job 5 (MEDIUM): Slow-Sensor Red-Card 🛡️
+         ## ✅ Job 6 (HARD): create_task Fire-&-Collect 📝
+         ... +4 more headings
+==============================================================================
+UNIT  01_Python/11_Async_Parallel_Python/04_When_to_Use_Each
+      theory=1  practice=0  md_cells=6  code_cells=2  code_lines=60
+   - 01_decision_guide_theory.ipynb  (md=6, code=2, lines=60)
+         ## 📊 Master Decision-Tree (not memorized — UNDERSTOOD!)
+         ## 🐣 Level 0 — 6-Scenario Quiz (think for yourself first!)
+         ## 🐥 Level 1 — Scorecard: All Three Tools, 6 Metrics 🏆
+         ## 🐔 Level 2 — Production Combos (a mix of real apps!) 🍱
+         # 🔗 1. A BLOCKING-lib inside AsyncIO? Use a ThreadPool shim:
+         # 🔗 2. CPU-crunch in the middle of async tasks? Use a ProcessPool executor:
+         # 🔗 3. OCR pipeline: async(download) → thread(PIL) → process(ocr-CPU)
+         # each stage uses its own best tool — that is production JUGAAD! 😎
+         ## ⚠️ 7 Deadly "Wrong-Tool" Mistakes
+         ## 📌 Recap — Section-12's Golden Frame
+==============================================================================
+UNIT  01_Python/13_Production_Ready_Mindset/01_Clean_Readable_Code
+      theory=2  practice=0  md_cells=9  code_cells=6  code_lines=151
+   - 01_clean_code_principles_theory.ipynb  (md=4, code=3, lines=64)
+         ## 🐣 Level 0 — The Name's Story-Test 🗣️
+         ## 🐥 Level 1 — Small Functions = Small Blame! 🔨
+         ### Functional tools
+         ## ⚠️ 5 Classic Mistakes (Clean-Code)
+         ## 📌 Recap — 30 Seconds
+   - 02_before_after_examples.ipynb  (md=5, code=3, lines=87)
+         ## 🐣 Makeover-1: Sensor-Scam Separator 📡 (BEFORE)
+         ### Loops
+         ### When to use
+         ## 🐥 Makeover-1: AFTER ✅ (names! constants! docstrings! small fns!)
+         ## 🐔 Makeover-2: The Warehouse-Bill Goblin 🧾 (BEFORE → AFTER)
+         ### Loops
+         ### When to use
+         ## ⚠️ 3 Makeover-Specific Mistakes
+         ## 📌 Recap — 15 Seconds
+==============================================================================
+UNIT  01_Python/13_Production_Ready_Mindset/02_Modular_Design
+      theory=2  practice=0  md_cells=12  code_cells=6  code_lines=163
+   - 01_modular_design_theory.ipynb  (md=6, code=3, lines=74)
+         ## 🐣 Level 0 — The `__name__` Mirror 🪞 (the guard-master LIVE!)
+         ## 🐥 Level 1 — Your Own Module: Write + Import (LIVE!) 📦
+         ## 🐔 Level 2 — Package-Tower + the Import-Cycle Trap 🗼🪢
+         ## ⚠️ 5 Classic Mistakes (Modular)
+         ## 📌 Recap — 30 Seconds
+   - 02_refactoring_demo.ipynb  (md=6, code=3, lines=89)
+         ## 📜 BEFORE — MEGA `sensor_etl.py` (concept-print!)
+         # 1-file-etl (meiodule-style ganda):
+         # + report lines CSV likhna + email-format — SAB YAHIN! 😱
+         ## 🐣 Step 1 — Demo-CSV Seed 🧺 (these are the supplies!)
+         ## 🐥 Step 2 — Write the 3 Modules (each-room-expert!) 🧩
+         ## 🐔 Step 3 — MAIN Runner: Tower Built! 🏗️ (import → chain → cleanup)
+         ## ⚠️ 3 Refactor-Specific Mistakes
+         ## 📌 Recap — 15 Seconds
+==============================================================================
+UNIT  01_Python/13_Production_Ready_Mindset/03_Logging_Monitoring_Mindset
+      theory=1  practice=0  md_cells=5  code_cells=2  code_lines=38
+   - 01_logging_mindset_theory.ipynb  (md=5, code=2, lines=38)
+         ## 🐣 Level 0 — Black-Box Setup Live: Timestamps + Levels + FILE 📦
+         ## 🐥 Level 1 — The Magic of ROTATION: Overflow = Self-Archive! 🌀
+         ## 🐔 Level 2 — The Monitoring-Pyramid: ON TOP of Logs (concepts!) 🗼
+         ## ⚠️ 5 Classic Mistakes (Logging-Mindset)
+         ## 📌 Recap — 30 Seconds
+==============================================================================
+UNIT  01_Python/13_Production_Ready_Mindset/04_Reading_Others_Code
+      theory=1  practice=0  md_cells=5  code_cells=3  code_lines=88
+   - 01_reading_code_strategies_theory.ipynb  (md=5, code=3, lines=88)
+         ## 🐣 Step 0 — Materialize a Mystery-Repo 📁 (the teaching spot!)
+         ## 🐥 Step 1+2 — README-Glimpse + TREE + ENTRY-Find 🔍
+         ### Exceptions
+         ## 🐔 Step 3 — One-REQUEST Trace + Run (draw the map, verify it!) 🗺️
+         ### Functional tools
+         ## ⚠️ 5 Classic Mistakes (Reading-Code)
+         ## 📌 Recap — 30 Seconds
+==============================================================================
+UNIT  02-SQL-Databases
+      theory=1  practice=0  md_cells=649  code_cells=317  code_lines=7442
+   - SQL_Databases_Complete.ipynb  (md=649, code=317, lines=7442)
+         # SQL and Relational Database Engineering
+         # Learning Philosophy
+         # Data and Persistent Storage
+         # Database Management Systems
+         # Why Not Store Everything in CSV Files?
+         # Relational Databases
+         # Tables, Rows, Columns, and Values
+         # Relation Versus SQL Table
+         # Schema
+         # Schema Versus Data
+         # Metadata
+         # Domains
+         ... +617 more headings
+==============================================================================
+UNIT  02-SQL-Databases/sql_notes_campusX
+      theory=8  practice=1  md_cells=1711  code_cells=38  code_lines=178
+   - 1. SQL notes.ipynb  (md=449, code=1, lines=0)
+         ## SQL
+         ## MY SQL
+         ## Difference between Relational and NOSQL databases
+         ## Difference between SQL and MYSQL
+         ## Database
+         ### What is a Database?
+         ### Types of Database?
+         ## Relational databases :
+         ## DBMS
+         ## <span class="mark">Difference between DMBS and RDBMS?</span>
+         ## Database keys:
+         ### example :
+         ... +122 more headings
+   - 2. Subqueries & Windows function.ipynb  (md=258, code=2, lines=2)
+         # SUBQUERIES in SQL - Campusx
+         ### Types of Subquries:
+         ### Combination of 2 conditions :
+         ### 2nd example query on 2 conditions:
+         ### Co-related subquery - Not preffered over JOINS and Groupby
+         ### SUB query in SELECT statement
+         ### Not efficient sub-query : SELECT inside SELECT
+         ### <span class="mark">Difference between subqueries and co related sub-queries:</span>
+         ### eg : WHERE e1.department_id = e2.department_id
+         # WINDOW FUNCTIONS
+         ### NOTE : It is mandatory to use OVER () while using WINDOWS Function.
+         ### How WINDOW Function is different from GROUP BY of pandas
+         ... +56 more headings
+   - 3. Datetime_strings.ipynb  (md=220, code=1, lines=0)
+         # DATE TIME - Campusx
+         ### USING TIMESTAMP
+         ### Changing into timestamp datatype using ::timestamp
+         ### Q- Write a query that counts the number of companies acquired within 3 years, 5 years, and 10 years of being founded (in 3 separate columns). Include a column for total companies acquired as well. Group by category and limit to only rows with a founding date.
+         ## Temporal Datatypes (time based data):
+         ## CURRENT
+         ## Extraction
+         ## Date and Time Functions:
+         ## Datetime Formatting
+         ### date-month-year format:
+         ### converting to 12 hours format
+         ### time_format() - converts to specific time format
+         ... +40 more headings
+   - 4. Datatypes,Normalization.ipynb  (md=55, code=0, lines=0)
+         # WEEK 18:
+         # Datatypes in SQL
+         ## Numeric Types :
+         ## String Data Type:
+         ### ENUM and SET :
+         ### 7. BLOB
+         ## Datetime
+         ## Spatial Datatypes
+         ### NOTE : use JSON_EXTRACT with \\$.key_name $\longrightarrow\;$ to extract  the value
+         ### Why cant a single table hold all data?
+         # NORMALIZATION
+         ### 1st Normal Form :
+         ... +5 more headings
+   - 5. VIEWS_User defined functions_Procedures.ipynb  (md=235, code=0, lines=0)
+         # DCL - Data Control Language
+         ### GRANT
+         ### REVOKE :
+         ### NOTE : in GRANT we use "to username" and in REVOKE we use "from username"
+         # VIEWS
+         ### What are Views?
+         ### NOTE :  View never stores data it only stores structure of the table.
+         ## create VIEW Syntax
+         ### Uses of VIEWS:
+         ### Advantages of using view:
+         ### Advantage of using view for security:
+         ### NOTE : client will not be able to see the query behind the view
+         ... +53 more headings
+   - 6. Triggers_Cursors_Transactions.ipynb  (md=98, code=2, lines=0)
+         ## TRIGGERS
+         ### INSERT in TRIGGERS:
+         ### Difference between Stored Procedure and Triggers:
+         ### Types of triggers :
+         ### Advantages of triggers:
+         ### Five common use cases for triggers along with SQL queries:
+         ## CURSORS
+         ### Types of cursors:
+         ### 1. **Implicit Cursors:**
+         ### 2. **Explicit Cursors:**
+         ### Attributes of Cursor:
+         ## Exception Handling
+         ... +13 more headings
+   - 7. Questions in SQL.ipynb  (md=107, code=16, lines=103) [PRACTICE]
+         ## 1. use of CASE on basis of a condition and groupby on cases
+         ### Write a query that counts the number of 300lb+ players for each of the following regions: West Coast (CA, OR, WA), Texas, and Other (everywhere else)
+         ### Write a query that calculates the combined weight of all underclass players (FR/SO) in California as well as the combined weight of all upperclass players (JR/SR) in California.
+         ## 2. COUNT with join of 2 tables and groupby
+         ### Count the number of unique companies (don't double-count companies) and unique acquired companies by state. Do not include results for which there is no state data, and order by the number of acquired companies from highest to lowest.
+         ## 3. Groupby with cases and distinct values
+         ### Write a query that lists investors based on the number of companies in which they are invested. Include a row for companies with no investor, and order from most companies to least.
+         ## 4. Full outer join with count of 3 different tables
+         ### Write a query that joins tutorial.crunchbase_companies and tutorial.crunchbase_investments_part1 using a FULL JOIN. Count up the number of rows that are matched/unmatched .
+         ## 5. creating cases on new dataset created by UNION ALL
+         ## 6. <span class="mark">REGEX and String slicing in sql</span>
+         ### Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+         ... +22 more headings
+   - 8. uploading csv file in mysql database.ipynb  (md=3, code=15, lines=71)
+         ## Uploading csv file to mysql database :
+   - 9. revision.ipynb  (md=286, code=1, lines=2)
+         # 1. SQL notes
+         ## Difference between Relational and NOSQL databases
+         ### Types of Database?
+         ## <span class="mark">Difference between DMBS and RDBMS?</span>
+         ## Difference between DELETE, TRUNCATE and DROP
+         ## DDL vs DML
+         ### 2. Modifying an existing column: use MODIFY
+         ### 4. Adding a new constraint:
+         ### 5. Dropping a constraint:
+         ### NOTE : Constraints cannot be Modified, they need to be deleted and added again in the correct format
+         ### 6. Renaming column names
+         ### DATA INTEGRITY:
+         ... +74 more headings
+==============================================================================
+UNIT  02-SQL-Databases/sql_notes_campusX/Interview
+      theory=0  practice=1  md_cells=46  code_cells=0  code_lines=0
+   - interview_qstns_sql_campusx.ipynb  (md=46, code=0, lines=0) [PRACTICE]
+         ## 1. Database Server Vs Database Client
+         ## 2. What are Database Engines
+         ### Types of database engines:
+         ## 3. Components of DBMS
+         ## 4. What is Collation
+         ## 5. Diff between COUNT(*) and COUNT(col)
+         ## 6. Dealing with NULL values
+         ## 7. DELETE Vs TRUNCATE
+         ## 8. Non-equi joins
+         ## 9. Natural Joins
+         ## 10. Anti Joins
+         ## 11. All and Any Operators
+         ... +1 more headings
+==============================================================================
+UNIT  02-SQL-Databases/sql_notes_campusX/tasks_campusx
+      theory=0  practice=7  md_cells=128  code_cells=14  code_lines=14
+   - Solution_Task_37_Windows_FunctionPart2.ipynb  (md=33, code=2, lines=14) [PRACTICE]
+         ## DataSet: Northwind
+         ## Problem 1-4 : NorthWinddatset https://relational.fit.cvut.cz/dataset/Northwind
+         ### `Q-5`:Show All Products Year Wise report of totalQuantity sold, percentage change from last year.
+         ## Problem 6 - 15
+         ### **`Problem-6:`** For each condition, what is the average satisfaction level of drugs that are "On Label" vs "Off Label"?
+         ### **`Problem-7:`** For each drug type (RX, OTC, RX/OTC), what is the average ease of use and satisfaction level of drugs with a price above the median for their type?
+         ### **`Problem 8:`** What is the cumulative distribution of EaseOfUse ratings for each drug type (RX, OTC, RX/OTC)? Show the results in descending order by drug type and cumulative distribution. (Use the built-in method and the manual method by calculating on your own. For the manual method, use the "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW" and see if you get the same results as the built-in method.)
+         ### **`Problem 9:`** What is the median satisfaction level for each medical condition? Show the results in descending order by median satisfaction level. (Don't repeat the same rows of your result.)
+         ### **`Problem 10:`** What is the running average of the price of drugs for each medical condition? Show the results in ascending order by medical condition and drug name.
+         ### **`Problem 11:`** What is the percentage change in the number of reviews for each drug between the previous row and the current row? Show the results in descending order by percentage change.
+         ### **`Problem 12:`** What is the percentage of total satisfaction level for each drug type (RX, OTC, RX/OTC)? Show the results in descending order by drug type and percentage of total satisfaction.
+         ### **`Problem 13:`** What is the cumulative sum of effective ratings for each medical condition and drug form combination? Show the results in ascending order by medical condition, drug form and the name of the drug.
+         ... +2 more headings
+   - task_32_SQL_DML_Commands.ipynb  (md=14, code=1, lines=0) [PRACTICE]
+         # Task for SQL DML session
+         ## Perform the following queries
+         ### 1. Show records of 'male' patient from 'southwest' region.
+         ### 2. Show all records having bmi in range 30 to 45 both inclusive.
+         ### 3. Show minimum and maximum bloodpressure of diabetic patient who smokes. Make column names as MinBP and MaxBP respectively.
+         ### 4. Find no of unique patients who are not from southwest region.
+         ### 5. Total claim amount from male smoker.
+         ### 6. Select all records of south region.
+         ### 7. No of patient having normal blood pressure. Normal range[90-120]
+         ### 8. No of pateint belo 17 years of age having normal blood pressure as per below formula -
+         ### 9. What is the average claim amount for non-smoking female patients who are diabetic?
+         ### 10. Write a SQL query to update the claim amount for the patient with PatientID = 1234 to 5000.
+         ... +1 more headings
+   - task_33_SQL Grouping_Sorting.ipynb  (md=13, code=0, lines=0) [PRACTICE]
+         ## Sleep Efficiency Dataset
+         ### **`Problem 1:`**
+         ### `Problem 2:` Show avg deep sleep time for both gender. Round result at 2 decimal places.
+         ### **`Problem 3:`**
+         ### `Problem 4:` Group by on exercise frequency and smoking status and show average deep sleep time, average light sleep time and avg rem sleep time.
+         ### `Problem 5:` Group By on Awekning and show AVG Caffeine consumption, AVG Deep sleep time and AVG Alcohol consumption only for people who do exercise atleast 3 days a week. Show result in descending order awekenings
+         ## Power Generation Dataset
+         ### **`Problem 6:`**
+         ## Avg Cost of Undergrad College by State(USA) Dataset-
+         ### **`Problem 7:`**
+         ### `Problem -8:` Best state in terms of low education cost (Tution Fees) in 'Public' type university.
+         ### `Problem 9:` 2nd Costliest state for Private education in year 2021. Consider, Tution and Room fee both.
+         ... +1 more headings
+   - task_34_Joins_SQL.ipynb  (md=22, code=0, lines=0) [PRACTICE]
+         ## Freedom Ranking for Different Countries
+         ### `Q-1` Find out top 10 countries' which have maximum A and D values.
+         ## JOINING 4 tables :
+         ### `Q-2` Find out highest CL value for 2020 for every region. Also sort the result in descending order. Also display the CL values in descending order.
+         ### Same by joing only 2 tables:
+         ## Dataset
+         ### `Q-3` Find top-5 most sold products.
+         ### `Q-4:` Find sales man who sold most no of products.
+         ### `Q-5:` Sales man name who has most no of unique customer.
+         ### `Q-6:` Sales man who has generated most revenue. Show top 5.
+         ### `Q-7:` List all customers who have made more than 10 purchases.
+         ### `Q-8` : List all salespeople who have made sales to more than 5 customers.
+         ... +3 more headings
+   - task_35_Subqueries_in_SQL.ipynb  (md=16, code=9, lines=0) [PRACTICE]
+         # SQL SubQuery
+         ## How to load the dataset(s) to SQL?
+         ## Problems 1-6
+         ### Problem 1
+         ### Problem 2
+         ### Problem 3
+         ### Problem 4
+         ### Problem 5
+         ### Problem 6
+         ## Problem 7 - 10
+         ### Problem 7
+         ### Problem 8
+         ... +3 more headings
+   - task_36_Window_Functions.ipynb  (md=13, code=1, lines=0) [PRACTICE]
+         ## **Note: Try to avoid *GROUP BY* clause to solve the problems**
+         ### **Problem 1:** What are the top 5 patients who claimed the highest insurance amounts?
+         ### **Problem 2:** What is the average insurance claimed by patients based on the number of children they have?
+         ### **Problem 3:** What is the highest and lowest claimed amount by patients in each region?
+         ### **Problem 4:** What is the percentage of smokers in each age group?
+         ### **Problem 5:** What is the difference between the claimed amount of each patient and the first claimed amount of the first patient?
+         ### **Problem 6:** For each patient, calculate the difference between their claimed amount and the average claimed amount of patients with the same number of children.
+         ### **Problem 7:** Show the patient with the highest BMI in each region and their respective rank.
+         ### **<span class="burk">Problem 8</span>:** Calculate the difference between the claimed amount of each patient and the claimed amount of the patient who has the highest BMI in their region.
+         ### **Problem 9:** For each patient, calculate the difference in claim amount between patient with the highest claim amount with smoker status and within the same region and each patient with the same smoker status, within the that region. Return the result in descending order difference.
+         ### **<span class="burk">Problem 10</span>:** For each patient, find the maximum BMI value among their next three records (ordered by age).
+         ### **<span class="burk">Problem 11</span>:** For each patient, find the rolling average of the last 2 claims.
+         ... +1 more headings
+   - task_37_Windows_function_part2.ipynb  (md=17, code=1, lines=0) [PRACTICE]
+         ## Problem 1-4 : NorthWinddatset https://relational.fit.cvut.cz/dataset/Northwind
+         ### `Q-1`: Rank Employee in terms of revenue generation. Show employee id, first name, revenue, and rank
+         ### `Q-2`: Show All products cumulative sum of units sold each month.
+         ### `Q-3`: Show Percentage of total revenue by each suppliers
+         ### `Q-4:` Show Percentage of total orders by each suppliers
+         ### `Q-5`:Show All Products Year Wise report of totalQuantity sold, percentage change from last year.
+         ## Problem 6 - 15
+         ### **`Problem-6:`** For each condition, what is the average satisfaction level of drugs that are "On Label" vs "Off Label"?
+         ### **`Problem-7:`** For each drug type (RX, OTC, RX/OTC), what is the average ease of use and satisfaction level of drugs with a price above the median for their type?
+         ### **`Problem 8:`** What is the cumulative distribution of EaseOfUse ratings for each drug type (RX, OTC, RX/OTC)? Show the results in descending order by drug type and cumulative distribution. (Use the built-in method and the manual method by calculating on your own. For the manual method, use the "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW" and see if you get the same results as the built-in method.)
+         ### **`Problem 9:`** What is the median satisfaction level for each medical condition? Show the results in descending order by median satisfaction level. (Don't repeat the same rows of your result.)
+         ### **`Problem 10:`** What is the running average of the price of drugs for each medical condition? Show the results in ascending order by medical condition and drug name.
+         ... +5 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/01. Introduction to DSA and Python Basics
+      theory=1  practice=0  md_cells=40  code_cells=90  code_lines=195
+   - python-refresher.ipynb  (md=40, code=90, lines=195)
+         ## Why Data Structures & Algorithms Matter
+         ## Time vs Space Complexity and Big-O Notation
+         ### Operations vs Complexity Table
+         ## Common Complexities Ranked
+         ### Rule of thumb
+         ## Python Refresher: Built-in Types You Must Know
+         ### list -- mutable, ordered sequence
+         ### tuple -- immutable, ordered sequence
+         # Cannot mutate: point[0] = 5 raises TypeError
+         # Slightly faster and more memory-efficient than list
+         # Can be used as dict keys (lists cannot)
+         ### dict -- key-value hash map
+         ... +41 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/02. Arrays & Lists
+      theory=2  practice=1  md_cells=74  code_cells=114  code_lines=210
+   - arrays-practice-problems.ipynb  (md=10, code=5, lines=40) [PRACTICE]
+         ## Array & List Problem-Solving Framework
+         ### Classic Problem Patterns
+         ### Steps to Solve an Array Coding Question
+         ### Quick Complexity Reference
+         ## Practice Coding Problems on Arrays
+         ### Finding Maximum — Pattern: Linear Scan
+         ### 1. Find the Largest Number in a List
+         ### Counting — Pattern: Linear Scan with Condition
+         ### 2. Count Occurrences of an Element
+         ### Removing Duplicates — Pattern: Seen Set
+         ### 3. Remove Duplicates from a List
+         ### Reversing — Pattern: Two Pointers / Index Walk
+         ... +1 more headings
+   - arrays.ipynb  (md=26, code=41, lines=64)
+         ## What is an Array?
+         ### Python `array` Module
+         ### Array vs List
+         ### Common Operations
+         ### When to Use
+         ### Arrays
+         ### Python `array` Module
+         ### NumPy Arrays
+         ### Vectorization Explained
+   - lists.ipynb  (md=38, code=68, lines=106)
+         ## Python Lists — Dynamic Arrays Under the Hood
+         ### How Lists Work Internally
+         ### Amortized O(1) Append
+         ### List vs Tuple vs array.array
+         ### Common Operations & Complexity
+         ### Interview Patterns Teaser
+         ### Lists
+         ### 1D List Operations
+         ### Insertion Methods
+         ### Merging Strategies
+         ### Deletion Methods
+         ### Counting and Searching
+         ... +3 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/03. Strings
+      theory=4  practice=0  md_cells=82  code_cells=124  code_lines=236
+   - coding-problems.ipynb  (md=14, code=13, lines=63)
+         ## Classic String Coding Problems
+         ### 1. Count Vowels and Consonants
+         ### 2. Count Frequency of Characters
+         ### 3. Palindrome Check
+         ### 4. Check for Anagrams
+         ### General Tips
+         ## Coding Problems
+         ### Approach: Single-Pass Character Classification
+         ### 1. Count Vowels and Consonents
+         ### Three Ways to Count
+         ### 2. Count Frequency of Characters
+         ### Palindrome Strategies
+         ... +3 more headings
+   - string-comparison.ipynb  (md=8, code=12, lines=20)
+         ## Comparing Strings Correctly
+         ### Identity vs Equality
+         ### Unicode and Normalization
+         ### Case Folding vs lower
+         ### Lexicographic Order
+         ### Performance
+         ## String Comparison
+         ### How Lexicographic Comparison Works
+         ### Lexicographically
+         ### Case-Sensitivity in Comparisons
+         ### Case-sensitivity
+         ### Sorting Strings
+         ... +2 more headings
+   - string-manipulation.ipynb  (md=37, code=46, lines=58)
+         ## String Manipulation Patterns
+         ### Core Patterns
+         ### Two-Pointer Technique on Strings
+         ### Frequency Counting
+         ### Practical Tips
+         ## String Manipulation Techniques
+         ### 1. Case Conversion
+         ### Whitespace Cleaning Strategies
+         ### 2. Whitespace Handling
+         ### find vs index vs in
+         ### 3. Searching & Finding
+         ### 4. Validation Checks
+         ... +5 more headings
+   - strings.ipynb  (md=23, code=53, lines=95)
+         ## Strings in Python — Foundations
+         ### Immutability Consequences
+         ### Common Operations and Complexity
+         ### Character Frequency Counting
+         # Manual dict
+         # collections.Counter (one-liner)
+         ### ASCII Helpers: ord and chr
+         ### When to Use Lists of Characters
+         ## Strings Demo
+         ### 1. Strings in Python
+         ### 2. Properties of Strings
+         ### Immutability in Detail
+         ... +4 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/04. Linked Lists
+      theory=5  practice=0  md_cells=42  code_cells=161  code_lines=968
+   - 1-singly-linked-list.ipynb  (md=7, code=40, lines=163)
+         ## Why Linked Lists?
+         ## Linked List vs Array
+         ## Operation Complexity: Head vs Tail
+         ## Reversal and the Dummy-Node Trick
+         ### What You Will Implement Below
+         ### Edge Cases to Watch
+         ### Singly Linked List
+   - 2-circular-singly-linked-list.ipynb  (md=6, code=41, lines=193)
+         ## Circular Singly Linked List: Why Circular?
+         ## Traversal, Stopping Condition, and Cycle Detection
+         ## Operation Complexity
+         ### What You Will Implement Below
+         ### Circular-Specific Traps
+         ### Circular Singly Linked List
+   - 3-doubly-linked-list.ipynb  (md=6, code=42, lines=205)
+         ## Doubly Linked List: The Prev Pointer
+         ## Where Doubly Linked Lists Shine: LRU Caches
+         ## Doubly Linked List Complexity
+         ### What You Will Implement Below
+         ### Doubly-Specific Traps
+         ### Doubly Linked List
+   - 4-circular-doubly-linked-list.ipynb  (md=6, code=30, lines=204)
+         ## Circular Doubly Linked List: The Best of Both
+         ## Empty-List Handling and Invariants
+         ## Complexity at a Glance
+         ### What You Will Implement Below
+         ### The Ring Invariants, Applied
+         ### Circular Doubly Linked List
+   - coding-problems.ipynb  (md=17, code=8, lines=203)
+         ## Classic Linked List Interview Problems
+         ## 1. Reverse a Linked List
+         ## 2. Detect a Cycle (Fast and Slow Pointers)
+         ## 3. Find the Middle Node
+         ## 4. Merge Two Sorted Linked Lists
+         ## 5. Remove the n-th Node From the End
+         ## 6. Palindrome Check
+         ## 7. Reorder List
+         ## Coding Problems
+         ### Approach and Complexity
+         ### 1. Find the Middle Element of a Linked List
+         ### Approach and Complexity
+         ... +5 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/05. Stacks
+      theory=4  practice=0  md_cells=23  code_cells=48  code_lines=200
+   - 1-stack-using-list.ipynb  (md=5, code=13, lines=60)
+         ## Stack Fundamentals: Last In, First Out
+         ## The Call-Stack Analogy
+         ## Caveats of a List-Based Stack
+         ### What You Will Implement Below
+         ### Implementing Stack using `List`
+   - 2-stack-using-collections.ipynb  (md=4, code=16, lines=18)
+         ## Why collections.deque for Stacks?
+         ## Stack Implementation: Efficiency Comparison
+         ### What You Will Implement Below
+         ### Implementing Stack using `collections`
+   - 3-stack-using-linked-list.ipynb  (md=5, code=12, lines=64)
+         ## Linked-List Stack: No Resize, No Shifting
+         ## Operation Complexity
+         ## When to Choose a Linked-List Stack
+         ### What You Will Implement Below
+         ### Implementing Stack using `Linked List`
+   - 4-coding-problems.ipynb  (md=9, code=7, lines=58)
+         ## The Stack Problem Toolkit
+         ## Key Stack Problem Summaries
+         ## Coding Problems using Stacks
+         ### Approach and Complexity
+         ### 1. Reverse a String using Stack
+         ### Approach and Complexity
+         ### 2. Check Balanced Parentheses
+         ### Approach and Complexity
+         ### 3. Undo Operation Simulation
+==============================================================================
+UNIT  05-DSA-for-AI/06. Queues
+      theory=4  practice=0  md_cells=29  code_cells=60  code_lines=279
+   - 1-queue-using-list.ipynb  (md=6, code=14, lines=60)
+         ### What is a Queue?
+         ### Queue using a Python List
+         ### When is a List-Based Queue Acceptable?
+         ### Implementing a Queue using Python List
+         ### Implementing Queue using List
+   - 2-queue-using-linked-list.ipynb  (md=6, code=14, lines=76)
+         ### Queue using a Linked List
+         ### Complexity Comparison
+         ### Linked List vs Array Queue -- Key Takeaways
+         ### Implementing a Queue using Linked List
+         ### Implementing Queue using Linked List
+   - 3-queue-using-collections.ipynb  (md=6, code=14, lines=61)
+         ### Why `collections.deque`?
+         ### Thread Safety and Practical Notes
+         ### Sliding Window Maximum -- Why Deque Shines
+         ### Implementing a Queue using `collections.deque`
+         ### Implementing Queue using `collections`
+   - 4-coding-problems.ipynb  (md=11, code=18, lines=82)
+         ### Queue Problem Patterns
+         ## Coding Problems using Queues
+         ### Queue using Two Stacks
+         ### 1. Queue using Stack
+         ### Reverse First k Elements
+         ### 2. Reverse first `k` in a Queue
+         ### Ticket Counter Simulation
+         ### 3. Ticket Counter
+==============================================================================
+UNIT  05-DSA-for-AI/07. Searching
+      theory=3  practice=0  md_cells=22  code_cells=16  code_lines=56
+   - 1-linear-search.ipynb  (md=6, code=5, lines=9)
+         ### What is Linear Search?
+         ### When Linear Search Wins
+         ### Sentinel Optimization
+         ### Linear Search -- The Baseline
+         ## Linear Search
+   - 2-binary-search.ipynb  (md=10, code=5, lines=16)
+         ### Binary Search: The Single Most Important Searching Pattern
+         ### Loop Invariants and the Classic Template
+         ### Integer-Overflow-Safe Mid Calculation
+         ### Binary Search on Answer
+         ### First and Last Occurrence
+         ### Rotated Array Search
+         ### Common Pitfalls and Off-by-One Errors
+         ### Binary Search -- Halving the Search Space
+         ## Binary Search
+   - 3-exponential-search.ipynb  (md=6, code=6, lines=31)
+         ### Exponential Search: Searching Without Knowing the Size
+         ### Why Two Phases?
+         ### When to Use Exponential Search
+         ### Exponential Search -- For Unknown or Unbounded Arrays
+         ## Exponential Search
+==============================================================================
+UNIT  05-DSA-for-AI/08. Sorting
+      theory=6  practice=0  md_cells=26  code_cells=22  code_lines=95
+   - 1-bubble-sort.ipynb  (md=4, code=5, lines=13)
+         ## What Is Sorting?
+         ## Why Bubble Sort Exists
+         ### How the Code Works
+         ## Bubble Sort
+   - 2-selection-sort.ipynb  (md=4, code=4, lines=13)
+         ## Selection Sort: Find the Minimum, Swap to Front
+         ## When Is Selection Sort Still Relevant?
+         ### How the Code Works
+         ## Selection Sort
+   - 3-insertion-sort.ipynb  (md=4, code=3, lines=12)
+         ## Insertion Sort: Build a Sorted Prefix
+         ## Why Insertion Sort Shines in Practice
+         ### How the Code Works
+         ## Insertion Sort
+   - 4-merge-sort.ipynb  (md=4, code=4, lines=31)
+         ## Merge Sort: Divide, Conquer, Combine
+         ## Why Python's Built-in Sort Is Not Pure Merge Sort
+         ### How the Code Works
+         ## Merge Sort
+   - 5-quick-sort.ipynb  (md=5, code=3, lines=12)
+         ## Quick Sort: Partition Around a Pivot
+         ## Lomuto vs Hoare Partition Schemes
+         ## Why Quick Sort Wins in Practice
+         ### How the Code Works
+         ## Quick Sort
+   - 6-count-sort.ipynb  (md=5, code=3, lines=14)
+         ## Counting Sort: Break the Comparison Barrier
+         ## Stability and the Prefix-Sum Construction
+         ## Limitations and Alternatives
+         ### How the Code Works
+         ## Count Sort
+==============================================================================
+UNIT  05-DSA-for-AI/09. Recursion
+      theory=2  practice=0  md_cells=24  code_cells=15  code_lines=43
+   - coding-problems.ipynb  (md=11, code=10, lines=31)
+         ## The Recursion Problem Toolkit
+         ### Power / Exponentiation (O(k))
+         ### Subsequences (O(2^n))
+         ### Permutations (O(n!))
+         ### Combinations -- Choose k from n (O(C(n,k) × k))
+         ### N-Queens Model (O(N!))
+         ### Subset-Sum (O(2^n))
+         ### Tree Traversals (O(n))
+         ### Memoization -- Kill Exponential Blowup
+         ## Recurrence Relations: Analysing Recursive Code
+         ## Coding Problems on Recursion
+         ### Print N Down to 1 -- Recursion as a Loop Replacement
+         ... +7 more headings
+   - recursion.ipynb  (md=13, code=5, lines=12)
+         ## What Is Recursion?
+         ## The Call Stack and Stack Frames
+         ## Recursion Tree Visualization
+         ## Walkthrough: Factorial
+         ## Walkthrough: Fibonacci
+         ## When to Use Recursion -- and When to Avoid
+         ## Converting Recursion to Iteration
+         # Recursive
+         # Iterative with explicit stack
+         ## Why Recursion Matters for AI and DSA
+         ## Recursion
+         ### Factorial -- Your First Recursive Function
+         ... +3 more headings
+==============================================================================
+UNIT  05-DSA-for-AI/10. Hashing
+      theory=6  practice=0  md_cells=52  code_cells=60  code_lines=224
+   - coding-problems.ipynb  (md=8, code=9, lines=26)
+         ## Hashing Problem Patterns
+         ### Pattern 1: Two-Sum Style
+         ### Pattern 2: Frequency Counting
+         ### Pattern 3: Duplicate Detection
+         ### Pattern 4: Sliding Window with Hash
+         ### Pattern 5: Grouping by Key
+         ## Coding Problems
+         ### How Character Counting Works
+         ### 1. Character Count
+         ### Two-Pass Frequency Approach
+         ### 2. First Non-repeating Character
+         ### Complement Lookup Pattern
+         ... +1 more headings
+   - collision-handling.ipynb  (md=8, code=10, lines=118)
+         ## Collision Handling Techniques
+         ### Chaining (Separate Chaining)
+         ### Open Addressing
+         ### Load Factor and Rehashing
+         ### Python's Actual Strategy
+         ### Worst-Case O(n) and Hash Attacks
+         ## Collision Handling Techniques
+         ### How Chaining Works
+         ### 1. Chaining
+         ### How Linear Probing Works
+         ### 2. Linear Probing
+         ### How Quadratic Probing Works
+         ... +1 more headings
+   - common-operations-dict.ipynb  (md=14, code=21, lines=36)
+         ## Dict Operations and Complexity
+         ### Views: keys(), values(), items()
+         ### Constructing Dicts from Pairs
+         ### defaultdict and Counter
+         ### When Dict Beats List
+         ## Hashing Operations using Dictionary
+         ### How Dict Insertion Works
+         ### Insertion
+         ### How Dict Lookup Works
+         ### Searching
+         ### How Dict Update Works
+         ### Update
+         ... +6 more headings
+   - common-operations-set.ipynb  (md=10, code=10, lines=15)
+         ## Set Semantics and Operations
+         ### When to Use Set vs List vs Dict
+         ## Hashing Operations using Sets
+         ### How Set Insertion Works
+         ### Insertion
+         ### How Set Membership Testing Works
+         ### Searching / Membership
+         ### How Set Deletion Works
+         ### Deletion
+         ### Iterating Over a Set
+         ### Iteration
+   - hashing-collision.ipynb  (md=1, code=2, lines=9)
+         ## What Is a Hash Collision?
+         ### Why Collisions Are Inevitable
+         ### The Birthday Paradox Intuition
+   - hashing-functions.ipynb  (md=11, code=8, lines=20)
+         ## What Is a Hash Function?
+         ## Qualities of a Good Hash Function
+         ## Hashing Functions
+         ### How the Simple Hash Works
+         ### 1. Simple Hash
+         ### How the Multiplicative Hash Works
+         ### 2. Multiplicative Hash
+         ### How DJB2 Works
+         ### 3. DJB2
+         ### Python's Built-in hash()
+         ### 4. `hash` built-in function
+==============================================================================
+UNIT  05-DSA-for-AI/11. Problem Solving
+      theory=7  practice=0  md_cells=105  code_cells=56  code_lines=481
+   - 1-sliding-window.ipynb  (md=15, code=7, lines=54)
+         ## Sliding Window
+         ### 1. Maximum Sum Subarray of Size K
+         ### 2. Longest Substring Without Repeating Characters
+         ### 3. Find All Anagrams in a String
+   - 2-two-pointers.ipynb  (md=15, code=7, lines=44)
+         ## Two Pointers Technique
+         ### 1. Remove Duplicates from Sorted Array
+         ### 2. Find All Unique Triplets
+         ### 3. Two Sum II (Input Sorted Array)
+   - 3-slow-and-fast-pointers.ipynb  (md=15, code=11, lines=135)
+         ## Fast & Slow Pointer
+         ### 1. Detect Cycle in Linked List
+         ### 2. Find the Start of the Cycle in Linked List
+         ### 3. Find Duplicate Number (`Floyd Cycle Detection on Arrays`)
+   - 4-prefix-sum.ipynb  (md=15, code=10, lines=48)
+         ## Prefix Sum
+         ### 1. Subarray Sum Equals `K`
+         ### 2. Longest Subarray with Equal `0s` and `1s`
+         ### 3. Count Subarrays Divisible by `K`
+   - 5-hashing.ipynb  (md=15, code=8, lines=45)
+         ## Hashing
+         ### 1. Top K Frequent Elements
+         ### 2. Valid Anagram
+         ### 3. Isomorphic Strings
+   - 6-binary-search.ipynb  (md=15, code=7, lines=107)
+         ## Binary Search Pattern
+         ### 1. First and Last Occurrence in Sorted Array
+         ### 2. Minimum Days to Make Bouquets
+         ### 3. Aggressive Cows
+   - 7-greedy-approach.ipynb  (md=15, code=6, lines=48)
+         ## Greedy Approach
+         ### 1. Activity Selection (Interval Scheduling)
+         ### 2. Minimum Platforms (Railway station problem)
+         ### 3. Jump Game
+==============================================================================
+UNIT  05-DSA-for-AI/12. Trees
+      theory=4  practice=0  md_cells=57  code_cells=71  code_lines=356
+   - binary-search-tree.ipynb  (md=11, code=18, lines=71)
+         ## Binary Search Trees (BST) — Theory
+         ## Average vs Worst-Case Complexity
+         ## BST Operations
+         ### Insertion
+         ### Search
+         ### Deletion
+         ### Min / Max
+         ### Inorder = Sorted
+         ## Balanced BST Variants
+         ## Binary Search Trees (BST)
+         ### 1. Tree Creation
+         ### The BST Property
+         ... +4 more headings
+   - coding-problems.ipynb  (md=23, code=33, lines=181)
+         ## Tree Problem Toolkit
+         ## General Tips for Tree Problems
+         ## Coding Problems on Trees
+         ## Problem 1: Maximum Depth
+         ### 1. Maximum Depth of a Binary Tree
+         ## Problem 2: Count Nodes
+         ### 2. Count Number of Nodes in a Binary Tree
+         ## Problem 3: Tree Sum
+         ### 3. Sum of All Nodes in Binary Tree
+         ## Problem 4: Validate BST
+         ### 4. Validate a Binary Search Tree
+         ## Problem 5: Lowest Common Ancestor (BST)
+         ... +11 more headings
+   - N-ary-tree.ipynb  (md=12, code=9, lines=44)
+         ## N-ary Trees (General Trees)
+         ## Representation
+         ## Traversal Orders
+         ## Complexity
+         ## N-ary Trees
+         ### 0. Setup
+         ### Preorder on N-ary Trees
+         ### 1. Preorder Traversal
+         ### Postorder on N-ary Trees
+         ### 2. Postorder Traversal
+         ### Level-order (BFS) on N-ary Trees
+         ### 4. Level Order Traversal
+   - tree-traversal.ipynb  (md=11, code=11, lines=60)
+         ## Trees — Fundamental Concepts
+         ## Binary Trees
+         ## Tree Traversals
+         ## Complexity
+         ## Traversals on Trees
+         ### Tree Terminology Recap
+         ### 0. Creating the Tree
+         ### 1. Preorder Traversal
+         ### 2. Inorder Traversal
+         ### 3. Postorder Traversal
+         ### 4. Level Order Traversal
+==============================================================================
+UNIT  05-DSA-for-AI/13. Graphs
+      theory=17  practice=0  md_cells=167  code_cells=141  code_lines=1142
+   - 01-dfs.ipynb  (md=9, code=3, lines=24)
+         ## Depth First Search — Theory
+         ## Graph Representations
+         ## DFS Complexity
+         ## DFS Applications
+         ## Depth First Search
+         ### Building an Adjacency List
+         ### Graph Creation
+         ### DFS Traversal — Recursive vs Iterative
+         # Recursive DFS
+         # Iterative DFS
+         ### Traversal
+   - 02-bfs.ipynb  (md=9, code=4, lines=27)
+         ## Breadth First Search — Theory
+         ## BFS Algorithm
+         ## BFS Complexity
+         ## BFS Applications
+         ## Breadth First Search
+         ### Setting Up the Graph
+         ### Graph Creation
+         ### BFS Traversal — Queue-based
+         ### Traversal
+   - 03-multi-source-bfs.ipynb  (md=8, code=6, lines=31)
+         ## Multi-Source BFS — Theory
+         ## Why It Works
+         ## Complexity
+         ## Multi-Source Breadth First Search
+         ### Multi-Source Setup
+         ### Graph Creation
+         ### BFS from Multiple Sources
+         ### Traversal
+   - 04-zero-one-bfs.ipynb  (md=8, code=4, lines=34)
+         ## 0-1 BFS — Theory
+         ## Algorithm
+         ## Complexity and When to Use
+         ## 0-1 Breadth First Search
+         ### Graph with 0/1 Weights
+         ### Graph Creation
+         ### 0-1 BFS Traversal
+         ### Traversal
+   - 05-dijkstra's-algorithm.ipynb  (md=9, code=5, lines=35)
+         ## Dijkstra's Algorithm — Theory
+         ## How It Works (Greedy Invariant)
+         ## Complexity
+         ## Implementation with heapq
+         ## Dijkstra's Algorithm
+         ### Weighted Graph Representation
+         ### Graph Creation
+         ### Dijkstra's Traversal — Priority Queue
+         ### Traversal
+   - 06-bellman-ford-algorithm.ipynb  (md=9, code=6, lines=49)
+         ## Bellman-Ford Algorithm — Theory
+         ## How It Works
+         ## Complexity
+         ## Detecting Negative Cycles
+         # Negative cycle check (after V-1 rounds)
+         ## Bellman-Ford Algorithm
+         ### Edge List Representation
+         ### Graph Creation
+         ### Bellman-Ford Traversal — Relaxation Rounds
+         # Check for negative cycle
+         ### Traversal
+   - 07-floyd-warshall.ipynb  (md=9, code=3, lines=42)
+         ## Floyd-Warshall Algorithm — Theory
+         ## Dynamic Programming Formulation
+         ## Complexity
+         ## Path Reconstruction and Negative Cycle Detection
+         ## Floyd-Warshall Algorithm
+         ### Distance Matrix Initialization
+         ### Graph Creation
+         ### Floyd-Warshall — Triple Nested Loop
+         # Negative cycle check
+         ### Traversal
+   - 08-dsu.ipynb  (md=6, code=4, lines=31)
+         ## Disjoint Set Union (DSU) — Theory
+         ## Optimizations
+         ## Complexity
+         ## Applications
+         ### DSU in Practice
+         ## Disjoint Set Union (DSU)
+   - 09-prim's-algorithm.ipynb  (md=9, code=5, lines=40)
+         ## Prim's Algorithm — Minimum Spanning Tree
+         ## Priority Queue Implementation
+         ## Prim vs Dijkstra — A Subtle Difference
+         ## When to Use Prim's
+         ## Prim's Algorithm
+         ### Weighted Undirected Graph Representation
+         ### Graph
+         ### How the Priority Queue Variant Works
+         ### Algorithm
+   - 10-kruskal's-algorithm.ipynb  (md=9, code=4, lines=57)
+         ## Kruskal's Algorithm — Edge-Centric MST
+         ## Correctness — The Cut Property
+         ## Complexity Analysis
+         ## When to Pick Kruskal's vs Prim's
+         ## Kruskal's Algorithm
+         ### Edge List Representation
+         ### Graph
+         ### DSU (Disjoint Set Union) with Path Compression
+         ### Algorithm
+   - 11-rat-in-a-maze.ipynb  (md=9, code=10, lines=33)
+         ## Rat in a Maze — Grid Pathfinding
+         ## BFS vs DFS Approach
+         ## Complexity Analysis
+         ## Rat in a Maze
+         ### Grid as a Graph
+         ### Graph Setup
+         ### BFS Walkthrough
+         ### Algorithm
+   - 12-8-puzzle.ipynb  (md=10, code=10, lines=42)
+         ## 8 Puzzle — State-Space Search
+         ## Representing States and Transitions
+         ## Search Algorithms on the State Graph
+         ## Complexity and Heuristics
+         ## 8 Puzzle
+         ### States as Board Configurations
+         ### Setup
+         ### BFS on the State Graph
+         ### Algorithm
+   - 13-kahn's-algorithm.ipynb  (md=9, code=4, lines=39)
+         ## Kahn's Algorithm — Topological Sort via In-Degree
+         ## The Algorithm
+         ## Complexity Analysis
+         ## Applications
+         ## Kahn's Algorithm
+         ### Directed Graph and In-Degree
+         ### Setup
+         ### Kahn's Algorithm Walkthrough
+         ### Algorithm
+   - 14-shortest-path-dag.ipynb  (md=9, code=5, lines=57)
+         ## Shortest Path in a DAG
+         ## The Algorithm
+         ## Complexity and Comparison
+         ## Why Negative Edges Are Fine
+         ## Shortest Path DAG
+         ### Weighted DAG with Source Vertex
+         ### Setup
+         ### Topological Sort + Single-Pass Relaxation
+         ### Algorithm
+   - 15-longest-path-dag.ipynb  (md=9, code=5, lines=53)
+         ## Longest Path in a DAG
+         ## The Algorithm
+         ## Negative Edges — The Trick
+         ## Applications
+         ## Longest Path DAG
+         ### Same DAG, Different Objective
+         ### Setup
+         ### Topological Sort + Max Relaxation
+         ### Algorithm
+   - 16-counting-path-dag.ipynb  (md=9, code=5, lines=54)
+         ## Counting Paths in a DAG
+         ## The Algorithm
+         ## Complexity and Properties
+         ## Connection to Other DAG Algorithms
+         ## Counting Path DAG
+         ### Same DAG, Counting Reachable Paths
+         ### Setup
+         ### Topological DP for Path Counting
+         ### Algorithm
+   - 17-coding-problems.ipynb  (md=27, code=58, lines=494)
+         ## Graph Problem Toolkit
+         ## Problem Categories
+         ## Common Patterns
+         ## Complexity Reference
+         ## Coding Problems on Graphs
+         ### DFS with Parent Tracking
+         ### 1. Detect Cycle in Undirected Graph
+         ### Connected Components in a Grid
+         ### 2. Number of Islands
+         ### 3. Clone a Graph
+         ### 2-Colouring with DFS
+         ### 4. Bipartite Graph Check
+         ... +13 more headings
+==============================================================================
+TOTAL notebooks: 224
+TOTAL units:     73
+TOTAL cells:     11200

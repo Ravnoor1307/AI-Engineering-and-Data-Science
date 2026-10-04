@@ -1,0 +1,576 @@
+You are working inside:
+
+AI-Engineering-Foundations
+
+TASK
+
+Create comprehensive study notes for the course notebooks.
+
+The Jupyter notebooks remain the primary executable learning material.
+
+The notes are a SEPARATE polished reference/study resource derived from those notebooks.
+
+For every meaningful THEORY unit/folder, create its own notes in BOTH:
+
+1. HTML
+2. PDF
+
+For example:
+
+01-Python/
+├── 01-Core-Fundamentals/
+│   ├── existing notebooks...
+│   └── Notes/
+│       ├── Core_Fundamentals_Notes.html
+│       └── Core_Fundamentals_Notes.pdf
+│
+├── 02-Data-Structures/
+│   └── Notes/
+│       ├── Data_Structures_Notes.html
+│       └── Data_Structures_Notes.pdf
+│
+├── 08-NumPy/
+│   └── Notes/
+│       ├── NumPy_Notes.html
+│       └── NumPy_Notes.pdf
+│
+└── 09-Pandas/
+    └── Notes/
+        ├── Pandas_Notes.html
+        └── Pandas_Notes.pdf
+
+Do NOT create one PDF per notebook unless explicitly requested.
+
+The normal rule is:
+
+ONE comprehensive notes document per meaningful unit/folder.
+
+For example, all Pandas theory notebooks should be synthesized into:
+
+Pandas_Notes.html
+Pandas_Notes.pdf
+
+and not into 18 separate PDFs.
+
+SOURCE OF TRUTH
+
+Before creating notes for a folder:
+
+1. Discover all .ipynb files in that folder.
+2. Identify theory notebooks.
+3. Identify Practice and Solutions notebooks.
+4. Read the theory notebooks in curriculum/file-name order.
+5. Analyze their Markdown and code cells.
+6. Determine all concepts taught across the unit.
+7. Build the notes from that material.
+8. Use your technical knowledge to improve explanation where necessary, but do not contradict the notebooks or invent repository-specific facts.
+
+Practice notebooks and solution notebooks should NOT normally be copied into the notes.
+
+You may use them only to understand what skills the unit expects.
+
+The notes must be a SYNTHESIS, not a raw notebook conversion.
+
+DO NOT simply run:
+
+jupyter nbconvert --to html
+
+on all notebooks and call that "notes."
+
+I want professionally structured study notes.
+
+LEARNING STANDARD
+
+The learner starts from zero.
+
+My requirement is:
+
+"I want to learn each and every concept for each topic."
+
+The notes should therefore cover, where relevant:
+
+- definition
+- motivation
+- first principles
+- terminology
+- mental model
+- syntax
+- semantics
+- internal behavior where educationally useful
+- multiple examples
+- common patterns
+- edge cases
+- common mistakes
+- debugging implications
+- performance considerations
+- memory considerations
+- security implications where relevant
+- practical usage
+- AI/ML/AI-engineering relevance
+- best practices
+- important API details
+- comparisons with related concepts
+- concise revision summaries
+
+Do not reduce comprehensive notebook material into superficial cheat sheets.
+
+These are detailed course notes first and revision material second.
+
+NOTES ORGANIZATION
+
+Each notes document should begin with:
+
+- unit title
+- what the unit teaches
+- prerequisites
+- learning objectives
+- table of contents
+
+Then organize the material conceptually in the same logical progression as the notebooks.
+
+Do NOT mechanically create a chapter called "Notebook 1", "Notebook 2", etc.
+
+The reader should experience the notes as one coherent book/chapter for that unit.
+
+For example, Pandas notes might naturally contain topics such as:
+
+- Introduction to Pandas
+- Series
+- DataFrames
+- Indexes
+- Selection
+- Data Types
+- Missing Data
+- Cleaning
+- String Operations
+- Date and Time Data
+- GroupBy
+- Aggregation
+- Merging and Joining
+- Reshaping
+- Window Operations
+- Performance
+- Pandas for AI Engineering
+
+The exact sections must be based on the notebooks actually present.
+
+THEORY DEPTH
+
+Do not write tiny superficial explanations.
+
+For major concepts, provide detailed explanations before examples.
+
+A substantial concept may require several paragraphs.
+
+Do not mechanically force a specific word count, but difficult concepts should receive enough explanation to answer:
+
+- What is happening?
+- Why is it happening?
+- How does it work?
+- Why was it designed this way?
+- What mistakes are common?
+- What does this imply in real projects?
+
+CODE EXAMPLES
+
+Include useful code examples from the notebooks.
+
+You may clean formatting or shorten repetitive code, but preserve the technical meaning.
+
+Code examples must have syntax highlighting in HTML.
+
+In PDF, code must:
+
+- use a monospace font;
+- be visually separated from prose;
+- preserve indentation;
+- wrap or otherwise handle long lines appropriately;
+- not be clipped off the page.
+
+Do not dump every notebook code cell into the notes.
+
+Select examples that teach something.
+
+For important topics, multiple examples are appropriate.
+
+OUTPUTS
+
+Include code output only when it materially helps explain a concept.
+
+Do not include huge DataFrame outputs, long arrays, hundreds of log lines, or other noisy notebook output.
+
+Condense output where appropriate.
+
+MATHEMATICS
+
+For mathematical content:
+
+- use proper mathematical notation;
+- define symbols;
+- explain equations in prose;
+- provide manual numerical examples where useful;
+- connect equations to code.
+
+HTML mathematics should render properly.
+
+PDF mathematics should also render correctly.
+
+Use MathJax/KaTeX or another reliable approach for HTML as appropriate.
+
+Choose a PDF-generation pipeline that preserves equations correctly.
+
+TABLES
+
+Use tables where they genuinely improve understanding, such as:
+
+- method comparisons
+- dtype comparisons
+- complexity comparisons
+- API differences
+- behavior summaries
+
+Do not turn the entire notes document into tables.
+
+DIAGRAMS
+
+Include diagrams when they improve conceptual understanding.
+
+Diagrams should render in BOTH HTML and PDF.
+
+Do not depend on diagrams that only work in one output format.
+
+Suitable diagrams include:
+
+- execution flow
+- data pipelines
+- object relationships
+- memory/view relationships
+- ML preprocessing flow
+- lifecycle diagrams
+
+Avoid decorative diagrams.
+
+HINGLISH INTUITION
+
+For genuinely difficult concepts, include a section such as:
+
+Hinglish Intuition
+
+Use Hinglish selectively to explain intuition.
+
+Do not translate every paragraph into Hinglish.
+
+The main notes remain professional English-language technical notes.
+
+COMMON MISTAKES
+
+For major topics, include relevant mistakes close to the concept being discussed.
+
+For example:
+
+Concept
+Theory
+Examples
+Subtle behavior
+Common mistakes
+Engineering implications
+
+Do not create one enormous disconnected "mistakes" section containing every issue in the unit.
+
+AI ENGINEERING CONNECTIONS
+
+Where appropriate, explain implications such as:
+
+- feature schemas
+- labels versus positions
+- train/validation/test leakage
+- preprocessing
+- shape contracts
+- vectorization
+- dtype precision
+- memory
+- numerical stability
+- reproducibility
+- validation
+- model inputs
+- artifact formats
+- deployment consistency
+- data security
+
+Do not force AI content into unrelated basic concepts.
+
+REFERENCE SECTIONS
+
+Near the end of each notes document include:
+
+1. Best Practices
+2. Common Mistakes and Gotchas
+3. Important API / Syntax Reference
+4. AI Engineering Connections
+5. Revision Summary
+6. Key Takeaways
+
+Where appropriate, also include a concise glossary.
+
+Do NOT include exercises or solutions in the notes unless explicitly requested.
+
+HTML QUALITY
+
+The HTML document must be standalone and professionally readable.
+
+Requirements:
+
+- UTF-8
+- semantic HTML5
+- responsive layout
+- readable typography
+- syntax-highlighted code
+- styled tables
+- clear heading hierarchy
+- table of contents
+- anchor links
+- print-friendly CSS
+- appropriate page width
+- accessible color contrast
+- no dependence on the local notebook server
+- no broken local asset references
+
+Prefer self-contained HTML where practical.
+
+If CSS is embedded, keep it clean and reusable.
+
+Do not use excessive visual effects.
+
+Support both screen reading and printing.
+
+PDF QUALITY
+
+The PDF is a first-class deliverable, not an afterthought.
+
+Requirements:
+
+- A4 page size unless there is a strong technical reason otherwise
+- sensible margins
+- clear title page
+- readable body typography
+- consistent heading hierarchy
+- page numbers
+- syntax-highlighted or clearly formatted code
+- code must not be clipped
+- tables must fit sensibly
+- diagrams must render
+- mathematics must render
+- URLs should remain readable/clickable where supported
+- avoid orphaned headings where possible
+- avoid blank pages caused by poor CSS
+- avoid splitting small code blocks unnecessarily
+- include a table of contents where the PDF pipeline supports it reliably
+
+PDF GENERATION
+
+First inspect what tools are available in the environment.
+
+Use a reproducible generation method.
+
+Acceptable approaches can include:
+
+HTML
+→ print CSS
+→ Playwright/Chromium
+→ PDF
+
+or another reliable document pipeline.
+
+Do not silently assume wkhtmltopdf, Pandoc, LaTeX, Chromium, or Playwright is installed.
+
+Check dependencies first.
+
+If a required dependency is missing:
+
+- report it;
+- install it only if the environment and permissions allow;
+- otherwise create a reproducible build script and clearly report what dependency is needed.
+
+Prefer a pipeline that makes the HTML and PDF visually consistent.
+
+AUTOMATION
+
+Do not manually construct every document in an unrepeatable way.
+
+Create a reusable notes-generation/build system in the repository.
+
+For example, an appropriate location could be:
+
+tools/notes/
+
+It may contain:
+
+- Python extraction/generation scripts
+- HTML templates
+- CSS
+- PDF rendering utility
+- validation utilities
+
+Do not unnecessarily duplicate build code inside every course folder.
+
+However, final notes files belong in each unit's own:
+
+Notes/
+
+directory.
+
+IMPORTANT:
+
+The source notebooks remain the educational source material.
+
+Never modify notebook content merely to make note generation easier.
+
+NOTE GENERATION MUST BE REPEATABLE
+
+I should be able to rerun the notes builder after notebooks change.
+
+The system should support rebuilding:
+
+- one unit
+- one major course area
+- all notes
+
+Avoid hard-coded absolute paths.
+
+Resolve paths relative to the repository root.
+
+REPOSITORY SAFETY
+
+Never:
+
+- delete notebooks;
+- overwrite notebooks with generated content;
+- modify datasets;
+- write generated files into Datasets/;
+- change existing code solely for formatting the notes;
+- perform destructive Git operations.
+
+Do not include sensitive environment data or absolute personal filesystem paths in generated notes.
+
+NOTEBOOK ORDER
+
+Determine notebook reading order primarily from filename ordering when numbered filenames are present.
+
+Do not accidentally place advanced material before its prerequisites.
+
+DEDUPLICATION
+
+Several notebooks may repeat foundational explanations.
+
+The notes should synthesize them rather than repeating essentially the same paragraph multiple times.
+
+However, do not remove genuinely distinct nuances merely because two sections discuss the same general concept.
+
+PRESERVE IMPORTANT WARNINGS
+
+Do not lose technically important material during summarization.
+
+Examples:
+
+- view versus copy semantics
+- numerical overflow
+- data leakage
+- chained assignment
+- serialization security
+- random-state reproducibility
+- dtype behavior
+- invalid/missing-data semantics
+- deprecated APIs
+- memory scaling
+- silent alignment behavior
+
+FACTUAL ACCURACY
+
+Do not invent API behavior.
+
+When uncertain, check the installed library version/documentation where available.
+
+Differentiate:
+
+- stable conceptual behavior
+- version-specific behavior
+- implementation details
+
+Do not present private/internal APIs as recommended public APIs.
+
+VERSION INFORMATION
+
+Avoid unnecessarily hard-coding transient version numbers throughout the prose.
+
+If behavior is version-dependent, explain that fact explicitly.
+
+QUALITY CONTROL
+
+After generating each HTML:
+
+- verify the file exists;
+- verify it is nonempty;
+- parse/check basic HTML validity;
+- check internal TOC links where practical;
+- check for broken local images/assets;
+- check that code blocks are present;
+- check that major notebook topics are represented.
+
+After generating each PDF:
+
+- verify the file exists;
+- verify it is nonempty;
+- verify it is a valid PDF;
+- inspect page count;
+- check for obviously blank output;
+- ensure generation completed without rendering errors.
+
+If PDF extraction tooling is available, extract some text back from the PDF and verify that major headings are actually present.
+
+TRACKING COVERAGE
+
+For each unit, maintain a machine-readable manifest recording:
+
+- source notebooks
+- generated HTML path
+- generated PDF path
+- generation timestamp
+- source notebook hashes or modification information
+- major extracted topics
+- build status
+
+This manifest is for build/reproducibility purposes and should not replace the notes themselves.
+
+GIT
+
+The final HTML and PDF notes are course deliverables and should normally be committed to Git.
+
+Do NOT add blanket ignore rules for:
+
+*.html
+*.pdf
+*.ipynb
+
+Temporary note-generation artifacts, caches, browser profiles, and build intermediates should be ignored.
+
+INITIAL ACTION
+
+Do NOT immediately generate every PDF.
+
+First:
+
+1. inspect the repository;
+2. inventory all units and notebooks;
+3. identify which folders should receive one combined notes document;
+4. identify Practice/Solutions notebooks that should be excluded from theory synthesis;
+5. inspect available HTML/PDF-generation tools;
+6. propose exact Notes filenames for each unit;
+7. identify any dependency problems;
+8. build the reusable notes-generation pipeline;
+9. generate ONE representative unit first;
+10. validate its HTML and PDF;
+11. report the result.
+
+Use the first representative unit to establish the visual and educational standard before batch-generating the entire repository.
+
+When filesystem access is available, work on actual files rather than merely printing hypothetical note contents.

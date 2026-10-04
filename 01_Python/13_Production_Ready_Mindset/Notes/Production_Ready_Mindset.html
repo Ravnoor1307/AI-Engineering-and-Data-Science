@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production-Ready Python Mindset</title>
+<meta name="description" content="Code that only works on the author&#x27;s machine is not finished. This unit covers clean readable code, modular design, logging and monitoring habits, and how to read unfamiliar code deliberately.">
+<meta name="generator" content="AI-Engineering-Foundations notes builder">
+<style>
+:root {
+    --bg-0: #070b14;
+    --bg-1: #0b1220;
+    --bg-2: #101827;
+    --bg-3: #172033;
+
+    --surface: rgba(16, 24, 39, 0.88);
+    --surface-strong: #111a2a;
+    --surface-soft: rgba(24, 34, 52, 0.72);
+
+    --text-primary: #e8edf7;
+    --text-secondary: #a9b5c8;
+    --text-muted: #748198;
+
+    --accent: #67e8f9;
+    --accent-blue: #60a5fa;
+    --accent-purple: #a78bfa;
+    --accent-green: #34d399;
+    --accent-orange: #fbbf24;
+    --accent-red: #fb7185;
+
+    --border: rgba(148, 163, 184, 0.16);
+    --border-strong: rgba(103, 232, 249, 0.25);
+
+    --code-bg: #060a12;
+    --inline-code-bg: rgba(96, 165, 250, 0.12);
+
+    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.20);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.28);
+    --shadow-lg: 0 24px 65px rgba(0, 0, 0, 0.38);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+    --sidebar-w: 300px;
+    --content-max: 980px;
+}
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+    /* `clip` rather than `hidden`: it suppresses horizontal scroll without
+       turning the root into a scroll container, which would break the sticky
+       sidebar. A `body`-only rule is not enough because body's overflow value
+       propagates to the viewport, leaving body itself effectively visible. */
+    overflow-x: clip;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.78;
+    color: var(--text-primary);
+    background-color: var(--bg-0);
+    min-height: 100vh;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ---------- Animated ambient background ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse 60% 50% at 18% 12%, rgba(56, 189, 248, 0.16), transparent 60%),
+        radial-gradient(ellipse 55% 45% at 82% 22%, rgba(167, 139, 250, 0.14), transparent 62%),
+        radial-gradient(ellipse 70% 55% at 50% 88%, rgba(34, 211, 238, 0.10), transparent 65%),
+        linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+    animation: ambientDrift 28s ease-in-out infinite;
+    will-change: transform;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
+    pointer-events: none;
+}
+
+@keyframes ambientDrift {
+    0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+    50%  { transform: translate3d(3%, 2%, 0) scale(1.06); }
+    100% { transform: translate3d(-2%, -1%, 0) scale(1); }
+}
+
+/* ---------- Layout ---------- */
+.layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    gap: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    align-items: start;
+}
+
+/* ---------- Sidebar / TOC ---------- */
+.sidebar {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 28px 18px 40px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148,163,184,.3) transparent;
+}
+
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(148,163,184,.25); border-radius: 8px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.sidebar-brand svg { flex: none; }
+
+.toc-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 18px 0 10px;
+    font-weight: 700;
+}
+
+.toc-nav { display: flex; flex-direction: column; gap: 1px; }
+
+.toc-link {
+    position: relative;
+    display: block;
+    padding: 7px 12px 7px 16px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    border-radius: var(--radius-sm);
+    transition: color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.toc-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform .2s ease;
+    border-radius: 2px;
+}
+
+.toc-link:hover {
+    color: var(--text-primary);
+    background: rgba(96, 165, 250, 0.07);
+    transform: translateX(3px);
+}
+
+.toc-link:hover::before,
+.toc-link.active::before { transform: scaleY(1); }
+
+.toc-link.active {
+    color: var(--accent);
+    background: rgba(103, 232, 249, 0.09);
+}
+
+.toc-link.toc-h3 {
+    padding-left: 32px;
+    font-size: 0.81rem;
+    color: var(--text-muted);
+}
+
+.toc-link.toc-h3:hover { color: var(--text-secondary); }
+
+/* ---------- Reading progress ---------- */
+.reading-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    z-index: 1200;
+    background: linear-gradient(90deg, var(--accent), var(--accent-blue), var(--accent-purple));
+    box-shadow: 0 0 12px rgba(103, 232, 249, .5);
+    transition: width .12s linear;
+}
+
+/* ---------- Main column ---------- */
+.main {
+    min-width: 0;
+    padding: 28px 0 96px;
+}
+
+.content {
+    max-width: var(--content-max);
+    margin: 0 auto;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    padding: 40px 42px 34px;
+    margin-bottom: 26px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: linear-gradient(150deg, rgba(23, 32, 51, 0.92), rgba(11, 18, 32, 0.94));
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, .04);
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 120% at 85% 0%, rgba(103, 232, 249, .12), transparent 60%);
+    pointer-events: none;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    margin: 0 0 14px;
+    font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    background: linear-gradient(120deg, #ffffff 10%, #a5f3fc 55%, #c4b5fd 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-lede {
+    margin: 0;
+    font-size: 1.06rem;
+    color: var(--text-secondary);
+    max-width: 68ch;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    background: rgba(96, 165, 250, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+/* ---------- Section cards ---------- */
+.section-card {
+    position: relative;
+    padding: 34px 38px 30px;
+    margin: 0 0 26px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, rgba(21, 31, 49, 0.96), rgba(11, 18, 32, 0.96));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .26), inset 0 1px 0 rgba(255, 255, 255, .035);
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.section-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(103, 232, 249, .28);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, .34), 0 0 28px rgba(96, 165, 250, .06), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+    color: #f2f6fc;
+    letter-spacing: -0.015em;
+    scroll-margin-top: 24px;
+    position: relative;
+}
+
+h2 {
+    font-size: clamp(1.55rem, 1.2rem + 1.1vw, 2rem);
+    line-height: 1.25;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 64px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-purple));
+    border-radius: 2px;
+    transition: width .3s ease;
+}
+
+.section-card:hover h2::after { width: 110px; }
+
+h3 {
+    font-size: clamp(1.2rem, 1.05rem + .5vw, 1.45rem);
+    line-height: 1.35;
+    margin: 30px 0 12px;
+    color: #e6edf8;
+}
+
+h4 {
+    font-size: 1.08rem;
+    margin: 24px 0 10px;
+    color: #dbe6f5;
+}
+
+p { margin: 0 0 1.05em; color: var(--text-primary); }
+p:last-child { margin-bottom: 0; }
+
+strong { color: #f4f8ff; font-weight: 650; }
+
+ul, ol { margin: 0 0 1.05em; padding-left: 1.35em; }
+li { margin-bottom: 0.45em; color: var(--text-primary); }
+li::marker { color: var(--accent); }
+
+ul ul, ul ol, ol ol, ol ul { margin-top: 0.45em; margin-bottom: 0.2em; }
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 30px 0;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .25s ease, color .2s ease;
+}
+
+a:hover { color: var(--accent); background-size: 100% 1px; }
+
+blockquote {
+    margin: 1.4em 0;
+    padding: 14px 20px;
+    border-left: 3px solid var(--accent-purple);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: rgba(167, 139, 250, .07);
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+blockquote p { margin: 0; color: var(--text-secondary); }
+
+img, figure { max-width: 100%; height: auto; border-radius: var(--radius-md); }
+figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; text-align: center; }
+
+/* ---------- Code blocks ---------- */
+.code-shell {
+    position: relative;
+    margin: 1.3em 0;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.code-shell:hover {
+    border-color: rgba(103, 232, 249, .3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35), 0 0 0 1px rgba(103, 232, 249, .06);
+}
+
+.code-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+    background: linear-gradient(180deg, rgba(23, 32, 51, .9), rgba(16, 24, 39, .7));
+    border-bottom: 1px solid var(--border);
+}
+
+.code-lang {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.copy-code {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(96, 165, 250, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    cursor: pointer;
+    opacity: .55;
+    transition: opacity .2s ease, color .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.code-shell:hover .copy-code { opacity: 1; }
+.copy-code:hover { color: var(--accent); border-color: rgba(103, 232, 249, .35); background: rgba(103, 232, 249, .1); }
+.copy-code.copied { color: var(--accent-green); border-color: rgba(52, 211, 153, .4); }
+
+.code-shell pre {
+    margin: 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+    background: transparent;
+}
+
+.code-shell pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #dbe7f5;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.68;
+    white-space: pre;
+}
+
+code:not(pre code) {
+    background: var(--inline-code-bg);
+    color: #bfdbfe;
+    border: 1px solid rgba(96, 165, 250, .14);
+    border-radius: 5px;
+    padding: .12em .35em;
+    font-family: var(--font-mono);
+    font-size: 0.87em;
+}
+
+/* ---------- Callouts ---------- */
+.callout {
+    position: relative;
+    margin: 1.4em 0;
+    padding: 16px 20px 16px 52px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-blue);
+    background: rgba(96, 165, 250, .07);
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.callout:hover { transform: translateX(3px); box-shadow: var(--shadow-md); }
+
+.callout-icon {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    color: var(--accent-blue);
+}
+
+.callout-title {
+    margin: 0 0 6px;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--accent-blue);
+}
+
+.callout p, .callout li { color: var(--text-primary); }
+.callout p:last-child, .callout ul:last-child, .callout ol:last-child { margin-bottom: 0; }
+
+.callout-info { border-left-color: var(--accent-blue); background: rgba(96, 165, 250, .07); }
+.callout-info .callout-icon, .callout-info .callout-title { color: var(--accent-blue); }
+
+.callout-important { border-left-color: var(--accent-purple); background: rgba(167, 139, 250, .08); }
+.callout-important .callout-icon, .callout-important .callout-title { color: var(--accent-purple); }
+
+.callout-tip { border-left-color: var(--accent-green); background: rgba(52, 211, 153, .08); }
+.callout-tip .callout-icon, .callout-tip .callout-title { color: var(--accent-green); }
+
+.callout-warning { border-left-color: var(--accent-orange); background: rgba(251, 191, 36, .08); }
+.callout-warning .callout-icon, .callout-warning .callout-title { color: var(--accent-orange); }
+
+.callout-danger { border-left-color: var(--accent-red); background: rgba(251, 113, 133, .08); }
+.callout-danger .callout-icon, .callout-danger .callout-title { color: var(--accent-red); }
+
+.callout-hinglish {
+    border-left-color: #a78bfa;
+    background: linear-gradient(135deg, rgba(167, 139, 250, .11), rgba(96, 165, 250, .055));
+}
+.callout-hinglish .callout-icon, .callout-hinglish .callout-title { color: #c4b5fd; }
+
+.callout-ai {
+    border-left-color: var(--accent-green);
+    background: linear-gradient(135deg, rgba(52, 211, 153, .10), rgba(103, 232, 249, .045));
+}
+.callout-ai .callout-icon, .callout-ai .callout-title { color: var(--accent-green); }
+
+/* ---------- Tables ---------- */
+.table-wrap {
+    margin: 1.4em 0;
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: rgba(11, 18, 32, .5);
+    box-shadow: var(--shadow-sm);
+}
+
+.table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.table-wrap thead th {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: linear-gradient(180deg, rgba(23, 32, 51, .98), rgba(16, 24, 39, .95));
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+}
+
+.table-wrap tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid rgba(148, 163, 184, .1);
+    color: var(--text-primary);
+    vertical-align: top;
+}
+
+.table-wrap tbody tr { transition: background .16s ease; }
+.table-wrap tbody tr:nth-child(even) { background: rgba(148, 163, 184, .03); }
+.table-wrap tbody tr:hover { background: rgba(96, 165, 250, .09); }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap td code { white-space: nowrap; }
+
+/* ---------- Diagrams ---------- */
+.diagram {
+    margin: 1.6em 0;
+    padding: 26px 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: rgba(6, 10, 18, .6);
+    text-align: center;
+}
+
+.diagram-title {
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.flow-node {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: linear-gradient(145deg, rgba(23, 32, 51, .95), rgba(11, 18, 32, .95));
+    color: var(--text-primary);
+    font-size: 0.86rem;
+    font-weight: 600;
+    min-width: 108px;
+    display: grid;
+    place-items: center;
+}
+
+.flow-arrow {
+    display: grid;
+    place-items: center;
+    padding: 0 12px;
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+
+/* ---------- Glossary / definition list ---------- */
+.glossary { display: flex; flex-direction: column; gap: 10px; }
+
+.glossary-item {
+    padding: 13px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(24, 34, 52, .5);
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.glossary-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(103, 232, 249, .28);
+    box-shadow: var(--shadow-sm);
+}
+
+.glossary-term {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 3px;
+}
+
+.glossary-def { font-size: 0.92rem; color: var(--text-secondary); margin: 0; }
+
+/* ---------- Floating controls ---------- */
+.save-pdf-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: #06101b;
+    background: linear-gradient(135deg, #67e8f9, #60a5fa);
+    border: 0;
+    border-radius: 14px;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, .32), inset 0 1px 0 rgba(255, 255, 255, .5);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.save-pdf-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, .40);
+}
+
+.save-pdf-btn:hover svg { transform: translateY(1px); }
+.save-pdf-btn svg { transition: transform .2s ease; }
+.save-pdf-btn:active { transform: translateY(1px); }
+
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 86px;
+    z-index: 1000;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    background: rgba(17, 26, 42, .92);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .2s ease, background .2s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.back-to-top.visible { opacity: 1; pointer-events: auto; }
+.back-to-top:hover { background: rgba(23, 32, 51, .98); transform: translateY(-3px); }
+
+/* ---------- Mobile TOC toggle ---------- */
+.mobile-toc-toggle {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    margin: 0;
+    padding: 12px 16px;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(11, 18, 32, .95);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 15, .6);
+    z-index: 950;
+    backdrop-filter: blur(2px);
+}
+
+/* ---------- Lists used by overview / focus blocks ---------- */
+.prereq-list,
+.outcome-list { list-style: none; padding-left: 0; }
+
+.prereq-list li,
+.outcome-list li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 0.6em;
+}
+
+.prereq-list li::before,
+.outcome-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+}
+
+.prereq-list li::before {
+    content: "\2192";
+    color: var(--accent-orange);
+}
+
+.outcome-list li::before {
+    content: "\2713";
+    color: var(--accent-green);
+}
+
+/* ---------- Revision checklist ---------- */
+.checklist { list-style: none; padding-left: 0; }
+
+.checklist li { margin-bottom: 0.55em; }
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 13px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(24, 34, 52, .45);
+    cursor: pointer;
+    transition: border-color .18s ease, background .18s ease;
+}
+
+.check:hover { border-color: rgba(103, 232, 249, .3); background: rgba(96, 165, 250, .07); }
+
+.check input {
+    flex: none;
+    margin: 4px 0 0;
+    width: 15px;
+    height: 15px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.check span { font-size: 0.94rem; }
+
+.check input:checked ~ span {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(148, 163, 184, .5);
+}
+
+.code-caption {
+    padding: 6px 14px;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(96, 165, 250, .05);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ---------- External figure placeholder (keeps files standalone) ---------- */
+.external-figure {
+    margin: 1.2em 0;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--border-strong);
+    background: rgba(167, 139, 250, .06);
+    font-size: 0.9rem;
+}
+
+.external-figure-label {
+    display: block;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.external-figure a { font-weight: 600; }
+
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.code-shell pre.tok .tok .hll { background-color: #ffffcc }
+.code-shell pre.tok .tok { background: #f8f8f8; }
+.code-shell pre.tok .tok .c { color: #3D7B7B; font-style: italic } /* Comment */
+.code-shell pre.tok .tok .err { border: 1px solid #F00 } /* Error */
+.code-shell pre.tok .tok .k { color: #008000; font-weight: bold } /* Keyword */
+.code-shell pre.tok .tok .o { color: #666 } /* Operator */
+.code-shell pre.tok .tok .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.code-shell pre.tok .tok .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.code-shell pre.tok .tok .cp { color: #9C6500 } /* Comment.Preproc */
+.code-shell pre.tok .tok .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.code-shell pre.tok .tok .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.code-shell pre.tok .tok .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.code-shell pre.tok .tok .gd { color: #A00000 } /* Generic.Deleted */
+.code-shell pre.tok .tok .ge { font-style: italic } /* Generic.Emph */
+.code-shell pre.tok .tok .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.code-shell pre.tok .tok .gr { color: #E40000 } /* Generic.Error */
+.code-shell pre.tok .tok .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.code-shell pre.tok .tok .gi { color: #008400 } /* Generic.Inserted */
+.code-shell pre.tok .tok .go { color: #717171 } /* Generic.Output */
+.code-shell pre.tok .tok .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.code-shell pre.tok .tok .gs { font-weight: bold } /* Generic.Strong */
+.code-shell pre.tok .tok .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.code-shell pre.tok .tok .gt { color: #04D } /* Generic.Traceback */
+.code-shell pre.tok .tok .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.code-shell pre.tok .tok .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.code-shell pre.tok .tok .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.code-shell pre.tok .tok .kp { color: #008000 } /* Keyword.Pseudo */
+.code-shell pre.tok .tok .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.code-shell pre.tok .tok .kt { color: #B00040 } /* Keyword.Type */
+.code-shell pre.tok .tok .m { color: #666 } /* Literal.Number */
+.code-shell pre.tok .tok .s { color: #BA2121 } /* Literal.String */
+.code-shell pre.tok .tok .na { color: #687822 } /* Name.Attribute */
+.code-shell pre.tok .tok .nb { color: #008000 } /* Name.Builtin */
+.code-shell pre.tok .tok .nc { color: #00F; font-weight: bold } /* Name.Class */
+.code-shell pre.tok .tok .no { color: #800 } /* Name.Constant */
+.code-shell pre.tok .tok .nd { color: #A2F } /* Name.Decorator */
+.code-shell pre.tok .tok .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.code-shell pre.tok .tok .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.code-shell pre.tok .tok .nf { color: #00F } /* Name.Function */
+.code-shell pre.tok .tok .nl { color: #767600 } /* Name.Label */
+.code-shell pre.tok .tok .nn { color: #00F; font-weight: bold } /* Name.Namespace */
+.code-shell pre.tok .tok .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.code-shell pre.tok .tok .nv { color: #19177C } /* Name.Variable */
+.code-shell pre.tok .tok .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.code-shell pre.tok .tok .w { color: #BBB } /* Text.Whitespace */
+.code-shell pre.tok .tok .mb { color: #666 } /* Literal.Number.Bin */
+.code-shell pre.tok .tok .mf { color: #666 } /* Literal.Number.Float */
+.code-shell pre.tok .tok .mh { color: #666 } /* Literal.Number.Hex */
+.code-shell pre.tok .tok .mi { color: #666 } /* Literal.Number.Integer */
+.code-shell pre.tok .tok .mo { color: #666 } /* Literal.Number.Oct */
+.code-shell pre.tok .tok .sa { color: #BA2121 } /* Literal.String.Affix */
+.code-shell pre.tok .tok .sb { color: #BA2121 } /* Literal.String.Backtick */
+.code-shell pre.tok .tok .sc { color: #BA2121 } /* Literal.String.Char */
+.code-shell pre.tok .tok .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.code-shell pre.tok .tok .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.code-shell pre.tok .tok .s2 { color: #BA2121 } /* Literal.String.Double */
+.code-shell pre.tok .tok .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.code-shell pre.tok .tok .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.code-shell pre.tok .tok .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.code-shell pre.tok .tok .sx { color: #008000 } /* Literal.String.Other */
+.code-shell pre.tok .tok .sr { color: #A45A77 } /* Literal.String.Regex */
+.code-shell pre.tok .tok .s1 { color: #BA2121 } /* Literal.String.Single */
+.code-shell pre.tok .tok .ss { color: #19177C } /* Literal.String.Symbol */
+.code-shell pre.tok .tok .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.code-shell pre.tok .tok .fm { color: #00F } /* Name.Function.Magic */
+.code-shell pre.tok .tok .vc { color: #19177C } /* Name.Variable.Class */
+.code-shell pre.tok .tok .vg { color: #19177C } /* Name.Variable.Global */
+.code-shell pre.tok .tok .vi { color: #19177C } /* Name.Variable.Instance */
+.code-shell pre.tok .tok .vm { color: #19177C } /* Name.Variable.Magic */
+.code-shell pre.tok .tok .il { color: #666 } /* Literal.Number.Integer.Long */
+
+/* ---------- Accessibility ---------- */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    padding: 10px 16px;
+    background: var(--accent);
+    color: #06101b;
+    font-weight: 700;
+    border-radius: 0 0 var(--radius-sm) 0;
+}
+
+.skip-link:focus { left: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0 18px;
+    }
+
+    .mobile-toc-toggle { display: flex; }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: min(320px, 84vw);
+        max-height: none;
+        z-index: 980;
+        padding: 24px 18px 40px;
+        background: rgba(7, 11, 20, .98);
+        border-right: 1px solid var(--border);
+        transform: translateX(-102%);
+        transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-backdrop.visible { display: block; }
+}
+
+@media (max-width: 700px) {
+    body { font-size: 16px; line-height: 1.72; }
+
+    .hero { padding: 28px 22px 24px; border-radius: var(--radius-md); }
+    .section-card { padding: 24px 20px 22px; border-radius: var(--radius-md); }
+    h2 { font-size: 1.42rem; }
+    h3 { font-size: 1.16rem; }
+
+    .code-shell pre { padding: 13px 14px; }
+    .code-shell pre code { font-size: 0.82rem; }
+
+    .save-pdf-btn {
+        right: 14px;
+        bottom: 14px;
+        padding: 11px 13px;
+        font-size: 0.82rem;
+    }
+
+    .back-to-top { right: 14px; bottom: 72px; width: 38px; height: 38px; }
+    .table-wrap { border-radius: var(--radius-sm); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body::before { animation: none !important; }
+}
+
+/* ============================================================
+   PRINT / PDF — clean textbook output
+   ============================================================ */
+@page {
+    size: A4;
+    margin: 16mm 15mm 18mm 15mm;
+}
+
+@media print {
+    html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        font-size: 10.5pt;
+        line-height: 1.55;
+    }
+
+    body::before,
+    body::after { display: none !important; }
+
+    .reading-progress,
+    .save-pdf-btn,
+    .back-to-top,
+    .mobile-toc-toggle,
+    .sidebar,
+    .sidebar-backdrop,
+    .copy-code,
+    .screen-only { display: none !important; }
+
+    .layout {
+        display: block !important;
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .main { padding: 0 !important; }
+    .content { max-width: none !important; margin: 0 !important; }
+
+    .hero {
+        padding: 0 0 14pt;
+        margin: 0 0 18pt;
+        border: none;
+        border-bottom: 1.5pt solid #d1d5db;
+        border-radius: 0;
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    .hero::after { display: none !important; }
+
+    .hero-eyebrow {
+        color: #4b5563 !important;
+        background: none !important;
+        padding: 0;
+    }
+
+    .hero h1 {
+        background: none !important;
+        color: #111827 !important;
+        -webkit-text-fill-color: #111827;
+        font-size: 21pt;
+    }
+
+    .hero-lede { color: #374151 !important; }
+
+    .hero-meta { margin-top: 10pt; }
+
+    .chip {
+        background: #f3f4f6 !important;
+        border: 0.5pt solid #d1d5db !important;
+        color: #374151 !important;
+        font-size: 8.5pt;
+    }
+
+    .section-card {
+        padding: 0 0 12pt;
+        margin: 0 0 14pt;
+        border: none !important;
+        border-radius: 0;
+        background: none !important;
+        box-shadow: none !important;
+        transform: none !important;
+        page-break-inside: auto;
+    }
+
+    .section-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+
+    h2::after { display: none !important; }
+
+    h1, h2, h3, h4 {
+        color: #111827 !important;
+        break-after: avoid-page;
+        page-break-after: avoid;
+        break-inside: avoid;
+    }
+
+    h2 {
+        font-size: 15pt;
+        margin: 0 0 8pt;
+        padding-bottom: 5pt;
+        border-bottom: 0.75pt solid #e5e7eb;
+    }
+
+    h3 { font-size: 12.5pt; margin: 12pt 0 6pt; }
+    h4 { font-size: 11pt; margin: 10pt 0 5pt; }
+
+    p, li { color: #1f2937 !important; orphans: 3; widows: 3; }
+    strong { color: #111827 !important; }
+
+    a { color: #1d4ed8 !important; background: none !important; text-decoration: underline; }
+
+    .code-shell {
+        background: #f8fafc !important;
+        border: 0.5pt solid #cbd5e1 !important;
+        border-radius: 4pt;
+        box-shadow: none !important;
+        margin: 8pt 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+
+    .code-shell:hover { border-color: #cbd5e1 !important; box-shadow: none !important; }
+
+    .code-toolbar {
+        background: #eef2f7 !important;
+        border-bottom: 0.5pt solid #cbd5e1;
+        padding: 3pt 8pt;
+    }
+
+    .code-lang { color: #475569 !important; font-size: 7pt; }
+
+    .code-shell pre {
+        padding: 8pt 10pt;
+        overflow: visible;
+        white-space: pre-wrap !important;
+        word-break: break-word;
+    }
+
+    .code-shell pre code {
+        color: #1f2937 !important;
+        font-size: 8.6pt;
+        line-height: 1.5;
+    }
+
+    code:not(pre code) {
+        background: #eef2f7 !important;
+        color: #1e40af !important;
+        border: 0.5pt solid #dbe3ec;
+    }
+
+    .table-wrap {
+        overflow: visible !important;
+        border: 0.5pt solid #cbd5e1;
+        border-radius: 4pt;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .table-wrap table { font-size: 8.8pt; }
+
+    .table-wrap thead th {
+        background: #eef2f7 !important;
+        color: #1f2937 !important;
+        border-bottom: 0.75pt solid #cbd5e1;
+        padding: 6pt 8pt;
+        position: static;
+    }
+
+    .table-wrap tbody td { padding: 5pt 8pt; border-bottom: 0.5pt solid #e5e7eb; color: #1f2937 !important; }
+    .table-wrap tbody tr:nth-child(even) { background: #f9fafb !important; }
+    .table-wrap tbody tr:hover { background: transparent !important; }
+
+    .callout {
+        padding: 8pt 10pt 8pt 10pt;
+        margin: 8pt 0;
+        border: 0.5pt solid #cbd5e1 !important;
+        border-left: 2.5pt solid #64748b;
+        border-radius: 4pt;
+        background: #f8fafc !important;
+        box-shadow: none !important;
+        transform: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .callout:hover { transform: none !important; box-shadow: none !important; }
+    .callout-icon { display: none !important; }
+    .callout-title { color: #1f2937 !important; font-size: 8.5pt; letter-spacing: .06em; }
+    .callout p, .callout li { color: #1f2937 !important; }
+
+    .callout-warning { border-left-color: #d97706 !important; background: #fffbeb !important; }
+    .callout-danger { border-left-color: #dc2626 !important; background: #fef2f2 !important; }
+    .callout-tip, .callout-ai { border-left-color: #059669 !important; background: #ecfdf5 !important; }
+    .callout-hinglish { border-left-color: #7c3aed !important; background: #f5f3ff !important; }
+    .callout-info, .callout-important { border-left-color: #2563eb !important; background: #eff6ff !important; }
+
+    blockquote {
+        background: #f8fafc !important;
+        border-left: 2pt solid #94a3b8;
+        color: #374151 !important;
+    }
+    blockquote p { color: #374151 !important; }
+
+    .diagram {
+        background: #f8fafc !important;
+        border: 0.5pt solid #cbd5e1;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .flow-node {
+        background: #eef2f7 !important;
+        border: 0.5pt solid #94a3b8;
+        color: #111827 !important;
+    }
+
+    .flow-arrow { color: #475569 !important; }
+    .diagram-title { color: #475569 !important; }
+
+    .glossary-item {
+        background: #f8fafc !important;
+        border: 0.5pt solid #e5e7eb;
+        break-inside: avoid;
+    }
+    .glossary-item:hover { transform: none !important; box-shadow: none !important; }
+    .glossary-term { color: #1e40af !important; }
+    .glossary-def { color: #374151 !important; }
+
+    hr { border-top: 0.5pt solid #e5e7eb; }
+}
+
+
+@media print {
+  pre { line-height: 125%; }
+  td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  .code-shell pre.tok .tok .hll { background-color: #ffffcc }
+  .code-shell pre.tok .tok { background: #f0f0f0; }
+  .code-shell pre.tok .tok .c { color: #60A0B0; font-style: italic } /* Comment */
+  .code-shell pre.tok .tok .err { border: 1px solid #F00 } /* Error */
+  .code-shell pre.tok .tok .k { color: #007020; font-weight: bold } /* Keyword */
+  .code-shell pre.tok .tok .o { color: #666 } /* Operator */
+  .code-shell pre.tok .tok .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+  .code-shell pre.tok .tok .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+  .code-shell pre.tok .tok .cp { color: #007020 } /* Comment.Preproc */
+  .code-shell pre.tok .tok .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+  .code-shell pre.tok .tok .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+  .code-shell pre.tok .tok .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+  .code-shell pre.tok .tok .gd { color: #A00000 } /* Generic.Deleted */
+  .code-shell pre.tok .tok .ge { font-style: italic } /* Generic.Emph */
+  .code-shell pre.tok .tok .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+  .code-shell pre.tok .tok .gr { color: #F00 } /* Generic.Error */
+  .code-shell pre.tok .tok .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .code-shell pre.tok .tok .gi { color: #00A000 } /* Generic.Inserted */
+  .code-shell pre.tok .tok .go { color: #888 } /* Generic.Output */
+  .code-shell pre.tok .tok .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+  .code-shell pre.tok .tok .gs { font-weight: bold } /* Generic.Strong */
+  .code-shell pre.tok .tok .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .code-shell pre.tok .tok .gt { color: #04D } /* Generic.Traceback */
+  .code-shell pre.tok .tok .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+  .code-shell pre.tok .tok .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+  .code-shell pre.tok .tok .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+  .code-shell pre.tok .tok .kp { color: #007020 } /* Keyword.Pseudo */
+  .code-shell pre.tok .tok .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+  .code-shell pre.tok .tok .kt { color: #902000 } /* Keyword.Type */
+  .code-shell pre.tok .tok .m { color: #40A070 } /* Literal.Number */
+  .code-shell pre.tok .tok .s { color: #4070A0 } /* Literal.String */
+  .code-shell pre.tok .tok .na { color: #4070A0 } /* Name.Attribute */
+  .code-shell pre.tok .tok .nb { color: #007020 } /* Name.Builtin */
+  .code-shell pre.tok .tok .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+  .code-shell pre.tok .tok .no { color: #60ADD5 } /* Name.Constant */
+  .code-shell pre.tok .tok .nd { color: #555; font-weight: bold } /* Name.Decorator */
+  .code-shell pre.tok .tok .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+  .code-shell pre.tok .tok .ne { color: #007020 } /* Name.Exception */
+  .code-shell pre.tok .tok .nf { color: #06287E } /* Name.Function */
+  .code-shell pre.tok .tok .nl { color: #002070; font-weight: bold } /* Name.Label */
+  .code-shell pre.tok .tok .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+  .code-shell pre.tok .tok .nt { color: #062873; font-weight: bold } /* Name.Tag */
+  .code-shell pre.tok .tok .nv { color: #BB60D5 } /* Name.Variable */
+  .code-shell pre.tok .tok .ow { color: #007020; font-weight: bold } /* Operator.Word */
+  .code-shell pre.tok .tok .w { color: #BBB } /* Text.Whitespace */
+  .code-shell pre.tok .tok .mb { color: #40A070 } /* Literal.Number.Bin */
+  .code-shell pre.tok .tok .mf { color: #40A070 } /* Literal.Number.Float */
+  .code-shell pre.tok .tok .mh { color: #40A070 } /* Literal.Number.Hex */
+  .code-shell pre.tok .tok .mi { color: #40A070 } /* Literal.Number.Integer */
+  .code-shell pre.tok .tok .mo { color: #40A070 } /* Literal.Number.Oct */
+  .code-shell pre.tok .tok .sa { color: #4070A0 } /* Literal.String.Affix */
+  .code-shell pre.tok .tok .sb { color: #4070A0 } /* Literal.String.Backtick */
+  .code-shell pre.tok .tok .sc { color: #4070A0 } /* Literal.String.Char */
+  .code-shell pre.tok .tok .dl { color: #4070A0 } /* Literal.String.Delimiter */
+  .code-shell pre.tok .tok .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+  .code-shell pre.tok .tok .s2 { color: #4070A0 } /* Literal.String.Double */
+  .code-shell pre.tok .tok .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+  .code-shell pre.tok .tok .sh { color: #4070A0 } /* Literal.String.Heredoc */
+  .code-shell pre.tok .tok .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+  .code-shell pre.tok .tok .sx { color: #C65D09 } /* Literal.String.Other */
+  .code-shell pre.tok .tok .sr { color: #235388 } /* Literal.String.Regex */
+  .code-shell pre.tok .tok .s1 { color: #4070A0 } /* Literal.String.Single */
+  .code-shell pre.tok .tok .ss { color: #517918 } /* Literal.String.Symbol */
+  .code-shell pre.tok .tok .bp { color: #007020 } /* Name.Builtin.Pseudo */
+  .code-shell pre.tok .tok .fm { color: #06287E } /* Name.Function.Magic */
+  .code-shell pre.tok .tok .vc { color: #BB60D5 } /* Name.Variable.Class */
+  .code-shell pre.tok .tok .vg { color: #BB60D5 } /* Name.Variable.Global */
+  .code-shell pre.tok .tok .vi { color: #BB60D5 } /* Name.Variable.Instance */
+  .code-shell pre.tok .tok .vm { color: #BB60D5 } /* Name.Variable.Magic */
+  .code-shell pre.tok .tok .il { color: #40A070 } /* Literal.Number.Integer.Long */
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="reading-progress" role="presentation"></div>
+<div class="sidebar-backdrop" aria-hidden="true"></div>
+
+<div class="layout">
+
+  <nav class="sidebar" aria-label="Table of contents">
+    <div class="sidebar-brand">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      <span>AI Engineering Foundations</span>
+    </div>
+
+    <div class="toc-title">Contents</div>
+    <nav class="toc-nav" aria-label="Section navigation">
+      <a class="toc-link" href="#overview">Unit Overview</a>
+      <a class="toc-link" href="#at-a-glance">What This Unit Covers</a>
+      <a class="toc-link" href="#core-concepts">Core Concepts</a>
+      <a class="toc-link" href="#edge-cases">Edge Cases and Boundaries</a>
+      <a class="toc-link" href="#real-world">Real-World and AI Engineering Relevance</a>
+      <a class="toc-link" href="#quick-reference">Quick Reference</a>
+      <a class="toc-link" href="#revision">Revision Checklist</a>
+    </nav>
+  </nav>
+
+  <main class="main" id="main-content">
+    <button class="mobile-toc-toggle" type="button" aria-label="Open table of contents">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Contents</span>
+    </button>
+
+    <div class="content">
+
+      <header class="hero">
+        <div class="hero-eyebrow">Unit Study Notes</div>
+        <h1>Production-Ready Python Mindset</h1>
+        <p class="hero-lede">Code that only works on the author&#x27;s machine is not finished. This unit covers clean readable code, modular design, logging and monitoring habits, and how to read unfamiliar code deliberately.</p>
+        <div class="hero-meta">
+<span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg><span>6 source notebooks</span></span>
+          <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16M4 10h16M4 16h10M4 22h6"></path></svg><span>31 topic sections extracted</span></span>
+          <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 3v18M3 9h18"></path></svg><span>7 study sections</span></span>
+        </div>
+      </header>
+
+<section class="section-card" id="overview" aria-labelledby="overview-h"><h2 id="overview-h">Unit Overview</h2><p>🧼 01 — Clean/Readable Code: The 6 Laws of Straight-Forward Style! ✍️</p>
+
+<p><strong>Topic 14.01 | Production<em>Ready</em>Mindset — Part 1 of 4</strong></p>
+
+<p>🌍 <strong>Hook:</strong> You wrote code that today's-genius understood; 3 MONTHS later you read it
+yourself and say "which MADMAN wrote this?!" 😂 Code is not just for the compiler — it's for
+HUMANS! In interviews/production/quick-fixes the most VALUABLE skill = READABLE code!</p>
+
+<p>📖 <strong>The 6 Laws (rules-of-thumb!):</strong></p>
+
+<ol>
+<li><strong>Names = the story</strong> — say WHOSE, WHAT (a, x1 ❌ → <code>student_avg</code> ✅)</li>
+<li><strong>Small functions</strong> — one function, one answer (a ~20-line ceiling!)</li>
+<li><strong>DRY</strong> — copy-paste = the clone-army of future bugs 🪳</li>
+<li><strong>Magic-numbers = ghosts</strong> — 0.9?? put it in constants!</li>
+<li><strong>Comments = WHY, code = WHAT</strong> — <code>i += 1  # i badhata</code> 😑 worthless!</li>
+<li><strong>Dead-code = delete</strong> — git-history keeps the memory — scrap it! 🗑️</li>
+</ol>
+
+<p>🔍 <strong>WHY:</strong> bug-hunting 10x faster, adding features 3x faster, and the team loves you! ♥</p>
+
+<p>🧼🪞 02 — Before/After: 2 Makeover Cases (UGLY → CLEAN)</p>
+
+<p><strong>Topic 14.01 | Production<em>Ready</em>Mindset — Part 1 of 4 (examples notebook)</strong></p>
+
+<p>🌍 <strong>Hook:</strong> Not a beauty-parlour, a CODE-parlour 💇: before = "whatever-just-works-
+somehow code", after = "an OPA readable version". Same answers — SAME outputs —
+but the reader's eyes will say THANKS!</p>
+
+<p>Makeover-1: sensor-spam log lines 📡 · Makeover-2: the warehouse bill-goblin 🧾</p>
+
+<p>🧩 01 — Modular Design: Different Master-Craftsmen for Each Room of the House! 🏗️</p>
+
+<p><strong>Topic 14.02 | Production<em>Ready</em>Mindset — Part 2 of 4</strong></p>
+
+<p>🌍 <strong>Hook:</strong> You built a 1000-line single-slab — one giant script holding
+CSV too, validation too, plotting too, billing too! Then the ELECTRICIAN's job
+came up → you had to demolish the whole house!! 😱 Pro-builders don't ship a single piece:
+kitchen-team, electric-team, plumber-team — each one builds its own ROOM!
+That's what we call in code: <strong>MODULE</strong> (one .py = one craftsman-team!) 🧩</p>
+
+<p>📖 <strong>Definitions:</strong></p>
+
+<ul>
+<li><strong>module</strong> = one <code>.py</code> file — its own functions/constants</li>
+<li><strong>package</strong> = a folder + <code>__init__.py</code> (the team's tower!)</li>
+<li><strong>import-scene</strong> = use another team's work: <code>import team_stats</code> 🪢</li>
+<li><strong><code>if __name__ == "__main__":</code></strong> = demo when run AS a script; SILENT when
+imported — the guard-master! (no side-effects on module load) 🛡️</li>
+</ul>
+
+<p>🔍 <strong>WHY modular?</strong> smaller files → testable → zero team-collisions →
+reuse (marks_stats will work in every project!)</p>
+
+<p>🏗️ 02 — Refactoring Demo: MEGA-Script → 3-Module Tower!</p>
+
+<p><strong>Topic 14.02 | Production<em>Ready</em>Mindset — Part 2 of 4 (demo notebook)</strong></p>
+
+<p>🌍 <strong>Hook:</strong> A sensor-ETL script — a 100-line THEPLA: reading, cleaning,
+avg-spotting, report-printing all in one file. Problem: the cramped work — you go to
+fix the parser and the REPORT breaks! 😱 From today on it's live: the MEGA's demolition,
+3 small rooms (load → compute → report) — let the tower stand! 🏗️</p>
+
+<p>🛩️ 01 — Logging &amp; Monitoring Mindset: The Black-Box Mentality!</p>
+
+<p><strong>Topic 14.03 | Production<em>Ready</em>Mindset — Part 3 of 4</strong></p>
+
+<p>🌍 <strong>Hook:</strong> A flight crashes — the first investigation looks at the BLACK-BOX:
+"what did the plane SAY in its last 1 hour?!" On a production-server too, your
+app-crash is the same thing: the boss asks "when did it come, what happened?" — only logs can tell!
+<code>print</code> = writing a note on paper and throwing it in the wind ✉️💨 — a logger = the black-box!</p>
+
+<p>📖 <strong>MINDSET-First (you learned the syntax in §11, now the THINKING):</strong></p>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>Thought</th>
+  <th>Direct meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>WHICH level?</td>
+  <td>DEBUG=developer-diary · INFO=work-flowing 🟢 · WARNING=heavy-breathing! 🟡 · ERROR=fell! 🔴 · CRITICAL=fire-alarm! 🚨</td>
+</tr>
+<tr>
+  <td>WHAT to log?</td>
+  <td>events + decisions + numbers (rows→parse→avg!); clues for future fixes</td>
+</tr>
+<tr>
+  <td>WHAT NOT to log?</td>
+  <td>PASSWORDS/tokens/cards — always mask/no-store ⚠️</td>
+</tr>
+<tr>
+  <td>Monitoring = health-checks + dashboards ON TOP of logs (the alert-pyramid!)</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>🔍 <strong>WHY the mindset?</strong> library-level syntax takes 1 hour to learn; the real-born-thinking
+of logging (what, how much, when to step up) — that's what makes 10x engineers!</p>
+
+<p>🗺️🕵️ 01 — Reading Others' Code: The GPS for New Terrain!</p>
+
+<p><strong>Topic 14.04 | Production<em>Ready</em>Mindset — Part 4 of 4 (finale!)</strong></p>
+
+<p>🌍 <strong>Hook:</strong> Your first day on the job: the team says "this repo is yours!" — 500
+files... WHAT?! 😰 Pro-devs don't read code first, they draw a MAP first: where's the entry
+point? What are the call-chains in order? → other people stay confused for 2 hours →
+you have a map in 20 minutes! This skill gets the red-hot talent-need met ✨</p>
+
+<p>📖 <strong>The 5-Step Navigator Strategy (page-turning-friendship!):</strong></p>
+
+<ol>
+<li><strong>README/entry FIRST</strong> — where does the story begin? (<code>main.py/cli.py/README</code>!)</li>
+<li><strong>TREE-VIEW</strong> — folder names reveal the grouping of things (io/ viz/ calc/?)</li>
+<li><strong>Trace ONE REQUEST</strong> — one full journey (entry → helpers → return!)</li>
+<li><strong>Tests = living-docs</strong> 📗 — read the tests to understand the API's real-behavior!</li>
+<li><strong>SMALL changes + verify</strong> — the first edit is a small rehearsal 🎭</li>
+</ol>
+
+<p>In this notebook we build a mini <strong>mystery-repo</strong> (3 files!) — and apply that very strategy
+to it LIVE! 🕵️</p>
+<h3>Prerequisites</h3><ul class="prereq-list"><li><p>Modules, Packages and Environments</p></li></ul><h3>What you will be able to do</h3><ul class="outcome-list"><li><p>Write code that a reviewer can follow without you in the room</p></li><li><p>Structure projects into modules with clear boundaries</p></li><li><p>Instrument code with logging instead of print debugging</p></li><li><p>Approach an unfamiliar codebase systematically</p></li></ul></section>
+<section class="section-card" id="at-a-glance" aria-labelledby="at-a-glance-h"><h2 id="at-a-glance-h">What This Unit Covers</h2><div class="diagram"><div class="diagram-title">Concept map</div><div class="flow"><span class="flow-node">readability and naming</span><span class="flow-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><span class="flow-node">modularity and project structure</span><span class="flow-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><span class="flow-node">logging, monitoring and observability</span><span class="flow-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><span class="flow-node">reading other people&#x27;s code</span></div></div><p>The sections below follow this arc, from foundational semantics to the engineering decisions that follow from them.</p></section>
+<section class="section-card" id="core-concepts" aria-labelledby="core-concepts-h"><h2 id="core-concepts-h">Core Concepts</h2><h3><p>01<em>clean</em>code<em>principles</em>theory</p></h3><h4><p>Level 0 — The Name&#8217;s Story-Test 🗣️</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># ❌ GANDA (padhke bhi matlab zero):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span> <span class="mf">0.9</span>          <span class="c1"># 0.9?? fest-discount?! 😵 mystery-ghost!</span>
+    <span class="k">return</span> <span class="n">t</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="c1"># ✅ CLEAN (seedha-paani, kahani-bolta!):</span>
+<span class="n">DISCOUNT_RATE</span> <span class="o">=</span> <span class="mf">0.9</span>            <span class="c1"># shop-wide festive-discount 🎉 (ghost = CAPTURED!)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">average_discounted_price</span><span class="p">(</span><span class="n">prices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""har price pe discount laga ke average 🧾"""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">DISCOUNT_RATE</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">350</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ganda-answer :"</span><span class="p">,</span> <span class="n">calc</span><span class="p">(</span><span class="n">prices</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"clean-answer :"</span><span class="p">,</span> <span class="n">average_discounted_price</span><span class="p">(</span><span class="n">prices</span><span class="p">),</span> <span class="s2">"(same math, NAYI story!)"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># ganda-answer : 195.0</span>
+<span class="c1"># clean-answer : 195.0 (same math, NAYI story!)</span>
+</code></pre></div><h4><p>Level 1 — Small Functions = Small Blame! 🔨</p></h4><p>Getting "load+parse+filter+report" all inside one function = chaos-storm! Break it apart:</p>
+
+<h6 id="functional-tools">Functional tools</h6>
+
+<p>map/filter apply functions; reduce aggregates. Often paired with lambdas.</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># ❌ MEGA-FN (1 darwaza, 5 kaam):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mega</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">mark</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)))</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">m</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"students=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="si">}</span><span class="s2"> avg=</span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># ✅ 3 CHHOTE (har-ek ek-jawaab, har-ek TESTABLE!):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_marks_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""file → (name, mark) rows — comments/blank/negative OUT!"""</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">mark</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">rows</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">class_average</span><span class="p">(</span><span class="n">rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">m</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">rows</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="c1"># ...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"chhotte-se-bani report:"</span><span class="p">,</span> <span class="n">class_report</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># rows-load: [('Asha', 95), ('BK', 75), ('Chirag', 100), ('Diya', 77)]</span>
+<span class="c1"># chhotte-se-bani report: students=4 avg=86.8</span>
+</code></pre></div><h4><p>5 Classic Mistakes (Clean-Code)</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>calc/process/handle</code> zero-meaning names</td>
+  <td>verb+noun: <code>average_discounted_price</code></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>comments ECHO (worthless <code>i+=1 # +1</code>)</td>
+  <td>write WHY, let code say WHAT</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>copy-paste the same-logic everywhere</td>
+  <td>make a fn, stay DRY 🔁</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>if status == 3:</code> (3???)</td>
+  <td>constants: <code>PAID = 3</code> 🪙</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>keeping dead-code ON-hold (future-plans!)</td>
+  <td>git-history remembers — DELETE! 🗑️</td>
+</tr>
+</tbody>
+</table></div>
+
+<h5 id="recap-30-seconds">📌 Recap — 30 Seconds</h5>
+
+<ul>
+<li>Story-speak naming 👑 · small fns ✅ · DRY 🪳 · magic→constants 🪙</li>
+<li>Comments = WHY · Dead-code = remove it (git will remember!)</li>
+</ul>
+
+<p><strong>Next:</strong> <code>02_before_after_examples.ipynb</code> — real-feel MESSY→CLEAN makeovers
+(the expose of sensor-spam &amp; warehouse-bill!) 🧼</p>
+<h3><p>02<em>before</em>after_examples</p></h3><h4><p>Makeover-1: Sensor-Scam Separator 📡 (BEFORE)</p></h4><h6 id="loops">Loops</h6>
+
+<p>for iterates over iterables; while runs while condition true. Use break/continue/else appropriately.</p>
+
+<h6 id="when-to-use">When to use</h6>
+
+<p>Repetitive tasks, processing collections.</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># ❌ BEFORE — anonymous-field guessing game (l[1]? l[3]?? kon? kya?!)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">old_parse</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+    <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
+        <span class="n">tot</span> <span class="o">+=</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">tot</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">out</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="n">RAW</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"s1|42.5|OK"</span><span class="p">,</span> <span class="s2">"s2|17.3|ERR"</span><span class="p">,</span> <span class="s2">"s3|60.0|OK"</span><span class="p">,</span> <span class="s2">"note|x|OK?"</span><span class="p">]</span>
+<span class="n">res</span><span class="p">,</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">old_parse</span><span class="p">(</span><span class="n">RAW</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"before-out:"</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="s2">"| avg:"</span><span class="p">,</span> <span class="n">avg</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># before-out: [('s1', 42.5), ('s3', 60.0)] | avg: 51.2</span>
+</code></pre></div><h4><p>Makeover-1: AFTER ✅ (names! constants! docstrings! small fns!)</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="n">STATUS_OK</span> <span class="o">=</span> <span class="s2">"OK"</span>            <span class="c1"># kabhi "OKAY"/"ok" nahi — ek-hi shabd! 🎯</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_sensor_line</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">""""s1|42.5|OK" → ("s1", 42.5)  |  wahi-line status OK nahi → None"""</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">parts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="n">STATUS_OK</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">average_of</span><span class="p">(</span><span class="n">keepers</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">keepers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">keepers</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">keepers</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sensor_sift</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="n">keepers</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="n">parse_sensor_line</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">keepers</span><span class="p">,</span> <span class="n">average_of</span><span class="p">(</span><span class="n">keepers</span><span class="p">)</span>
+
+<span class="n">res2</span><span class="p">,</span> <span class="n">avg2</span> <span class="o">=</span> <span class="n">sensor_sift</span><span class="p">(</span><span class="n">RAW</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"after-out :"</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="s2">"| avg:"</span><span class="p">,</span> <span class="n">avg2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">avg</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">res2</span><span class="p">,</span> <span class="n">avg2</span><span class="p">)</span>     <span class="c1"># SAME outputs, NAYI readability! 🎉</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✅ same-answer proof — parlour seva success!"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># after-out : [('s1', 42.5), ('s3', 60.0)] | avg: 51.2</span>
+<span class="c1"># ✅ same-answer proof — parlour seva success!</span>
+</code></pre></div><h4><p>3 Makeover-Specific Mistakes</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>changing the BEHAVIOR-TOO during cleanup</td>
+  <td>FIRST pin the same-output assert! 🎯</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>refactoring everything into one fn (just renamed)</td>
+  <td>split into one-task-one-fn</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>decoration over depth — only the looks</td>
+  <td>constants + docstrings + guard-returns</td>
+</tr>
+</tbody>
+</table></div>
+
+<h5 id="recap-15-seconds">📌 Recap — 15 Seconds</h5>
+
+<ul>
+<li>SAME-output proof = the makeover's passport 🛂 (assert old==new!)</li>
+<li>line-parser / average / bill-rules = testable-tiny-pieces</li>
+</ul>
+
+<p><strong>Next topic:</strong> <code>02_Modular_Design</code> — 1 big-script → 3 clean MODULES
+(learn the import-scene, LIVE with files!) 🧩</p>
+<h3><p>01<em>modular</em>design_theory</p></h3><h4><p>Level 0 — The <code>__name__</code> Mirror 🪞 (the guard-master LIVE!)</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># notebook==script-direct — __name__ hamesha "__main__"!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"yeh file chal rahi as:"</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># module jagah pe dikhein: report ka madhna daan sirf direct-chalane pe — guard:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">demo_only</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">"main-guard ke ANDAR wala kaam (import pe SILENT!) 🛡️"</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"guard-inside:"</span><span class="p">,</span> <span class="n">demo_only</span><span class="p">())</span>   <span class="c1"># import se chala toh SKIP!</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># yeh file chal rahi as: __main__</span>
+<span class="c1"># guard-inside: main-guard ke ANDAR wala kaam (import pe SILENT!) 🛡️</span>
+</code></pre></div><h4><p>Level 1 — Your Own Module: Write + Import (LIVE!) 📦</p></h4><p>Let's make a file <code>marktools_module.py</code> (real file work!): load/clean fns —
+then import it and RUN it — module-mechanics LIVE! (plus cleanup!)</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># 1) module likho (asali-file, permanent Lalit‑pur pattern!)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"marktools_module.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">"""marktools — parse/format helpers (demo-module!) 🧩"""</span>
+
+<span class="s1">def parse_mark_line(line: str):</span>
+<span class="s1">    """"Asha: 95" → ("Asha", 95); kharab → None"""</span>
+<span class="s1">    if ":" not in line:</span>
+<span class="s1">        return None</span>
+<span class="s1">    name, mark = line.split(":")</span>
+<span class="s1">    return name.strip(), int(mark)</span>
+
+<span class="s1">def pretty_rows(rows) -&gt; str:</span>
+<span class="s1">    return ", ".join(f"</span><span class="si">{n}</span><span class="s1">=</span><span class="si">{m}</span><span class="s1">" for n, m in rows)</span>
+
+<span class="s1">if __name__ == "__main__":</span>
+<span class="s1">    print("SELF-DEMO:", pretty_rows([parse_mark_line("Asha: 95")]))</span>
+<span class="s1">'''</span><span class="p">)</span>
+
+<span class="c1"># 2) import karo (cwd path pe hai — sys.path me "." hote hi!)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">invalidate_caches</span><span class="p">()</span>   <span class="c1"># fresh-written files ETIC-recognize ete!</span>
+<span class="n">mt</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"marktools_module"</span><span class="p">)</span>
+
+<span class="c1"># 3) chalao!</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">parse_mark_line</span><span class="p">(</span><span class="s2">"Asha: 95"</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># parse-good: ('Asha', 95) | parse-bad: None</span>
+<span class="c1"># pretty     : Asha=95, BK=75</span>
+<span class="c1"># cleanup ✓ (module kaam kar gaya, files saaf!)</span>
+</code></pre></div><h4><p>Level 2 — Package-Tower + the Import-Cycle Trap 🗼🪢</p></h4><p><strong>Package</strong> = a folder + <code>__init__.py</code>: several door-keeper modules of one team.
+<strong>CYCLE-TRAP:</strong> <code>a</code> imports <code>b</code>, <code>b</code> imports <code>a</code> → an import-lock! 🔒
+<strong>CURE:</strong> move the shared thing into a THIRD module (c-team!) — a linear flow!</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="n">Path</span><span class="p">(</span><span class="s2">"shoptower"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"shoptower/__init__.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'"""shoptower package — godown-team!"""</span><span class="se">\n</span><span class="s1">from .pricing import apply_discount</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"shoptower/pricing.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">def apply_discount(total: float, rate: float = 0.9) -&gt; float:</span>
+<span class="s1">    return round(total * rate, 2)</span>
+
+<span class="s1">if __name__ == "__main__":</span>
+<span class="s1">    print("SELF:", apply_discount(100))</span>
+<span class="s1">'''</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">shoptower.pricing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shoptower</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_discount</span>             <span class="c1"># __init__ ne EXPOSE kiya! ✨</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"dot-import :"</span><span class="p">,</span> <span class="n">spr</span><span class="o">.</span><span class="n">apply_discount</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"pkg-expose :"</span><span class="p">,</span> <span class="n">apply_discount</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="s2">"(tallest-ka-direct!)"</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"shoptower"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"__pycache__"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"tower demolish ✓ prototype-teach kaam complete!"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># dot-import : 180.0</span>
+<span class="c1"># pkg-expose : 180.0 (tallest-ka-direct!)</span>
+<span class="c1"># tower demolish ✓ prototype-teach kaam complete!</span>
+</code></pre></div><h4><p>5 Classic Mistakes (Modular)</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>import-time side-effects (code runs!)</td>
+  <td><code>__main__</code>-guard 🛡️</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>import-cycle (a↔b deadlock!) 🔒</td>
+  <td>shared thing → third-module (c-team!)</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>importing everything via <code>from x import *</code></td>
+  <td>explicit-select (clean namespace!)</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>mixing teams in one file (CSV+plot+billing)</td>
+  <td>one-team-one-file 🧩</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>hardcoding absolute-paths <code>C:\data\...</code></td>
+  <td>relative-paths/config (portable!)</td>
+</tr>
+</tbody>
+</table></div>
+<h4><p>Recap — 30 Seconds</p></h4><ul>
+<li>module = .py-team 📦 · package = folder + <code>__init__.py</code> 🗼</li>
+<li><code>__name__ == "__main__"</code> = the demo-guard (SILENT on import!)</li>
+<li>the cure for a cycle = a third-party-module; <code>__init__</code> gives the exposure-polish ✨</li>
+</ul>
+
+<p><strong>Next:</strong> <code>02_refactoring_demo.ipynb</code> — the complete sectioning-by-tearing of 1 MEGA-script:
+a 3-module-tower built LIVE (load→compute→report!) 🏗️</p>
+<h3><p>02<em>refactoring</em>demo</p></h3><h4><p>BEFORE — MEGA <code>sensor_etl.py</code> (concept-print!)</p></h4><p>Anyone touching this = EVERYONE confused. We'll split it into <code>etl_load</code> / <code>etl_compute</code> / <code>etl_report</code>!</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># 1-file-etl (meiodule-style ganda):</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sensors.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span> <span class="k">continue</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">:</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span> <span class="n">tot</span> <span class="o">+=</span> <span class="n">v</span>
+<span class="n">avg</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tot</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"rows=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="si">}</span><span class="s2"> avg=</span><span class="si">{</span><span class="n">avg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">best</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">best</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">best</span> <span class="o">=</span> <span class="n">r</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"top:"</span><span class="p">,</span> <span class="n">best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">best</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># + report lines CSV likhna + email-format — SAB YAHIN! 😱</span>
+</code></pre></div><h4><p>Step 1 — Demo-CSV Seed 🧺 (these are the supplies!)</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">Path</span><span class="p">(</span><span class="s2">"sensors_demo.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+    <span class="s2">"# log-start</span><span class="se">\n</span><span class="s2">s1,42.5,OK</span><span class="se">\n</span><span class="s2">s2,17.3,ERR</span><span class="se">\n</span><span class="s2">s3,60.0,OK</span><span class="se">\n</span><span class="s2">s4,55.2,OK</span><span class="se">\n</span><span class="s2">s5,8.0,OK</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"sensors_demo.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># # log-start</span>
+<span class="c1"># s1,42.5,OK</span>
+<span class="c1"># s2,17.3,ERR</span>
+<span class="c1"># s3,60.0,OK</span>
+<span class="c1"># s4,55.2,OK</span>
+<span class="c1"># s5,8.0,OK</span>
+</code></pre></div><h4><p>Step 2 — Write the 3 Modules (each-room-expert!) 🧩</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># ROOM 1 — etl_load.py: sirf file-parsing (csv→rows!)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"etl_load.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">"""etl_load — CSV-file ko saaf rows deta room 📥"""</span>
+
+<span class="s1">def load_ok_rows(fp: str) -&gt; list[tuple[str, float]]:</span>
+<span class="s1">    rows = []</span>
+<span class="s1">    for line in open(fp):</span>
+<span class="s1">        if line.startswith("#") or not line.strip():</span>
+<span class="s1">            continue</span>
+<span class="s1">        name, val, status = (x.strip() for x in line.split(","))</span>
+<span class="s1">        if status == "OK":</span>
+<span class="s1">            rows.append((name, float(val)))</span>
+<span class="s1">    return rows</span>
+
+<span class="s1">if __name__ == "__main__":</span>
+<span class="s1">    print("SELF:", load_ok_rows("sensors_demo.csv"))</span>
+<span class="s1">'''</span><span class="p">)</span>
+
+<span class="c1"># ROOM 2 — etl_compute.py: sirf maths (avg/top!)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"etl_compute.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">"""etl_compute — rows ko stats 🧮"""</span>
+
+<span class="s1">def rows_avg(rows) -&gt; float:</span>
+<span class="s1">    return round(sum(v for _, v in rows) / len(rows), 1) if rows else 0.0</span>
+
+<span class="s1">def rows_top(rows):</span>
+<span class="s1">    return max(rows, key=lambda r: r[1]) if rows else None</span>
+
+<span class="s1">    # ...</span>
+
+<span class="s1">print("3 rooms likh diye ✓ (etl_load📥 / etl_compute🧮 / etl_report🖨️)")</span>
+<span class="s1"># Expected OUTPUT:</span>
+<span class="s1"># 3 rooms likh diye ✓ (etl_load📥 / etl_compute🧮 / etl_report🖨️)</span>
+</code></pre></div><h4><p>Step 3 — MAIN Runner: Tower Built! 🏗️ (import → chain → cleanup)</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">importlib</span><span class="o">,</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+
+<span class="n">importlib</span><span class="o">.</span><span class="n">invalidate_caches</span><span class="p">()</span>   <span class="c1"># fresh-written files ETIC-recognize ete!</span>
+<span class="n">etl_load</span>    <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"etl_load"</span><span class="p">)</span>
+<span class="n">etl_compute</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"etl_compute"</span><span class="p">)</span>
+<span class="n">etl_report</span>  <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"etl_report"</span><span class="p">)</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="n">etl_load</span><span class="o">.</span><span class="n">load_ok_rows</span><span class="p">(</span><span class="s2">"sensors_demo.csv"</span><span class="p">)</span>
+<span class="n">avg</span>  <span class="o">=</span> <span class="n">etl_compute</span><span class="o">.</span><span class="n">rows_avg</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="n">top</span>  <span class="o">=</span> <span class="n">etl_compute</span><span class="o">.</span><span class="n">rows_top</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">etl_report</span><span class="o">.</span><span class="n">make_report</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">avg</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">rows</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">"s1"</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">),</span> <span class="p">(</span><span class="s2">"s3"</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">),</span> <span class="p">(</span><span class="s2">"s4"</span><span class="p">,</span> <span class="mf">55.2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"s5"</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)],</span> <span class="s2">"4 OK rows!"</span>
+<span class="k">assert</span> <span class="n">avg</span> <span class="o">==</span> <span class="mf">41.4</span> <span class="ow">and</span> <span class="n">top</span> <span class="o">==</span> <span class="p">(</span><span class="s2">"s3"</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">),</span> <span class="s2">"avg 41.43→41.4, top=s3@60!"</span>
+
+<span class="c1"># cleanup — demo-artifacts asali-repo me rakhte, NB me saaf!</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"etl_load.py"</span><span class="p">,</span> <span class="s2">"etl_compute.py"</span><span class="p">,</span> <span class="s2">"etl_report.py"</span><span class="p">,</span> <span class="s2">"sensors_demo.csv"</span><span class="p">):</span>
+    <span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"__pycache__"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"tower tour ✓ — files saaf (asali repo me YEH structure permanents &amp; survives!) 🏗️"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># SENSOR-CHAAT</span>
+<span class="c1"># rows=4 avg=41.4</span>
+<span class="c1"># champion=s3 @ 60.0</span>
+<span class="c1"># credentials: load→compute→report tower! 🏗️</span>
+<span class="c1"># tower tour ✓ — files saaf (asali repo me YEH structure permanents &amp; survives!) 🏗️</span>
+</code></pre></div><h4><p>3 Refactor-Specific Mistakes</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>DIRECT-run logic lying open in module files</td>
+  <td>every file: a <code>__main__</code>-guard 🛡️</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>chain = import-cycle (load→report→load!) 🔒</td>
+  <td>one-way flow (load→compute→report!)</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>skipping tests during the refactor (no same-output proof!)</td>
+  <td>asserts on top/avg EXACT</td>
+</tr>
+</tbody>
+</table></div>
+
+<h5 id="recap-15-seconds">📌 Recap — 15 Seconds</h5>
+
+<ul>
+<li>The 3-room pattern: 📥 load (files) → 🧮 compute (pure!) → 🖨️ report (display)</li>
+<li>the reward of modularity: fix the parser, and the report doesn't break! 💪</li>
+</ul>
+
+<p><strong>Next topic:</strong> <code>03_Logging_Monitoring_Mindset</code> — the "what to log, WHERE to
+log, HOW to drink it" mindset (the BLACK-BOX flight-recorder of production!) 🛩️</p>
+<h3><p>01<em>logging</em>mindset_theory</p></h3><h4><p>Level 0 — Black-Box Setup Live: Timestamps + Levels + FILE 📦</p></h4><p>(the syntax §11-05 buddy-pair — now with a standard-shipping vibe: time-name-level!)</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">RotatingFileHandler</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"chaihut-etl ✈️"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">log</span><span class="o">.</span><span class="n">handlers</span><span class="p">[:]:</span> <span class="n">log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>          <span class="c1"># rebuild-safety!</span>
+
+<span class="n">handler</span> <span class="o">=</span> <span class="n">RotatingFileHandler</span><span class="p">(</span><span class="s2">"blackbox_demo.log"</span><span class="p">,</span> <span class="n">maxBytes</span><span class="o">=</span><span class="mi">220</span><span class="p">,</span> <span class="n">backupCount</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> | </span><span class="si">%(levelname)s</span><span class="s2"> | </span><span class="si">%(name)s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">))</span>
+<span class="n">log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"ETL shuru 🟢"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"parse-attempt batch-1 (dev-detail!)"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"s2 line me ERR status ∘ strange? 🟡"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"s9 parse FAIL — column-count mismatch 🔴"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">"avg=0 aaya — poori pipeline rok di! 🚨"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"config-file loaded ✓"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"rows=417 processed-sync"</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"ETL khatam 🏁"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"blackbox lines:"</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"blackbox_demo.log"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="c1"># Expected OUTPUT (style — timestamps tumhare run-wale!):</span>
+<span class="c1"># YYYY-MM-DD hh:mm:ss | INFO | chaihut-etl ✈️ | ETL shuru 🟢</span>
+<span class="c1"># ...</span>
+<span class="c1"># (8+ formatted lines dikhni chahiye — STATIC-style, level-wise emoji-labels!)</span>
+</code></pre></div><h4><p>Level 2 — The Monitoring-Pyramid: ON TOP of Logs (concepts!) 🗼</p></h4><ul>
+<li><strong>Heartbeat</strong> = an info-line every 15-min: "I am alive 💓" (silence = a death-signal!)</li>
+<li><strong>Count-metric</strong> = counts mined by parsing logs ("parse-fail% &gt; 2" → alert!)</li>
+<li>DS-pipelines: compare rows-in vs rows-out — hidden LOSSES detect data-bugs!</li>
+</ul>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="err">🚨</span> <span class="n">ALERTS</span> <span class="p">(</span><span class="n">page</span><span class="o">/</span><span class="n">mail</span><span class="p">:</span> <span class="s2">"ERROR&gt;10/min chal rahi!"</span> <span class="err">—</span> <span class="n">HUMAN</span> <span class="n">jogao</span><span class="err">!</span><span class="p">)</span>
+        <span class="err">╱</span>
+      <span class="err">📊</span> <span class="n">DASHBOARDS</span> <span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">rows</span><span class="o">/</span><span class="nb">min</span><span class="p">,</span> <span class="n">error</span><span class="o">-</span><span class="n">rate</span><span class="p">,</span> <span class="n">latency</span> <span class="err">—</span> <span class="n">NUMBERS</span><span class="o">-</span><span class="n">ka</span><span class="o">-</span><span class="n">satellite</span><span class="err">!</span><span class="p">)</span>
+<span class="err">╱</span>
+  <span class="err">📦</span> <span class="n">LOGS</span> <span class="p">(</span><span class="n">har</span><span class="o">-</span><span class="n">event</span> <span class="n">ka</span> <span class="n">raw</span><span class="o">-</span><span class="n">dera</span> <span class="err">—</span> <span class="n">black</span><span class="o">-</span><span class="n">box</span><span class="err">!</span><span class="p">)</span>
+</code></pre></div><h4><p>5 Classic Mistakes (Logging-Mindset)</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><code>print</code> in production (vanishes in the air)</td>
+  <td>logger + handlers (file/rotation!)</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>directly logging PASSWORD/tokens POST-payload ⚠️</td>
+  <td>mask/ids-only, audit-friendly!</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>making EVERYTHING DEBUG-level (unreadable soup!)</td>
+  <td>mix the levels: diary/context/alarm-order</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>one file growing to GBs (open-crash!)</td>
+  <td>RotatingFile(maxBytes, backupCount) 🌀</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>write the logs but never look at them</td>
+  <td>heartbeat+alerts (monitoring ON TOP of logs!)</td>
+</tr>
+</tbody>
+</table></div>
+
+<h5 id="recap-30-seconds">📌 Recap — 30 Seconds</h5>
+
+<ul>
+<li>The mindset = which-level / what-to-log / what-not-to-log (privacy-first!) 🛡️</li>
+<li>Black-box formatter: time+level+name+msg ✈️ · Rotation = the overflow-magic 🌀</li>
+<li>Logs → metrics → dashboards → ALERTS = the monitoring-pyramid 🗼</li>
+</ul>
+
+<p><strong>Next topic:</strong> <code>04_Reading_Others_Code</code> — a GPS-navigator for SOMEONE-ELSE's repo
+(entry→trace→test reading strategies, LIVE mystery-repo!) 🗺️🕵️</p>
+<h3><p>01<em>reading</em>code<em>strategies</em>theory</p></h3><h4><p>Step 0 — Materialize a Mystery-Repo 📁 (the teaching spot!)</p></h4><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">repo</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"mystery_repo"</span><span class="p">);</span> <span class="n">repo</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"# Myst-StackBot v1</span><span class="se">\n</span><span class="s2">Looks like a small CLI for marks-bands!</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="s2">"cli.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''from core import band_report</span>
+
+<span class="s1">def main():</span>
+<span class="s1">    rows = [("Asha", 95), ("BK", 62), ("CD", 41)]</span>
+<span class="s1">    print(band_report(rows))</span>
+
+<span class="s1">if __name__ == "__main__":</span>
+<span class="s1">    main()</span>
+<span class="s1">'''</span><span class="p">)</span>
+<span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="s2">"core.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''from utils import classify</span>
+
+<span class="s1">def band_report(rows):</span>
+<span class="s1">    bags = {"A": [], "B": [], "C": [], "F": []}</span>
+<span class="s1">    for name, mark in rows:</span>
+<span class="s1">        band = classify(mark)</span>
+<span class="s1">        bags[band].append(name)</span>
+<span class="s1">    lines = [f"</span><span class="si">{b}</span><span class="s1">Band: {', '.join(bags[b]) or '-'}" for b in "ABCF"]</span>
+<span class="s1">    return "</span><span class="se">\\</span><span class="s1">n".join(lines)</span>
+<span class="s1">'''</span><span class="p">)</span>
+<span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="s2">"utils.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">'''def classify(m):</span>
+<span class="s1">    if m &gt;= 85: return "A"</span>
+<span class="s1">    if m &gt;= 50: return "B"</span>
+<span class="s1">    if m &gt;= 35: return "C"</span>
+<span class="s1">    # ...</span>
+<span class="s1"># 📄 README.md (52b)</span>
+<span class="s1"># 📄 cli.py (168b)</span>
+<span class="s1"># 📄 core.py (290b)</span>
+<span class="s1"># 📄 utils.py (120b)</span>
+</code></pre></div><h4><p>Step 1+2 — README-Glimpse + TREE + ENTRY-Find 🔍</p></h4><p>How do you find the entry point? LINE-GREP for the <code>__main__</code>-guard (the craftsman's pattern!)</p>
+
+<h6 id="exceptions">Exceptions</h6>
+
+<p>Handle errors gracefully with try/except/else/finally. Avoid bare except; catch specific exceptions.</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="nb">print</span><span class="p">(</span><span class="s2">"README peeks:"</span><span class="p">,</span> <span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_entry_guards</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">hits</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">py</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.py"</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">py</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">'__name__'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">hits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">py</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hits</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">__main__-guards scan:"</span><span class="p">,</span> <span class="n">find_entry_guards</span><span class="p">(</span><span class="n">repo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"→ ENTRY = cli.py (fit line 6-8 guard!) 🎯"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># README peeks: Looks like a small CLI for marks-bands!</span>
+<span class="c1">#</span>
+<span class="c1"># __main__-guards scan: ['cli.py:6: if __name__ == "__main__":']</span>
+<span class="c1"># → ENTRY = cli.py (fit line 6-8 guard!) 🎯</span>
+</code></pre></div><h4><p>Step 3 — One-REQUEST Trace + Run (draw the map, verify it!) 🗺️</p></h4><h6 id="functional-tools">Functional tools</h6>
+
+<p>map/filter apply functions; reduce aggregates. Often paired with lambdas.</p>
+<div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><pre class="tok"><code class="tok"><span class="c1"># Imports web: cli → core → utils (grep 'from/import' AND RUN-finally!)</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">py</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"cli.py"</span><span class="p">,</span> <span class="s2">"core.py"</span><span class="p">,</span> <span class="s2">"utils.py"</span><span class="p">]:</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="p">(</span><span class="n">repo</span> <span class="o">/</span> <span class="n">py</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">chain</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">py</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"import-chain scan:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"mystery_repo"</span><span class="p">)</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">invalidate_caches</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cli</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- execute entry (entry=run-path verified!) ---"</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"Asha"</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="s2">"BK"</span><span class="p">,</span> <span class="mi">62</span><span class="p">),</span> <span class="p">(</span><span class="s2">"CD"</span><span class="p">,</span> <span class="mi">41</span><span class="p">)]</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">core</span><span class="w"> </span><span class="kn">import</span> <span class="n">band_report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">band_report</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span>
+
+<span class="c1"># now map done → clean up (demo repo tum kaam-parciyal-ghosts-chhodenge!)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"mystery_repo"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"__pycache__"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"mystery_repo"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">map-complete ✓ mystery solved → cleaned! 🕵️"</span><span class="p">)</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># import-chain scan:</span>
+<span class="c1">#    cli.py: from core import band_report</span>
+<span class="c1">#    core.py: from utils import classify</span>
+<span class="c1">#    utils.py: def classify(m):</span>
+<span class="c1">#</span>
+<span class="c1"># --- execute entry (entry=run-path verified!) ---</span>
+<span class="c1"># ABand: Asha</span>
+<span class="c1"># BBand: BK</span>
+<span class="c1"># CBand: CD</span>
+<span class="c1"># FBand: -</span>
+<span class="c1">#</span>
+<span class="c1"># map-complete ✓ mystery solved → cleaned! 🕵️</span>
+</code></pre></div><h4><p>5 Classic Mistakes (Reading-Code)</p></h4><div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>❌ Mistake</th>
+  <th>✅ Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>STARTING at a random-file (directionless!)</td>
+  <td>entry-scan + tree first 🗺️</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>wanting to see EVERYTHING at once (brain-burn!)</td>
+  <td>trace ONE request, gradually</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>blindly trusting the comments</td>
+  <td>behavior = the code (comments can lie!)</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>skipping the tests while reading</td>
+  <td>tests = the API's living-reference 📗</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>first-change MASTER-massive</td>
+  <td>a small-rehearsal edit + run-verify 🎭</td>
+</tr>
+</tbody>
+</table></div>
+
+<h5 id="recap-30-seconds">📌 Recap — 30 Seconds</h5>
+
+<ul>
+<li>5 steps: README-entry → TREE → ONE-trace → TESTS-docs → small-edits ✍️</li>
+<li><strong>main</strong>-grep = the entry-locator 🎯 · import-chain scan = the call-map 🗺️</li>
+<li>old-map and new-map pull the same weight — close it with a runnable-verify!</li>
+</ul>
+
+<p>🎉 <strong>Section 14 = mindset-set complete!</strong> CLEAN → MODULAR → BLACK-BOX →
+READER — the production-engineer's INNER-OS installed! 💼</p>
+</section>
+<section class="section-card" id="edge-cases" aria-labelledby="edge-cases-h"><h2 id="edge-cases-h">Edge Cases and Boundaries</h2><aside class="callout callout-important"><span class="callout-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><p class="callout-title">Level 1 — The Magic of ROTATION: Overflow = Self-Archive! 🌀</p><p>Once the file fills past maxBytes=220 → <code>backupCount=2</code> auto-archives it!
+In production this fights the file-growing-to-death problem! Watch the overflow live:</p>
+</aside></section>
+<section class="section-card" id="real-world" aria-labelledby="real-world-h"><h2 id="real-world-h">Real-World and AI Engineering Relevance</h2><h3>Where this shows up in AI engineering</h3><ul><li><p>readability and naming</p></li><li><p>modularity and project structure</p></li><li><p>logging, monitoring and observability</p></li><li><p>reading other people&#8217;s code</p></li></ul><aside class="callout callout-hinglish"><span class="callout-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><p class="callout-title">Exam aur interview perspective</p><p>Agar koi concept interview ya exam mein poochha jaye, to definition ke saath apna ek chhota practical example zaroor bolo. Sirf theory batane se confidence nahi dikhta - implementation dikhane se dikhta hai.</p>
+</aside></section>
+<section class="section-card" id="quick-reference" aria-labelledby="quick-reference-h"><h2 id="quick-reference-h">Quick Reference</h2><p>Short, representative snippets collected from the unit's notebooks. Use them as syntax reminders, not as complete programs.</p><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><div class="code-caption">Level 0 — The `__name__` Mirror 🪞 (the guard-master LIVE!)</div><pre class="tok"><code class="tok"><span class="c1"># notebook==script-direct — __name__ hamesha "__main__"!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"yeh file chal rahi as:"</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># module jagah pe dikhein: report ka madhna daan sirf direct-chalane pe — guard:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">demo_only</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">"main-guard ke ANDAR wala kaam (import pe SILENT!) 🛡️"</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"guard-inside:"</span><span class="p">,</span> <span class="n">demo_only</span><span class="p">())</span>   <span class="c1"># import se chala toh SKIP!</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># yeh file chal rahi as: __main__</span>
+<span class="c1"># guard-inside: main-guard ke ANDAR wala kaam (import pe SILENT!) 🛡️</span>
+</code></pre></div><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><div class="code-caption">Step 1 — Demo-CSV Seed 🧺 (these are the supplies!)</div><pre class="tok"><code class="tok"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">Path</span><span class="p">(</span><span class="s2">"sensors_demo.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+    <span class="s2">"# log-start</span><span class="se">\n</span><span class="s2">s1,42.5,OK</span><span class="se">\n</span><span class="s2">s2,17.3,ERR</span><span class="se">\n</span><span class="s2">s3,60.0,OK</span><span class="se">\n</span><span class="s2">s4,55.2,OK</span><span class="se">\n</span><span class="s2">s5,8.0,OK</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"sensors_demo.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+<span class="c1"># Expected OUTPUT:</span>
+<span class="c1"># # log-start</span>
+<span class="c1"># s1,42.5,OK</span>
+<span class="c1"># s2,17.3,ERR</span>
+<span class="c1"># s3,60.0,OK</span>
+<span class="c1"># s4,55.2,OK</span>
+<span class="c1"># s5,8.0,OK</span>
+</code></pre></div><div class="code-shell"><div class="code-toolbar"><span class="code-lang">python</span><button class="copy-code" type="button" aria-label="Copy code"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span></button></div><div class="code-caption">Level 2 — The Monitoring-Pyramid: ON TOP of Logs (concepts!) 🗼</div><pre class="tok"><code class="tok"><span class="err">🚨</span> <span class="n">ALERTS</span> <span class="p">(</span><span class="n">page</span><span class="o">/</span><span class="n">mail</span><span class="p">:</span> <span class="s2">"ERROR&gt;10/min chal rahi!"</span> <span class="err">—</span> <span class="n">HUMAN</span> <span class="n">jogao</span><span class="err">!</span><span class="p">)</span>
+        <span class="err">╱</span>
+      <span class="err">📊</span> <span class="n">DASHBOARDS</span> <span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">rows</span><span class="o">/</span><span class="nb">min</span><span class="p">,</span> <span class="n">error</span><span class="o">-</span><span class="n">rate</span><span class="p">,</span> <span class="n">latency</span> <span class="err">—</span> <span class="n">NUMBERS</span><span class="o">-</span><span class="n">ka</span><span class="o">-</span><span class="n">satellite</span><span class="err">!</span><span class="p">)</span>
+<span class="err">╱</span>
+  <span class="err">📦</span> <span class="n">LOGS</span> <span class="p">(</span><span class="n">har</span><span class="o">-</span><span class="n">event</span> <span class="n">ka</span> <span class="n">raw</span><span class="o">-</span><span class="n">dera</span> <span class="err">—</span> <span class="n">black</span><span class="o">-</span><span class="n">box</span><span class="err">!</span><span class="p">)</span>
+</code></pre></div></section>
+<section class="section-card" id="revision" aria-labelledby="revision-h"><h2 id="revision-h">Revision Checklist</h2><p>Work through this list without looking at the notes. Anything you cannot explain aloud belongs back in the revision queue.</p><ul class="checklist"><li><label class="check"><input type="checkbox"> <span><p>Level 0 — The Name&#8217;s Story-Test 🗣️</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 1 — Small Functions = Small Blame! 🔨</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>5 Classic Mistakes (Clean-Code)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Makeover-1: Sensor-Scam Separator 📡 (BEFORE)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Makeover-1: AFTER ✅ (names! constants! docstrings! small fns!)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>3 Makeover-Specific Mistakes</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 0 — The <code>__name__</code> Mirror 🪞 (the guard-master LIVE!)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 1 — Your Own Module: Write + Import (LIVE!) 📦</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 2 — Package-Tower + the Import-Cycle Trap 🗼🪢</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>5 Classic Mistakes (Modular)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Recap — 30 Seconds</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>BEFORE — MEGA <code>sensor_etl.py</code> (concept-print!)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 1 — Demo-CSV Seed 🧺 (these are the supplies!)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 2 — Write the 3 Modules (each-room-expert!) 🧩</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 3 — MAIN Runner: Tower Built! 🏗️ (import → chain → cleanup)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>3 Refactor-Specific Mistakes</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 0 — Black-Box Setup Live: Timestamps + Levels + FILE 📦</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Level 2 — The Monitoring-Pyramid: ON TOP of Logs (concepts!) 🗼</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>5 Classic Mistakes (Logging-Mindset)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 0 — Materialize a Mystery-Repo 📁 (the teaching spot!)</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 1+2 — README-Glimpse + TREE + ENTRY-Find 🔍</p></span></label></li><li><label class="check"><input type="checkbox"> <span><p>Step 3 — One-REQUEST Trace + Run (draw the map, verify it!) 🗺️</p></span></label></li></ul></section>
+
+    </div>
+  </main>
+
+</div>
+
+<button id="savePdfBtn" class="save-pdf-btn" type="button" aria-label="Save these notes as a PDF">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+  <span>Save as PDF</span>
+</button>
+
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Save as PDF ---------- */
+  var saveBtn = document.getElementById('savePdfBtn');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', function () { window.print(); });
+  }
+
+  /* ---------- Back to top ---------- */
+  var topBtn = document.getElementById('backToTop');
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- Reading progress ---------- */
+  var bar = document.querySelector('.reading-progress');
+  var ticking = false;
+
+  function updateProgress() {
+    if (!bar) return;
+    var doc = document.documentElement;
+    var scrollTop = window.pageYOffset || doc.scrollTop;
+    var scrollHeight = doc.scrollHeight - window.innerHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+
+    if (topBtn) {
+      topBtn.classList.toggle('visible', window.pageYOffset > 600);
+    }
+    ticking = false;
+  }
+
+  if (bar) {
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateProgress();
+  } else {
+    window.addEventListener('scroll', function () {
+      if (topBtn) topBtn.classList.toggle('visible', window.pageYOffset > 600);
+    }, { passive: true });
+  }
+
+  /* ---------- Copy code ---------- */
+  document.querySelectorAll('.copy-code').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var shell = btn.closest('.code-shell');
+      var code = shell ? shell.querySelector('pre code') : null;
+      if (!code) return;
+
+      var text = code.innerText;
+      var done = function () {
+        btn.classList.add('copied');
+        var label = btn.querySelector('span');
+        if (label) label.textContent = 'Copied';
+        setTimeout(function () {
+          btn.classList.remove('copied');
+          if (label) label.textContent = 'Copy';
+        }, 1800);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
+      } else {
+        fallbackCopy(text, done);
+      }
+    });
+  });
+
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); cb(); } catch (e) { /* noop */ }
+    document.body.removeChild(ta);
+  }
+
+  /* ---------- Mobile TOC drawer ---------- */
+  var toggle = document.querySelector('.mobile-toc-toggle');
+  var sidebar = document.querySelector('.sidebar');
+  var backdrop = document.querySelector('.sidebar-backdrop');
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('visible');
+  }
+
+  if (toggle && sidebar) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+      if (backdrop) backdrop.classList.toggle('visible', sidebar.classList.contains('open'));
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeSidebar);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeSidebar();
+  });
+
+  /* ---------- Active TOC section ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc-link'));
+  if (links.length && 'IntersectionObserver' in window) {
+    var map = {};
+    var targets = [];
+
+    links.forEach(function (link) {
+      var id = link.getAttribute('href');
+      if (!id || id.charAt(0) !== '#') return;
+      var el = document.querySelector(id);
+      if (el) {
+        map[id.slice(1)] = link;
+        targets.push(el);
+      }
+    });
+
+    var visible = {};
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        visible[entry.target.id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+
+      var bestId = null;
+      var bestRatio = 0;
+      targets.forEach(function (t) {
+        var r = visible[t.id] || 0;
+        if (r > bestRatio) { bestRatio = r; bestId = t.id; }
+      });
+
+      if (!bestId) {
+        // fall back to the last heading above the fold
+        var offset = window.pageYOffset + 120;
+        for (var i = 0; i < targets.length; i++) {
+          if (targets[i].offsetTop <= offset) bestId = targets[i].id;
+        }
+      }
+
+      links.forEach(function (l) { l.classList.remove('active'); });
+      if (bestId && map[bestId]) map[bestId].classList.add('active');
+    }, {
+      rootMargin: '-80px 0px -55% 0px',
+      threshold: [0, 0.15, 0.4, 0.75, 1]
+    });
+
+    targets.forEach(function (t) { observer.observe(t); });
+  }
+})();
+
+</script>
+
+</body>
+</html>

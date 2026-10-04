@@ -1,0 +1,1416 @@
+{
+  "generated_at": "2026-10-04T10:07:17+00:00",
+  "root": "D:\\GENAI\\AI-Engineering-Foundations",
+  "units": [
+    {
+      "unit": "jupyter",
+      "title": "Jupyter Demo: Working Effectively in Notebooks",
+      "sources": [
+        {
+          "notebook": "00_Jupyter_Demo/jupyter-tips-and-tricks.ipynb",
+          "sha256": "a2061fc75b364f5f6518c2902155b091af05500309c3c722cc1cd74f5153f963",
+          "md_cells": 19,
+          "code_cells": 61
+        }
+      ],
+      "topics_extracted": 18,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "00_Jupyter_Demo/Notes/Jupyter_Demo.html",
+      "html_bytes": 97066,
+      "pdf": "00_Jupyter_Demo/Notes/Jupyter_Demo.pdf",
+      "pdf_bytes": 248568,
+      "pdf_pages": 9,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "python-core",
+      "title": "Python Core Fundamentals",
+      "sources": [
+        {
+          "notebook": "01_Python/01_Python_Core_Fundamentals/01_Python_Basics/Python_Basics.ipynb",
+          "sha256": "5dc424ae6e5bed693b6aa61bbb9c3009c7f0b33e86de185fd34a861ebcc73122",
+          "md_cells": 34,
+          "code_cells": 44
+        },
+        {
+          "notebook": "01_Python/01_Python_Core_Fundamentals/02_Operators_If_Else_Loops/Operators_If_Else_Loops.ipynb",
+          "sha256": "155d3a505f6c6a0bf6b8907431f537d9ff0173bd66b83f67567f804fefc5e263",
+          "md_cells": 33,
+          "code_cells": 37
+        },
+        {
+          "notebook": "01_Python/01_Python_Core_Fundamentals/03_Strings/Python_Strings.ipynb",
+          "sha256": "4cb97bc04e224bdef058332ae036aa6ec5760a4f50a8558b44cf2fc0a57c31f6",
+          "md_cells": 44,
+          "code_cells": 74
+        }
+      ],
+      "topics_extracted": 84,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "01_Python/01_Python_Core_Fundamentals/Notes/Python_Core_Fundamentals.html",
+      "html_bytes": 228428,
+      "pdf": "01_Python/01_Python_Core_Fundamentals/Notes/Python_Core_Fundamentals.pdf",
+      "pdf_bytes": 712677,
+      "pdf_pages": 42,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "python-ds",
+      "title": "Built-in Data Structures and Functions",
+      "sources": [
+        {
+          "notebook": "01_Python/02_Built_in_Data_Structures/01_Lists/Session_4_Lists_in_Python__1VUb_lXKIcyp.ipynb",
+          "sha256": "8d491ddef95895878d6deac51813c8271760564cce46a72007d1b106a4d9392a",
+          "md_cells": 51,
+          "code_cells": 48
+        },
+        {
+          "notebook": "01_Python/02_Built_in_Data_Structures/02_Tuples_Sets_Dicts/Session_5_Tuples_Sets_Dictionary__1PtRoTO1A4Hw.ipynb",
+          "sha256": "f2219360a4631e2bec38c90061afdff155d3778830260a3d9581a3ccb83fd139",
+          "md_cells": 69,
+          "code_cells": 63
+        },
+        {
+          "notebook": "01_Python/02_Built_in_Data_Structures/03_Functions/Session_6_Functions_in_Python__1DfnVcPYRGJD.ipynb",
+          "sha256": "7984364e5041c5ee2db2b732a5244b463e9a3aaf45bfa9d7b3bd813237c316b9",
+          "md_cells": 45,
+          "code_cells": 53
+        }
+      ],
+      "topics_extracted": 145,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "performance",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/02_Built_in_Data_Structures/Notes/Python_Built_in_Data_Structures.html",
+      "html_bytes": 509521,
+      "pdf": "01_Python/02_Built_in_Data_Structures/Notes/Python_Built_in_Data_Structures.pdf",
+      "pdf_bytes": 1024040,
+      "pdf_pages": 71,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "pythonic",
+      "title": "Pythonic Thinking: Iterators, Copying and Identity",
+      "sources": [
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/01_Iterators_Generators/generators-demo.ipynb",
+          "sha256": "9c0e92aff45552461f2ab1ed967ee3d371bbe53f4c8a60a5bca7be86bd8016b5",
+          "md_cells": 15,
+          "code_cells": 23
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/01_Iterators_Generators/Iterators.ipynb",
+          "sha256": "449e43d06576d96a6e0a13335b37212ccf7fbf1d7e303131c1e10b87a5922674",
+          "md_cells": 11,
+          "code_cells": 20
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/01_Iterators_Generators/Namespaces_decorators.ipynb",
+          "sha256": "cf5667b17cf52082cf120c47ddbabaa3c9f91cba6de0e721607412ddcd665c91",
+          "md_cells": 12,
+          "code_cells": 27
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/02_Zip_Enumerate_Map_Filter_Reduce/01_zip_enumerate_theory.ipynb",
+          "sha256": "99e876f4944102bb181aed93dbdc8d37a34708049b28553b2ae144350b18b24b",
+          "md_cells": 9,
+          "code_cells": 8
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/02_Zip_Enumerate_Map_Filter_Reduce/02_map_filter_reduce.ipynb",
+          "sha256": "b0d2f816d22b2371e2ffd86a40b97d24f2ddd1e406946cc7c7a3a3028850e5b8",
+          "md_cells": 9,
+          "code_cells": 8
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/03_Shallow_vs_Deep_Copy/01_copy_concepts_theory.ipynb",
+          "sha256": "5a01af83a8d627998eb0b4629616064e6607171fc42ecf04a22bb3759598f36f",
+          "md_cells": 8,
+          "code_cells": 6
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/03_Shallow_vs_Deep_Copy/02_memory_diagrams_demo.ipynb",
+          "sha256": "d8b2f3f6e3a5d6ad83cc62193c77107ec043058d18a667a58234b8074d3d78d3",
+          "md_cells": 10,
+          "code_cells": 6
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/04_Mutability_vs_Immutability/01_mutability_theory.ipynb",
+          "sha256": "03d3388c57c0c79b634e9361d552f9a023fc2d253e2aa44992c034df7eea5664",
+          "md_cells": 9,
+          "code_cells": 8
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/04_Mutability_vs_Immutability/02_memory_behavior_experiments.ipynb",
+          "sha256": "fc97b93ee350d04aeabf1071d5ecfbf559ecfae67cdae002b40ffd17b85c4f2e",
+          "md_cells": 10,
+          "code_cells": 9
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/05_Args_Kwargs/01_args_kwargs_theory.ipynb",
+          "sha256": "28469264ccd041a94a504a32224ea8138ac000430e88625c9df574a7e1fe0909",
+          "md_cells": 9,
+          "code_cells": 9
+        },
+        {
+          "notebook": "01_Python/03_Pythonic_Thinking/05_Args_Kwargs/02_unpacking_use_cases.ipynb",
+          "sha256": "c8c12d1aae823277c9edea2db9f000824cbccdddfcbd23d0b7ac033fb23cf724",
+          "md_cells": 10,
+          "code_cells": 8
+        }
+      ],
+      "topics_extracted": 112,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "common-mistakes",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/03_Pythonic_Thinking/Notes/Pythonic_Thinking.html",
+      "html_bytes": 462396,
+      "pdf": "01_Python/03_Pythonic_Thinking/Notes/Pythonic_Thinking.pdf",
+      "pdf_bytes": 5134930,
+      "pdf_pages": 78,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "python-advanced",
+      "title": "Advanced Python: OOP, Files, Errors and Decorators",
+      "sources": [
+        {
+          "notebook": "01_Python/04_Python_Advanced/01_OOP/Session_7_OOP_Part_1_Class_Object__1bzZ5WiHXcns.ipynb",
+          "sha256": "3756d6564818c3c8e016c41fa59f7dda35245b4add03975f12c8e6ddc46bd823",
+          "md_cells": 31,
+          "code_cells": 25
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/01_OOP/Session_8_OOP_Part_2_Encapsulation_Static_Keyword__1F3Y_zoZH0BD.ipynb",
+          "sha256": "22e84ca2d1482c203b77cc5201b73df2160c905c63f3ebd02263ce8e5fe4043f",
+          "md_cells": 42,
+          "code_cells": 37
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/01_OOP/Session_9_OOP_Part_3_Inheritance_Polymorphism__1_Pd9W1yltcf.ipynb",
+          "sha256": "ec9c65aaa6d6281ac0ee99fcf43ca667bd35c354dd03d5e2ff94ec57c2d825ec",
+          "md_cells": 36,
+          "code_cells": 37
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/01_OOP/Session_on_OOP_Project__1WyFLxv8gs5n.ipynb",
+          "sha256": "db3df424177d90842759746e9839dfd43ecee76f24f43e694ce8581c3aa54ca1",
+          "md_cells": 15,
+          "code_cells": 15
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/02_File_Handling/Session_10_File_Handling_Serialization_Deserialization__1TP7ks1pnEzJ.ipynb",
+          "sha256": "b5a76e4a6cb670ad16057b2d1b69cd678d76c9266ef43c91418ca74b90266155",
+          "md_cells": 55,
+          "code_cells": 44
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/03_Exception_Handling/Session_11_Exception_Handling__1-yYl5wagPH1.ipynb",
+          "sha256": "74aa31707f79cde01044e48a3c16bec7ec6951ed13845c0c9a864fb15306ad06",
+          "md_cells": 27,
+          "code_cells": 25
+        },
+        {
+          "notebook": "01_Python/04_Python_Advanced/04_Decorators_Generators/Session_12_Decorators_Namespaces__1P5jtGzaVkIj.ipynb",
+          "sha256": "8b3fd0d6c9125968948fdcce8f34c0d941ccf430db651991604fe866da2e594e",
+          "md_cells": 30,
+          "code_cells": 26
+        }
+      ],
+      "topics_extracted": 231,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/04_Python_Advanced/Notes/Python_Advanced.html",
+      "html_bytes": 739848,
+      "pdf": "01_Python/04_Python_Advanced/Notes/Python_Advanced.pdf",
+      "pdf_bytes": 2062161,
+      "pdf_pages": 132,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "python-modules",
+      "title": "Modules, Packages and Environments",
+      "sources": [
+        {
+          "notebook": "01_Python/05_Modules_Packages_Environments/01_Import_System/01_import_from_as_theory.ipynb",
+          "sha256": "c325917135800dfd9f2d2d947dfa8709d024a31f41025291fb2c570efb31bcef",
+          "md_cells": 11,
+          "code_cells": 5
+        },
+        {
+          "notebook": "01_Python/05_Modules_Packages_Environments/02_Creating_Modules_Packages/01_own_modules_theory.ipynb",
+          "sha256": "53d39a274900364eac1eae31bd35a58ba72ff030db752d173a9960536b9c3b3c",
+          "md_cells": 10,
+          "code_cells": 5
+        },
+        {
+          "notebook": "01_Python/05_Modules_Packages_Environments/02_Creating_Modules_Packages/02_packages_structure.ipynb",
+          "sha256": "b30aadb201bab2529c41edba7e85f656e5d62b446607ce1e7664b933f40ef3d6",
+          "md_cells": 8,
+          "code_cells": 4
+        },
+        {
+          "notebook": "01_Python/05_Modules_Packages_Environments/03_Virtual_Environments/01_venv_theory_setup.ipynb",
+          "sha256": "f002f09ff0e27c91ca17d407ca6ac8894b9fe4a90c0c9ded8943e6bc778d6e2d",
+          "md_cells": 8,
+          "code_cells": 2
+        },
+        {
+          "notebook": "01_Python/05_Modules_Packages_Environments/03_Virtual_Environments/02_conda_uv_environments.ipynb",
+          "sha256": "59e926378cee365bb24d0e0f1e075e7fc25cc3cbdd2b583159885791425173ba",
+          "md_cells": 11,
+          "code_cells": 2
+        }
+      ],
+      "topics_extracted": 48,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "common-mistakes",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "01_Python/05_Modules_Packages_Environments/Notes/Modules_Packages_Environments.html",
+      "html_bytes": 212185,
+      "pdf": "01_Python/05_Modules_Packages_Environments/Notes/Modules_Packages_Environments.pdf",
+      "pdf_bytes": 4858257,
+      "pdf_pages": 35,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "numpy",
+      "title": "Numerical Computing with NumPy",
+      "sources": [
+        {
+          "notebook": "01_Python/06_Numerical_Computing_NumPy/01_NumPy_Fundamentals/Session_13_Numpy_Fundamentals__1GEkNfxnCPfz.ipynb",
+          "sha256": "54e9b42e08b4b68c8601be8149bf546dcff8a19a75df87421aa7f527d50d6b1f",
+          "md_cells": 38,
+          "code_cells": 72
+        },
+        {
+          "notebook": "01_Python/06_Numerical_Computing_NumPy/02_Advanced_NumPy/Session_14_Advanced_Numpy__1RVe07-2VU4J.ipynb",
+          "sha256": "975ecc471224b001e7dd42c09a8f43b4b0c0be0f957a74f069171b41a5e8dca7",
+          "md_cells": 32,
+          "code_cells": 40
+        },
+        {
+          "notebook": "01_Python/06_Numerical_Computing_NumPy/03_Numpy_Tricks/Session_15_Numpy_Tricks__1PUW-yXxbkSY.ipynb",
+          "sha256": "68e7a79c2b9c8edea765fa06637f701751d7141f0a8f66780f98a4be55e002c9",
+          "md_cells": 37,
+          "code_cells": 67
+        }
+      ],
+      "topics_extracted": 95,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/06_Numerical_Computing_NumPy/Notes/NumPy.html",
+      "html_bytes": 265237,
+      "pdf": "01_Python/06_Numerical_Computing_NumPy/Notes/NumPy.pdf",
+      "pdf_bytes": 753043,
+      "pdf_pages": 46,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "pandas",
+      "title": "Data Analysis with Pandas",
+      "sources": [
+        {
+          "notebook": "01_Python/07_Pandas/01_Series_and_DataFrame/Session_16_Pandas_Series__1Te483lmZDDK.ipynb",
+          "sha256": "d1e689f1d4d4b4394bd1c7b7568ba57bd1fae7b4b93c69b8178f96ef5caf3e73",
+          "md_cells": 46,
+          "code_cells": 107
+        },
+        {
+          "notebook": "01_Python/07_Pandas/01_Series_and_DataFrame/Session_17_Pandas_DataFrame__1k_CV931NE4_.ipynb",
+          "sha256": "a770895363d3c4c5440657d59f58ad98b98943c7fecb1aecb6760a039f926520",
+          "md_cells": 30,
+          "code_cells": 63
+        },
+        {
+          "notebook": "01_Python/07_Pandas/01_Series_and_DataFrame/Session_18_Important_DataFrame_Methods__1a5Yii5DmHta.ipynb",
+          "sha256": "1a777fd77bbcab69fa2bbd09680a199d27fa726fe7efd6d981a82f2bd762e4ea",
+          "md_cells": 35,
+          "code_cells": 86
+        },
+        {
+          "notebook": "01_Python/07_Pandas/02_Advanced_Pandas/Session_19_GroupBy_Object_in_Pandas__1JZwTCZp2kbi.ipynb",
+          "sha256": "bbeb9065b2720151a5ffdb25114489c826ec6efc85d48741ef498148d0dca74e",
+          "md_cells": 18,
+          "code_cells": 46
+        },
+        {
+          "notebook": "01_Python/07_Pandas/02_Advanced_Pandas/Session_20_Merging_Joining_Concatenating__1Xs7On5fr6ZZ.ipynb",
+          "sha256": "348b996769bd2b6ee78b0ddccc7e8e075c9d0fe155246f5a43f7e681adb33e9d",
+          "md_cells": 12,
+          "code_cells": 40
+        },
+        {
+          "notebook": "01_Python/07_Pandas/03_Advanced_Pandas_Contintued/Session_21_MultiIndex_Series_and_DataFrames__17l8EddlrS2E.ipynb",
+          "sha256": "e62655c4959aaba85aa36cebb151e6feebb1cbf3e667b516f584a9afc53127bf",
+          "md_cells": 33,
+          "code_cells": 64
+        },
+        {
+          "notebook": "01_Python/07_Pandas/03_Advanced_Pandas_Contintued/Session_22_Vectorized_String_Operations_DateTime_in_Pandas_P__1IbvN3BABXN2.ipynb",
+          "sha256": "11975b58bf3630d286b283190abe53bd75eeabbf33f316a69e1a58c017c09b0a",
+          "md_cells": 21,
+          "code_cells": 14
+        },
+        {
+          "notebook": "01_Python/07_Pandas/03_Advanced_Pandas_Contintued/Session_22_Vectorized_String_Operations_DateTime_in_Pandas_P__1zkfBGu48iLf.ipynb",
+          "sha256": "77134b21716a742aab9299f28c5a6c020ca84b18880ec5d887efdbe2e22a5674",
+          "md_cells": 28,
+          "code_cells": 41
+        },
+        {
+          "notebook": "01_Python/07_Pandas/Pandas_Case_Study_Time_Series_Analysis__12G4cSJkdYAE.ipynb",
+          "sha256": "5ac0c7496eb844076d1539b8402ac5a4fedd76c2fa0d72e44eaee70cb0bd67a4",
+          "md_cells": 40,
+          "code_cells": 48
+        }
+      ],
+      "topics_extracted": 239,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/07_Pandas/Notes/Pandas.html",
+      "html_bytes": 695922,
+      "pdf": "01_Python/07_Pandas/Notes/Pandas.pdf",
+      "pdf_bytes": 1721565,
+      "pdf_pages": 108,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dataviz",
+      "title": "Data Visualization: Matplotlib, Seaborn and Plotly",
+      "sources": [
+        {
+          "notebook": "01_Python/08_Data_Visualization/01_Matplotlib/Session_23_Plotting_using_Matplotlib__1ksmroQtN_Ko.ipynb",
+          "sha256": "f2057819a1e60c56bc11822f16b2be811eaa110528c103f486a1a1b07d282f86",
+          "md_cells": 28,
+          "code_cells": 47
+        },
+        {
+          "notebook": "01_Python/08_Data_Visualization/01_Matplotlib/Session_24_Advanced_Matplotlib__14TP6tNzUT5M.ipynb",
+          "sha256": "e62aee51bc9277330edf45b8adae2c50c47d7941381b840f24ce367d84b9fc50",
+          "md_cells": 32,
+          "code_cells": 64
+        },
+        {
+          "notebook": "01_Python/08_Data_Visualization/02_Seaborn/Session_25_Plotting_using_Seaborn__1_Mk2NWYBzNx.ipynb",
+          "sha256": "f408a7dc5e73d142e326aec61ef41e6b37f9943007424129236fbc23fae7f10e",
+          "md_cells": 10,
+          "code_cells": 41
+        },
+        {
+          "notebook": "01_Python/08_Data_Visualization/02_Seaborn/Session_26_Plotting_using_Seaborn_Part_2__18GuhOaBBhaB.ipynb",
+          "sha256": "12542390b7331a46a72005b370b1f0346ae3646aee62d6078a29bc73368a5f03",
+          "md_cells": 22,
+          "code_cells": 49
+        },
+        {
+          "notebook": "01_Python/08_Data_Visualization/02_Seaborn/Session_26_Plotting_using_Seaborn_Part_2__1FjKejgCJwUs.ipynb",
+          "sha256": "3465cb69eaf6fa4d5800fd2d059712796596b9d4098926c57ab1f25c89e2d012",
+          "md_cells": 29,
+          "code_cells": 31
+        },
+        {
+          "notebook": "01_Python/08_Data_Visualization/03_Plotly/Session_on_Plotly_Express__11Ya6Pi2pNoH.ipynb",
+          "sha256": "06f8b4c71f1c11e9870523e7baa9a5e17379a877901e50a5d736e3e546267e6b",
+          "md_cells": 16,
+          "code_cells": 41
+        }
+      ],
+      "topics_extracted": 112,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "01_Python/08_Data_Visualization/Notes/Data_Visualization.html",
+      "html_bytes": 867186,
+      "pdf": "01_Python/08_Data_Visualization/Notes/Data_Visualization.pdf",
+      "pdf_bytes": 1290842,
+      "pdf_pages": 57,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "data-analysis",
+      "title": "The Data Analysis Process",
+      "sources": [
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/01_Gathering_the_Data/Session-27_Data_Gathering.ipynb",
+          "sha256": "7b30d2ea3e96d292bfd2d00a59c9fff1f424a856ea57d839efb3248606d25e70",
+          "md_cells": 55,
+          "code_cells": 67
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/02_Assessing_Dataand Cleaning/Session_28_Data_Assessing_and_Cleaning__1ca-jlBvJ4uq.ipynb",
+          "sha256": "f0818a84abbe079dbeafa8f74bd87487fa1893c2aaa11353bdcb1c3f2e6e664a",
+          "md_cells": 24,
+          "code_cells": 41
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/03_Exploratory_Data_Analysis/Session_29_Exploratory_Data_Analysis_Titanic_Dataset__13rFqQJqU5Rg.ipynb",
+          "sha256": "6f3313d0d9accd7a4b487bd7db8720a642892b265bc12a3d62b65c3d81a0a140",
+          "md_cells": 28,
+          "code_cells": 71
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/Case_Studies/Smartphones/Session_on_Data_Cleaning_Case_Study_Smartphone_dataset__1TGYxt3X2YN7.ipynb",
+          "sha256": "67bf3dd3dcb86ce5f149e52937b133ec6bcc46447e628deab6d6034f265f4cc1",
+          "md_cells": 31,
+          "code_cells": 125
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/Case_Studies/Smartphones/Session_on_EDA_Case_Study_Smartphones_Dataset__1CLkCDQAFZfN.ipynb",
+          "sha256": "c45d675b7c1b3871a82dbb2cc388830db30a1aa31bea58d5402c75edcad8141a",
+          "md_cells": 23,
+          "code_cells": 74
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/Case_Studies/Smartphones/Session_on_EDA_Case_Study_Smartphones_Dataset__1E7nUdvyKpm6.ipynb",
+          "sha256": "c274f73a8e67995354d042a8d8c4281567d80e0770133c5fb50db7e5f93e7f41",
+          "md_cells": 26,
+          "code_cells": 96
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/EDA.ipynb",
+          "sha256": "8edd60d41153df6b97c7949f330ab560873027daf2c86687fca89c7532106a70",
+          "md_cells": 36,
+          "code_cells": 77
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/ETL/ETL_Using_AWS_RDS.ipynb",
+          "sha256": "4479a97baa779804fd845271d6209a1df3d9f5f6e3f8fc690243b72fc38301e1",
+          "md_cells": 29,
+          "code_cells": 28
+        },
+        {
+          "notebook": "01_Python/09_Data_Analysis_Process/Web_Scraping.ipynb",
+          "sha256": "0b0623215c7c2cfc8646b24769f98effff3d596455de005cb05cb305d088686b",
+          "md_cells": 27,
+          "code_cells": 15
+        }
+      ],
+      "topics_extracted": 277,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "01_Python/09_Data_Analysis_Process/Notes/Data_Analysis_Process.html",
+      "html_bytes": 1144093,
+      "pdf": "01_Python/09_Data_Analysis_Process/Notes/Data_Analysis_Process.pdf",
+      "pdf_bytes": 2235097,
+      "pdf_pages": 134,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "async",
+      "title": "Async and Parallel Python",
+      "sources": [
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/01_Multithreading_vs_Multiprocessing/01_concepts_theory.ipynb",
+          "sha256": "93eed45df4f3d1e8277503897f5895b1c8f40921e6376349f33c50c9624cf26f",
+          "md_cells": 6,
+          "code_cells": 4
+        },
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/01_Multithreading_vs_Multiprocessing/02_comparison_demo.ipynb",
+          "sha256": "550ba17bb748c3e06a967d3f0b7fe930563d81b6b910b9655278ed5b87319572",
+          "md_cells": 6,
+          "code_cells": 4
+        },
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/02_Async_Await/01_async_await_theory.ipynb",
+          "sha256": "5d8a224981314c6003b0484678a42a6cb690f5c82eefc46426633e4c9ddca4bb",
+          "md_cells": 5,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/02_Async_Await/02_async_examples.ipynb",
+          "sha256": "a517074e7511b1ba98a1b9971b8048b46e4b95f89eece37a98352cf86b78470b",
+          "md_cells": 6,
+          "code_cells": 4
+        },
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/03_Async_IO_Basics/01_asyncio_basics_theory.ipynb",
+          "sha256": "5b729e37180cd83cb6b2231ee857a3e9bce2fe3d1bb6d794600390272614523c",
+          "md_cells": 6,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/11_Async_Parallel_Python/04_When_to_Use_Each/01_decision_guide_theory.ipynb",
+          "sha256": "228fe755e827fe5d0c9af8b0ea3b92004420d6ae266806d947d436e18a013a28",
+          "md_cells": 6,
+          "code_cells": 2
+        }
+      ],
+      "topics_extracted": 35,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "01_Python/11_Async_Parallel_Python/Notes/Async_Parallel_Python.html",
+      "html_bytes": 221840,
+      "pdf": "01_Python/11_Async_Parallel_Python/Notes/Async_Parallel_Python.pdf",
+      "pdf_bytes": 4584398,
+      "pdf_pages": 28,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "production",
+      "title": "Production-Ready Python Mindset",
+      "sources": [
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/01_Clean_Readable_Code/01_clean_code_principles_theory.ipynb",
+          "sha256": "f9363c994d3e26d0871884d0ddcc9a79157a18b93a3248ef7e5a8e632f12063e",
+          "md_cells": 4,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/01_Clean_Readable_Code/02_before_after_examples.ipynb",
+          "sha256": "235c025a31f8869f2363d069c34fa382b4d55999735565ecf8cc79e3ed03ba50",
+          "md_cells": 5,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/02_Modular_Design/01_modular_design_theory.ipynb",
+          "sha256": "2c2e66f8dbef74b3adcb8baae14667df74e3ea7df53991d252b227ef3f7bb1a1",
+          "md_cells": 6,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/02_Modular_Design/02_refactoring_demo.ipynb",
+          "sha256": "e950e34332384771ec3bb573ca7e44bfc118a584e29525776435a15ed1a3e58f",
+          "md_cells": 6,
+          "code_cells": 3
+        },
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/03_Logging_Monitoring_Mindset/01_logging_mindset_theory.ipynb",
+          "sha256": "a40fa5db1f58cca03c0b037d946af95d93c03c1495b7a2ad1f3b241acb2a14af",
+          "md_cells": 5,
+          "code_cells": 2
+        },
+        {
+          "notebook": "01_Python/13_Production_Ready_Mindset/04_Reading_Others_Code/01_reading_code_strategies_theory.ipynb",
+          "sha256": "0142014a4b76cc6ce06498f69884999fc30c2481c1a465caa1d4e72cd322eeb9",
+          "md_cells": 5,
+          "code_cells": 3
+        }
+      ],
+      "topics_extracted": 31,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "01_Python/13_Production_Ready_Mindset/Notes/Production_Ready_Mindset.html",
+      "html_bytes": 147677,
+      "pdf": "01_Python/13_Production_Ready_Mindset/Notes/Production_Ready_Mindset.pdf",
+      "pdf_bytes": 3613259,
+      "pdf_pages": 22,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "sql",
+      "title": "SQL and Relational Databases",
+      "sources": [
+        {
+          "notebook": "02-SQL-Databases/SQL_Databases_Complete.ipynb",
+          "sha256": "b8078d0036eff22e4b2ace86c3137f35f4c97cca211b64e44372937521672054",
+          "md_cells": 983,
+          "code_cells": 364
+        }
+      ],
+      "topics_extracted": 962,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "02-SQL-Databases/Notes/SQL_Databases.html",
+      "html_bytes": 1779025,
+      "pdf": "02-SQL-Databases/Notes/SQL_Databases.pdf",
+      "pdf_bytes": 3195029,
+      "pdf_pages": 608,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-intro",
+      "title": "Introduction to DSA and Python Basics",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/01. Introduction to DSA and Python Basics/python-refresher.ipynb",
+          "sha256": "152c72c151bb7205d28347e77095aa16e74f37ff05a5039870f7e75fedcb110f",
+          "md_cells": 40,
+          "code_cells": 90
+        }
+      ],
+      "topics_extracted": 35,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/01. Introduction to DSA and Python Basics/Notes/DSA_01_Introduction.html",
+      "html_bytes": 133878,
+      "pdf": "05-DSA-for-AI/01. Introduction to DSA and Python Basics/Notes/DSA_01_Introduction.pdf",
+      "pdf_bytes": 319422,
+      "pdf_pages": 17,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-arrays",
+      "title": "Arrays and Lists",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/02. Arrays & Lists/arrays.ipynb",
+          "sha256": "1b96f314468180132a085b6d99cde6829ec75596d79026c888258f0f988e7422",
+          "md_cells": 26,
+          "code_cells": 41
+        },
+        {
+          "notebook": "05-DSA-for-AI/02. Arrays & Lists/lists.ipynb",
+          "sha256": "fc3c6bedf3831fe4406f811f26b7f057fb201e290ffbd4ed2ca9bfcf9fbcb9f7",
+          "md_cells": 38,
+          "code_cells": 68
+        }
+      ],
+      "topics_extracted": 58,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/02. Arrays & Lists/Notes/DSA_02_Arrays_and_Lists.html",
+      "html_bytes": 128612,
+      "pdf": "05-DSA-for-AI/02. Arrays & Lists/Notes/DSA_02_Arrays_and_Lists.pdf",
+      "pdf_bytes": 301062,
+      "pdf_pages": 15,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-strings",
+      "title": "Strings",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/03. Strings/coding-problems.ipynb",
+          "sha256": "a6436985f40ca31f01fe8dbe783bc5a50a247433e7f8c98f271cd6127fbfa5ac",
+          "md_cells": 14,
+          "code_cells": 13
+        },
+        {
+          "notebook": "05-DSA-for-AI/03. Strings/string-comparison.ipynb",
+          "sha256": "cbe9f79218cdb8e88de4c036a13665798be109940cd79da69b428ed6e52cdfbd",
+          "md_cells": 8,
+          "code_cells": 12
+        },
+        {
+          "notebook": "05-DSA-for-AI/03. Strings/string-manipulation.ipynb",
+          "sha256": "44b5235afee82fd5130b4c64e59be2cfda85b9bb4a98e83e3c3b7e043e7bdb72",
+          "md_cells": 37,
+          "code_cells": 46
+        },
+        {
+          "notebook": "05-DSA-for-AI/03. Strings/strings.ipynb",
+          "sha256": "10a1703e1bab3cb20e6cf568f025000ec87b5726032872dc8c02e6d55aaf1053",
+          "md_cells": 23,
+          "code_cells": 53
+        }
+      ],
+      "topics_extracted": 74,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/03. Strings/Notes/DSA_03_Strings.html",
+      "html_bytes": 161518,
+      "pdf": "05-DSA-for-AI/03. Strings/Notes/DSA_03_Strings.pdf",
+      "pdf_bytes": 433898,
+      "pdf_pages": 24,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-linked-lists",
+      "title": "Linked Lists",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/04. Linked Lists/1-singly-linked-list.ipynb",
+          "sha256": "0cc6ae007dd031d2035cbaa6a07db47e65f83b59c418bf9f9ac4468b709a80ee",
+          "md_cells": 7,
+          "code_cells": 40
+        },
+        {
+          "notebook": "05-DSA-for-AI/04. Linked Lists/2-circular-singly-linked-list.ipynb",
+          "sha256": "ff453811c99f0b614e7b3bf83d1767cc4a5b37ad3496ad62aca28330d033c6fc",
+          "md_cells": 6,
+          "code_cells": 41
+        },
+        {
+          "notebook": "05-DSA-for-AI/04. Linked Lists/3-doubly-linked-list.ipynb",
+          "sha256": "e54e237fd34fe6e43897db3754d654ccde665458608c00019f73c414dc5b5c07",
+          "md_cells": 6,
+          "code_cells": 42
+        },
+        {
+          "notebook": "05-DSA-for-AI/04. Linked Lists/4-circular-doubly-linked-list.ipynb",
+          "sha256": "9b9e9c752c89bae53b74bc762a86ac73eb75587f4fd8479a263ac07165017ebc",
+          "md_cells": 6,
+          "code_cells": 30
+        },
+        {
+          "notebook": "05-DSA-for-AI/04. Linked Lists/coding-problems.ipynb",
+          "sha256": "a573e9004f717412d2d8f67ecdcd58dc85e1e1848ab57ba65cb9ba9edae51041",
+          "md_cells": 17,
+          "code_cells": 8
+        }
+      ],
+      "topics_extracted": 41,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/04. Linked Lists/Notes/DSA_04_Linked_Lists.html",
+      "html_bytes": 176462,
+      "pdf": "05-DSA-for-AI/04. Linked Lists/Notes/DSA_04_Linked_Lists.pdf",
+      "pdf_bytes": 432650,
+      "pdf_pages": 28,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-stacks",
+      "title": "Stacks",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/05. Stacks/1-stack-using-list.ipynb",
+          "sha256": "0e82fb0f99c269ce3b15589e6d3da9ee42f7da7b8a223d9e9689fd2a766b9abe",
+          "md_cells": 5,
+          "code_cells": 13
+        },
+        {
+          "notebook": "05-DSA-for-AI/05. Stacks/2-stack-using-collections.ipynb",
+          "sha256": "d9240c316d63bea5c16d0d82225ee52bb1ca981dbfc5a470d233f0b4391ad888",
+          "md_cells": 4,
+          "code_cells": 16
+        },
+        {
+          "notebook": "05-DSA-for-AI/05. Stacks/3-stack-using-linked-list.ipynb",
+          "sha256": "163ecd7eae00e9ac69996c404c33ac828db67afd57c7e3054ec407f6986b7804",
+          "md_cells": 5,
+          "code_cells": 12
+        },
+        {
+          "notebook": "05-DSA-for-AI/05. Stacks/4-coding-problems.ipynb",
+          "sha256": "29cafb374084311e2887f82a800ad1e8e0d24aabd48177210ee22a8e16f5241f",
+          "md_cells": 9,
+          "code_cells": 7
+        }
+      ],
+      "topics_extracted": 23,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/05. Stacks/Notes/DSA_05_Stacks.html",
+      "html_bytes": 115477,
+      "pdf": "05-DSA-for-AI/05. Stacks/Notes/DSA_05_Stacks.pdf",
+      "pdf_bytes": 290402,
+      "pdf_pages": 16,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-queues",
+      "title": "Queues",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/06. Queues/1-queue-using-list.ipynb",
+          "sha256": "3599135b21004bdc6520741f0d8bb51e238e08ef41c2253dd07e28c167b4dd63",
+          "md_cells": 6,
+          "code_cells": 14
+        },
+        {
+          "notebook": "05-DSA-for-AI/06. Queues/2-queue-using-linked-list.ipynb",
+          "sha256": "f10c3ab5a67e45f3683102093f62a68597ff4f5eb486e09a7108bd27b926eeaa",
+          "md_cells": 6,
+          "code_cells": 14
+        },
+        {
+          "notebook": "05-DSA-for-AI/06. Queues/3-queue-using-collections.ipynb",
+          "sha256": "1b6709fdecf5df150dda47c54179980cfde2134d1c49daf09154b16e062f55f6",
+          "md_cells": 6,
+          "code_cells": 14
+        },
+        {
+          "notebook": "05-DSA-for-AI/06. Queues/4-coding-problems.ipynb",
+          "sha256": "00ec8f5bfb958e1b19fc5346995393e30bb6340daa0d559692d0861c581059de",
+          "md_cells": 11,
+          "code_cells": 18
+        }
+      ],
+      "topics_extracted": 23,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/06. Queues/Notes/DSA_06_Queues.html",
+      "html_bytes": 109808,
+      "pdf": "05-DSA-for-AI/06. Queues/Notes/DSA_06_Queues.pdf",
+      "pdf_bytes": 274274,
+      "pdf_pages": 14,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-searching",
+      "title": "Searching",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/07. Searching/1-linear-search.ipynb",
+          "sha256": "c4125319e30217676ba0cb7fa4152b4c808ca94c92897deba1c51e78dd219e43",
+          "md_cells": 6,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/07. Searching/2-binary-search.ipynb",
+          "sha256": "4893b54b05976ea59e6faa17f5c6444f6d9376e405038b23491711721cc136c6",
+          "md_cells": 10,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/07. Searching/3-exponential-search.ipynb",
+          "sha256": "4007c2c151baec392f890187e352bd75d9bb223f3b4c38ecbe52f3efef1eb91f",
+          "md_cells": 6,
+          "code_cells": 6
+        }
+      ],
+      "topics_extracted": 19,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "common-mistakes",
+        "edge-cases",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/07. Searching/Notes/DSA_07_Searching.html",
+      "html_bytes": 103719,
+      "pdf": "05-DSA-for-AI/07. Searching/Notes/DSA_07_Searching.pdf",
+      "pdf_bytes": 266037,
+      "pdf_pages": 12,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-sorting",
+      "title": "Sorting",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/1-bubble-sort.ipynb",
+          "sha256": "4b888ee8f8256642c923a4ecbb34ac592983faccc0433301c8f704428431a347",
+          "md_cells": 4,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/2-selection-sort.ipynb",
+          "sha256": "d52ce9b6f0d1d9661f0d1b71e0fec9e516b81d4522d8729635bf7615c33114d3",
+          "md_cells": 4,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/3-insertion-sort.ipynb",
+          "sha256": "93e4aad3f677e65e00e9d661311ab338c34afd01e09f8167af443834588f3c38",
+          "md_cells": 4,
+          "code_cells": 3
+        },
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/4-merge-sort.ipynb",
+          "sha256": "48191afd1841f7a9166643d158f162aa7e7de1137daefc476ac01b785d6d1cd0",
+          "md_cells": 4,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/5-quick-sort.ipynb",
+          "sha256": "00bc3bdb95e4b7583b6d43c187673bef0088291ad4ecead914292903105a9734",
+          "md_cells": 5,
+          "code_cells": 3
+        },
+        {
+          "notebook": "05-DSA-for-AI/08. Sorting/6-count-sort.ipynb",
+          "sha256": "95c592db33eb47fa6ba6f22f58ff1f69d1fb801d9f976ccc675c9a174910eb82",
+          "md_cells": 5,
+          "code_cells": 3
+        }
+      ],
+      "topics_extracted": 26,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/08. Sorting/Notes/DSA_08_Sorting.html",
+      "html_bytes": 156360,
+      "pdf": "05-DSA-for-AI/08. Sorting/Notes/DSA_08_Sorting.pdf",
+      "pdf_bytes": 317829,
+      "pdf_pages": 21,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-recursion",
+      "title": "Recursion",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/09. Recursion/coding-problems.ipynb",
+          "sha256": "81bc50d67d074465421d8b58fe2dcd9a386b93f14eedba3df4dd24d34595b348",
+          "md_cells": 11,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/09. Recursion/recursion.ipynb",
+          "sha256": "c1e4ffa253ccce3ec64f133f2830d16a2d1cd06b2013c4cc3230d69b5eb44c1f",
+          "md_cells": 13,
+          "code_cells": 5
+        }
+      ],
+      "topics_extracted": 22,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/09. Recursion/Notes/DSA_09_Recursion.html",
+      "html_bytes": 113439,
+      "pdf": "05-DSA-for-AI/09. Recursion/Notes/DSA_09_Recursion.pdf",
+      "pdf_bytes": 251149,
+      "pdf_pages": 14,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-hashing",
+      "title": "Hashing",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/coding-problems.ipynb",
+          "sha256": "e5e254fd576a56b6be1bf53348f42e511906d26d13fa9b032bd3743d09ba5c1a",
+          "md_cells": 8,
+          "code_cells": 9
+        },
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/collision-handling.ipynb",
+          "sha256": "21ccdbc60c45f9cd30224427e14e45bf472dfa480042c52e4d3d59ec1e94669f",
+          "md_cells": 8,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/common-operations-dict.ipynb",
+          "sha256": "282f042acf4310496f1c9270aecde8c54f6af4849517586b86ca4318bbaa35c9",
+          "md_cells": 14,
+          "code_cells": 21
+        },
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/common-operations-set.ipynb",
+          "sha256": "d211d91f5636c56696a25dcf2d509b36db5ba15856ffb98335b5692a751a562d",
+          "md_cells": 10,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/hashing-collision.ipynb",
+          "sha256": "2713b4039b993c3035c60bf67e71e2878b7c1b3d73545489fa1d3b877664bcca",
+          "md_cells": 1,
+          "code_cells": 2
+        },
+        {
+          "notebook": "05-DSA-for-AI/10. Hashing/hashing-functions.ipynb",
+          "sha256": "28be54cce77aef16a647865c669ba7ca55538ca98e24702ebed490cfbd349938",
+          "md_cells": 11,
+          "code_cells": 8
+        }
+      ],
+      "topics_extracted": 49,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/10. Hashing/Notes/DSA_10_Hashing.html",
+      "html_bytes": 199941,
+      "pdf": "05-DSA-for-AI/10. Hashing/Notes/DSA_10_Hashing.pdf",
+      "pdf_bytes": 445548,
+      "pdf_pages": 30,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-problem-solving",
+      "title": "Problem Solving Frameworks",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/1-sliding-window.ipynb",
+          "sha256": "2a89bf0284229cda971ed43aba07f128483db1c19cf7e993286109dfc5fefa10",
+          "md_cells": 15,
+          "code_cells": 7
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/2-two-pointers.ipynb",
+          "sha256": "14de3150829ffb3357633a10245798ffd56cc38032ea96b1702b9f547d7a9d30",
+          "md_cells": 15,
+          "code_cells": 7
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/3-slow-and-fast-pointers.ipynb",
+          "sha256": "b661fe26dc8c93d6a1e33bcb5724271dafcc23646e87480faccc08667f92a78c",
+          "md_cells": 15,
+          "code_cells": 11
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/4-prefix-sum.ipynb",
+          "sha256": "038232b7bf2297e6611610811284d4c290a778522e6b55e9c3a23a4b11cb5db7",
+          "md_cells": 15,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/5-hashing.ipynb",
+          "sha256": "fea43ae26dc10dbc85ae8ccc85679603789d8d57b534d668271a38ed4868e6c7",
+          "md_cells": 15,
+          "code_cells": 8
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/6-binary-search.ipynb",
+          "sha256": "64ce36dcb5c10bdab553a937261ae095b786960d90d4f481fd78648976d9ab25",
+          "md_cells": 15,
+          "code_cells": 7
+        },
+        {
+          "notebook": "05-DSA-for-AI/11. Problem Solving/7-greedy-approach.ipynb",
+          "sha256": "7e0841d1968a2fb06c4b3c7cb0fcbb5203dab67f96f92ab8fead01ea34a9adf8",
+          "md_cells": 15,
+          "code_cells": 6
+        }
+      ],
+      "topics_extracted": 35,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/11. Problem Solving/Notes/DSA_11_Problem_Solving.html",
+      "html_bytes": 189518,
+      "pdf": "05-DSA-for-AI/11. Problem Solving/Notes/DSA_11_Problem_Solving.pdf",
+      "pdf_bytes": 459556,
+      "pdf_pages": 26,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-trees",
+      "title": "Trees",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/12. Trees/binary-search-tree.ipynb",
+          "sha256": "5dbb4f1a363eae6a708ccbee368efb6bf3e2381f248fb6fc8dffc8a07944b26d",
+          "md_cells": 11,
+          "code_cells": 18
+        },
+        {
+          "notebook": "05-DSA-for-AI/12. Trees/coding-problems.ipynb",
+          "sha256": "233d823c4536e101f1268102fbae8d0fb766066f61d01cd3694c85f27126a162",
+          "md_cells": 23,
+          "code_cells": 33
+        },
+        {
+          "notebook": "05-DSA-for-AI/12. Trees/N-ary-tree.ipynb",
+          "sha256": "d772424b74f8f23b25eadffe330da1cf10c3aa03fccb950c1f74c8255d6e8c46",
+          "md_cells": 12,
+          "code_cells": 9
+        },
+        {
+          "notebook": "05-DSA-for-AI/12. Trees/tree-traversal.ipynb",
+          "sha256": "1f821a942d9e9e9424d9a5ef709d094c4d7bb41168c0a0369eb8bb3ebd55d471",
+          "md_cells": 11,
+          "code_cells": 11
+        }
+      ],
+      "topics_extracted": 54,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/12. Trees/Notes/DSA_12_Trees.html",
+      "html_bytes": 164380,
+      "pdf": "05-DSA-for-AI/12. Trees/Notes/DSA_12_Trees.pdf",
+      "pdf_bytes": 304616,
+      "pdf_pages": 23,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    },
+    {
+      "unit": "dsa-graphs",
+      "title": "Graphs",
+      "sources": [
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/01-dfs.ipynb",
+          "sha256": "bfd2dcbf2e0cfd1eb09d706bc5a17ff632eb315e7d213f50d7498cfd20bffb0c",
+          "md_cells": 9,
+          "code_cells": 3
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/02-bfs.ipynb",
+          "sha256": "3cbecd8605a554833145b8a40ce21f7ded3de7d1a2f752342583770ec40761ee",
+          "md_cells": 9,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/03-multi-source-bfs.ipynb",
+          "sha256": "6cab326e586f6c1d610dd530df9ca317c238dd0e8235a6a8bd7c29e7897dd055",
+          "md_cells": 8,
+          "code_cells": 6
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/04-zero-one-bfs.ipynb",
+          "sha256": "2f3c7a8840a6225a4a52b4f76c080d8ed71f07c39984315b81fdb00490f91b84",
+          "md_cells": 8,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/05-dijkstra's-algorithm.ipynb",
+          "sha256": "fb4ec9746c19ec435d6b50b8273e4aecc9d927110ec98a6f5a7030ca107350a0",
+          "md_cells": 9,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/06-bellman-ford-algorithm.ipynb",
+          "sha256": "b23ad53710658b91db518952fb3ee1fd294ea6b0e363cfd545b1c8f933c7c2dd",
+          "md_cells": 9,
+          "code_cells": 6
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/07-floyd-warshall.ipynb",
+          "sha256": "38d430fd91aa992be9797befa26a2d74d28bea0d33500edd7dccd8c2d8faf31b",
+          "md_cells": 9,
+          "code_cells": 3
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/08-dsu.ipynb",
+          "sha256": "062a532fce0133a0bde658694b477d991c9fa1428002d58cb2151dbd647be9c0",
+          "md_cells": 6,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/09-prim's-algorithm.ipynb",
+          "sha256": "847c73b0b7cd48e5309aa593f2602eb03fe5b4aef369e0d60264ac9f41d90c75",
+          "md_cells": 9,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/10-kruskal's-algorithm.ipynb",
+          "sha256": "8845f56961e0c76b125599d2d13c191ca99c61b872b0e148c382e648696b6ace",
+          "md_cells": 9,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/11-rat-in-a-maze.ipynb",
+          "sha256": "3a5916dc6f17555698f448ffee9d42e9faa713ee7aaa0f3dca03a264ec61f34d",
+          "md_cells": 9,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/12-8-puzzle.ipynb",
+          "sha256": "b86d3a7a23c605e5f5e7a94e39a02a5e0887a03007c3c6412d6dcb9fd85f6ad3",
+          "md_cells": 10,
+          "code_cells": 10
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/13-kahn's-algorithm.ipynb",
+          "sha256": "3d6636f48f2d12be9d43907c90d7553bf9185eeb8316219474b18a26fa6d287f",
+          "md_cells": 9,
+          "code_cells": 4
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/14-shortest-path-dag.ipynb",
+          "sha256": "5df2b67fd248aeac480e78b2934ccfe88e2d60ebeec688235df30f604a1b6956",
+          "md_cells": 9,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/15-longest-path-dag.ipynb",
+          "sha256": "041866dd007de574036436dc5681dc79347da4a652cd8b7e8e607d69ce47e572",
+          "md_cells": 9,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/16-counting-path-dag.ipynb",
+          "sha256": "3251526e957f77777b4feec94ddf70eb846a168d171e6b27434f5e1041aa4fbf",
+          "md_cells": 9,
+          "code_cells": 5
+        },
+        {
+          "notebook": "05-DSA-for-AI/13. Graphs/17-coding-problems.ipynb",
+          "sha256": "9ae2eda1e4e35c4236c5eb77790f235b11da5b89dd7bd1399ac90cd8cb6df838",
+          "md_cells": 27,
+          "code_cells": 58
+        }
+      ],
+      "topics_extracted": 147,
+      "sections": [
+        "overview",
+        "at-a-glance",
+        "core-concepts",
+        "real-world",
+        "quick-reference",
+        "glossary",
+        "revision"
+      ],
+      "html": "05-DSA-for-AI/13. Graphs/Notes/DSA_13_Graphs.html",
+      "html_bytes": 319360,
+      "pdf": "05-DSA-for-AI/13. Graphs/Notes/DSA_13_Graphs.pdf",
+      "pdf_bytes": 624849,
+      "pdf_pages": 55,
+      "pdf_renderer": "playwright",
+      "pdf_valid": true
+    }
+  ]
+}
