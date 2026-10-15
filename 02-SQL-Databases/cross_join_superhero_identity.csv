@@ -1,0 +1,73 @@
+id;superhero_name;powers;villain;sup_id;superhero;realname;comics
+8;"green arrow";arrow;merlin;1;superman;"clark kent";dc
+7;"green lantern";ring;sinestro;1;superman;"clark kent";dc
+6;"dr strange";magic;dormamu;1;superman;"clark kent";dc
+5;"captain america";shield;"red skull";1;superman;"clark kent";dc
+4;thor;hammer;hella;1;superman;"clark kent";dc
+3;ironman;wealth;mandarin;1;superman;"clark kent";dc
+2;batman;fear;joker;1;superman;"clark kent";dc
+1;superman;"x-ray vision";"lex luthor";1;superman;"clark kent";dc
+8;"green arrow";arrow;merlin;2;batman;"bruce wayne";dc
+7;"green lantern";ring;sinestro;2;batman;"bruce wayne";dc
+6;"dr strange";magic;dormamu;2;batman;"bruce wayne";dc
+5;"captain america";shield;"red skull";2;batman;"bruce wayne";dc
+4;thor;hammer;hella;2;batman;"bruce wayne";dc
+3;ironman;wealth;mandarin;2;batman;"bruce wayne";dc
+2;batman;fear;joker;2;batman;"bruce wayne";dc
+1;superman;"x-ray vision";"lex luthor";2;batman;"bruce wayne";dc
+8;"green arrow";arrow;merlin;3;ironman;"tony stark";marvel
+7;"green lantern";ring;sinestro;3;ironman;"tony stark";marvel
+6;"dr strange";magic;dormamu;3;ironman;"tony stark";marvel
+5;"captain america";shield;"red skull";3;ironman;"tony stark";marvel
+4;thor;hammer;hella;3;ironman;"tony stark";marvel
+3;ironman;wealth;mandarin;3;ironman;"tony stark";marvel
+2;batman;fear;joker;3;ironman;"tony stark";marvel
+1;superman;"x-ray vision";"lex luthor";3;ironman;"tony stark";marvel
+8;"green arrow";arrow;merlin;4;"captain america";"steve rogers";marvel
+7;"green lantern";ring;sinestro;4;"captain america";"steve rogers";marvel
+6;"dr strange";magic;dormamu;4;"captain america";"steve rogers";marvel
+5;"captain america";shield;"red skull";4;"captain america";"steve rogers";marvel
+4;thor;hammer;hella;4;"captain america";"steve rogers";marvel
+3;ironman;wealth;mandarin;4;"captain america";"steve rogers";marvel
+2;batman;fear;joker;4;"captain america";"steve rogers";marvel
+1;superman;"x-ray vision";"lex luthor";4;"captain america";"steve rogers";marvel
+8;"green arrow";arrow;merlin;5;"green lantern";"hal jordan";dc
+7;"green lantern";ring;sinestro;5;"green lantern";"hal jordan";dc
+6;"dr strange";magic;dormamu;5;"green lantern";"hal jordan";dc
+5;"captain america";shield;"red skull";5;"green lantern";"hal jordan";dc
+4;thor;hammer;hella;5;"green lantern";"hal jordan";dc
+3;ironman;wealth;mandarin;5;"green lantern";"hal jordan";dc
+2;batman;fear;joker;5;"green lantern";"hal jordan";dc
+1;superman;"x-ray vision";"lex luthor";5;"green lantern";"hal jordan";dc
+8;"green arrow";arrow;merlin;6;spiderman;"peter parker";marvel
+7;"green lantern";ring;sinestro;6;spiderman;"peter parker";marvel
+6;"dr strange";magic;dormamu;6;spiderman;"peter parker";marvel
+5;"captain america";shield;"red skull";6;spiderman;"peter parker";marvel
+4;thor;hammer;hella;6;spiderman;"peter parker";marvel
+3;ironman;wealth;mandarin;6;spiderman;"peter parker";marvel
+2;batman;fear;joker;6;spiderman;"peter parker";marvel
+1;superman;"x-ray vision";"lex luthor";6;spiderman;"peter parker";marvel
+8;"green arrow";arrow;merlin;7;"green arrow";"oliver queen";dc
+7;"green lantern";ring;sinestro;7;"green arrow";"oliver queen";dc
+6;"dr strange";magic;dormamu;7;"green arrow";"oliver queen";dc
+5;"captain america";shield;"red skull";7;"green arrow";"oliver queen";dc
+4;thor;hammer;hella;7;"green arrow";"oliver queen";dc
+3;ironman;wealth;mandarin;7;"green arrow";"oliver queen";dc
+2;batman;fear;joker;7;"green arrow";"oliver queen";dc
+1;superman;"x-ray vision";"lex luthor";7;"green arrow";"oliver queen";dc
+8;"green arrow";arrow;merlin;8;hulk;"bruce banner";marvel
+7;"green lantern";ring;sinestro;8;hulk;"bruce banner";marvel
+6;"dr strange";magic;dormamu;8;hulk;"bruce banner";marvel
+5;"captain america";shield;"red skull";8;hulk;"bruce banner";marvel
+4;thor;hammer;hella;8;hulk;"bruce banner";marvel
+3;ironman;wealth;mandarin;8;hulk;"bruce banner";marvel
+2;batman;fear;joker;8;hulk;"bruce banner";marvel
+1;superman;"x-ray vision";"lex luthor";8;hulk;"bruce banner";marvel
+8;"green arrow";arrow;merlin;9;"wonder woman";"diana prince";dc
+7;"green lantern";ring;sinestro;9;"wonder woman";"diana prince";dc
+6;"dr strange";magic;dormamu;9;"wonder woman";"diana prince";dc
+5;"captain america";shield;"red skull";9;"wonder woman";"diana prince";dc
+4;thor;hammer;hella;9;"wonder woman";"diana prince";dc
+3;ironman;wealth;mandarin;9;"wonder woman";"diana prince";dc
+2;batman;fear;joker;9;"wonder woman";"diana prince";dc
+1;superman;"x-ray vision";"lex luthor";9;"wonder woman";"diana prince";dc

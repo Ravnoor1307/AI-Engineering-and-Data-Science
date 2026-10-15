@@ -1,0 +1,78 @@
+mysql-ctl cli
+
+INSERT INTO employee (firstname, middlename, lastname, age, salary, location) VALUES ('kapil','kumar','sharma',28,10000,'bangalore');
+
+INSERT INTO employee (firstname,  lastname, age, salary, location) VALUES ('rapil',"kumar's",29,60000,'bangalore');
+
+INSERT INTO employee (firstname,  lastname, age, salary, location) VALUES ('rohit',"thakur's",25,60500,'saharasa '),('mohit','kumr',25,70000,'patna');
+
+
+CREATE TABLE employee (
+id int AUTO_INCREMENT,
+firstname varchar(20) NOT NULL,
+middlename varchar(20),
+lastname varchar(30),
+age INT NOT NULL,
+salary INT,
+location varchar(40) DEFAULT 'bangalore',
+PRIMARY KEY (id),
+UNIQUE KEY (firstname,lastname)
+);
+
+CREATE TABLE students(
+student_id int AUTO_INCREMENT,
+student_fname varchar(30) NOT NULL,
+student_lname varchar(40),
+student_mname varchar(20),
+student_email varchar(40) NOT NULL,
+student_phone int NOT NULL,
+student_alternate_phone int,
+enrollment_date TIMESTAMP NOT NULL,
+student_company varchar(30),
+batch_date varchar(30) NOT NULL,
+source_of_joining varchar(30) NOT NULL,
+location varchar(30) NOT NULL,
+PRIMARY KEY (student_id),
+UNIQUE KEY (student_email,student_fname,student_phone)
+);
+
+
+INSERT into students (student_fname, student_lname ,student_mname , student_email , student_phone ,student_alternate_phone, batch_date, source_of_joining, location) VALUES ('mohit','kumar','mkr', 'mkr@comanpy.com',798346726, 7474747, '20-10-2000','Afcebook','AVALAHALA');
+
+
+
+
+SET default value in already created table : 
+ALTER TABLE students MODIFY student_company VARCHAR(30) DEFAULT 'Bangalore';
+
+FOREIGN KEY:
+FOREIGN KEY (selected_course) REFERENCE courses(course_id)
+
+parent - courses
+child - students
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
