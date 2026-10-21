@@ -1,0 +1,127 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==============================
+# Virtual Environments
+# ==============================
+venv/
+.venv/
+env/
+ENV/
+
+# ==============================
+# Jupyter Notebook
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Environment Variables & Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+secrets.json
+credentials.json
+
+# ==============================
+# Data Files
+# ==============================
+data/
+datasets/
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+
+# ==============================
+# Machine Learning Models
+# ==============================
+models/
+checkpoints/
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# ==============================
+# Logs
+# ==============================
+logs/
+*.log
+
+# ==============================
+# Model Training Outputs
+# ==============================
+runs/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+outputs/
+
+# ==============================
+# Cache & Temporary Files
+# ==============================
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ==============================
+# Testing & Coverage
+# ==============================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ==============================
+# Code Quality & Type Checking
+# ==============================
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# ==============================
+# IDEs & Editors
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==============================
+# Operating System Files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Build & Distribution
+# ==============================
+build/
+dist/
+*.egg-info/
+
+# ==============================
+# Local Configuration
+# ==============================
+.streamlit/secrets.toml
+
+.pdf
