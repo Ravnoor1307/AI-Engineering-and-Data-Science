@@ -125,3 +125,5 @@ dist/
 .streamlit/secrets.toml
 
 .pdf
+
+.virtual_documents
