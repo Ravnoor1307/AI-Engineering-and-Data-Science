@@ -32,8 +32,8 @@ credentials.json
 # ==============================
 # Data Files
 # ==============================
-data/
-datasets/
+Data/
+Datasets/
 *.csv
 *.tsv
 *.xlsx
