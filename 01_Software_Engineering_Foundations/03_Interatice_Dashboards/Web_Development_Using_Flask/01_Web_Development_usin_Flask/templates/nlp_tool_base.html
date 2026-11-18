@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | NLP Workspace</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f4f7fb;
+            color: #172033;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px max(24px, calc((100% - 900px) / 2));
+            background: #fff;
+            border-bottom: 1px solid #e5eaf2;
+        }
+        header strong { color: #2457d6; font-size: 20px; }
+        nav { display: flex; gap: 18px; }
+        a { color: #2457d6; text-decoration: none; }
+        main {
+            width: min(900px, calc(100% - 40px));
+            margin: 42px auto;
+            padding: 28px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(20, 38, 70, 0.05);
+        }
+        h1 { margin-top: 0; }
+        label { display: block; margin: 20px 0 8px; font-weight: 600; }
+        textarea {
+            display: block;
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            line-height: 1.5;
+            resize: vertical;
+        }
+        textarea:focus {
+            outline: 2px solid #93b4ff;
+            border-color: #2457d6;
+        }
+        button {
+            margin-top: 18px;
+            padding: 12px 20px;
+            border: 0;
+            border-radius: 8px;
+            background: #2457d6;
+            color: white;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .result, .error {
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+        .result { background: #eff6ff; border: 1px solid #bfdbfe; }
+        .error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+        @media (max-width: 520px) {
+            header { padding: 16px 20px; }
+            nav { gap: 12px; }
+            main { margin: 24px auto; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <strong>NLP Workspace</strong>
+        <nav>
+            <a href="{{ url_for('nlp_operations') }}">All operations</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('logout') }}">Log out</a>
+        </nav>
+    </header>
+    <main>
+        <h1>{{ title }}</h1>
+        <p>This is a lightweight, rule-based demonstration and may not match a trained NLP model.</p>
+        {% block operation_form %}{% endblock %}
+        {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+        {% if result is not none %}<section class="result" aria-live="polite"><strong>Result</strong><br>{{ result }}</section>{% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "example@email.com": {
+        "fullname": "Example User",
+        "password": "scrypt:32768:8:1$RkZ1a440nOWm3hNk$75e1f0eabf5b24e575a1d5a8443372b4eecc060b85a650b4def4901d1d39395fdc288051238d7cd83fe38fb1fe297f08dc19cd960699d89f6381358b09a220bf"
+    },
+    "noor@gmail.com": {
+        "fullname": "noor",
+        "password": "scrypt:32768:8:1$naBP224IrHmFC8hQ$d5123d21b325051832da72438ec3ccba2d6e52e86b66ac2d555de8fe600342c4b7c5364d255e29a7e4c6587e937e40a7bbd9ba000c45b6e7b6fe4a248e5ffaef"
+    }
+}

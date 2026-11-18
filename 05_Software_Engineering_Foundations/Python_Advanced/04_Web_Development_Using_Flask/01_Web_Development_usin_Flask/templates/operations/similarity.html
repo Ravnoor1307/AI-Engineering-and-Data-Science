@@ -1,0 +1,10 @@
+{% extends "nlp_tool_base.html" %}
+{% block operation_form %}
+<form method="post">
+    <label for="first_text">First text</label>
+    <textarea id="first_text" name="first_text" required>{{ values.first_text }}</textarea>
+    <label for="second_text">Second text</label>
+    <textarea id="second_text" name="second_text" required>{{ values.second_text }}</textarea>
+    <button type="submit">Compare texts</button>
+</form>
+{% endblock %}
