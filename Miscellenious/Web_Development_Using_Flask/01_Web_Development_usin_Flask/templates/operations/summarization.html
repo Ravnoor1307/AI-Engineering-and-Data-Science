@@ -1,8 +1,0 @@
-{% extends "nlp_tool_base.html" %}
-{% block operation_form %}
-<form method="post">
-    <label for="text">Text to summarize</label>
-    <textarea id="text" name="text" required>{{ values.text }}</textarea>
-    <button type="submit">Summarize text</button>
-</form>
-{% endblock %}

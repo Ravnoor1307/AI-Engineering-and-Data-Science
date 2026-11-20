@@ -1,8 +1,0 @@
-{% extends "nlp_tool_base.html" %}
-{% block operation_form %}
-<form method="post">
-    <label for="text">Text for language detection</label>
-    <textarea id="text" name="text" required>{{ values.text }}</textarea>
-    <button type="submit">Detect language</button>
-</form>
-{% endblock %}
