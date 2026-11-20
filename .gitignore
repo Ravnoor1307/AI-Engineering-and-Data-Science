@@ -36,6 +36,7 @@ Data/
 Datasets/
 *.csv
 *.tsv
+*.pdf
 *.xlsx
 *.xls
 *.parquet
