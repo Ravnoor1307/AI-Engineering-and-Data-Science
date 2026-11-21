@@ -35,12 +35,3 @@ jupyter lab
 4. Record checks and evaluations in `04_Tests_and_Evaluations/`.
 5. Keep the level capstone or outcome in `05_Level_Project/`.
 
-## Environment variables
-
-Do not commit API keys or credentials. Store local values in a `.env` file. Example variables include:
-
-```text
-OPENAI_API_KEY=
-ANTHROPIC_API_KEY=
-HUGGINGFACE_API_KEY=
-```

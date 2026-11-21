@@ -10,28 +10,7 @@
 - When to use comprehensions
 
 
-## Module 4: Core Data Types
 
-### Unit 4.1: Numeric Types
-- int
-- float
-- complex numbers
-- binary, octal, hexadecimal numbers
-- arithmetic operations
-- division and floor division
-- modulus operator
-- exponentiation
-- numeric conversion
-- decimal precision issues
-
-### Unit 4.2: Boolean and None
-- bool type
-- Truth values
-- Comparison results
-- Boolean operations
-- NoneType
-- Using None in logic
-- Boolean conversion
 
 ### Unit 4.3: Type Conversion and Type Checking
 - int(), float(), str(), bool()
@@ -45,54 +24,9 @@
 - Union types
 - Literal types
 
-## Module 5: Data Structures and Collections
 
-### Unit 5.1: Lists
-- Creating lists
-- Indexing and slicing
-- List mutability
-- append(), extend(), insert()
-- pop(), remove(), clear()
-- sort(), reverse()
-- list search and membership
-- list copying
-- nested lists
-- list methods overview
-- list performance
 
-### Unit 5.2: Tuples
-- Tuple creation
-- Tuple indexing
-- Immutable sequences
-- Tuple unpacking
-- Nested tuples
-- tuple() conversion
-- Why tuples are useful
-- NamedTuple
 
-### Unit 5.3: Sets
-- Set creation
-- Set operations
-- union, intersection, difference, symmetric difference
-- unique values
-- set methods
-- performance of sets
-- frozenset
-- set comprehension
-
-### Unit 5.4: Dictionaries
-- Dictionary creation
-- Key-value structure
-- Accessing values
-- Updating dictionaries
-- Nested dictionaries
-- keys(), values(), items()
-- get(), setdefault()
-- pop(), popitem(), clear()
-- dictionary comprehension
-- JSON-like data structures
-- Ordered dictionaries
-- dict performance
 
 ### Unit 5.5: Advanced Collections
 - collections module
